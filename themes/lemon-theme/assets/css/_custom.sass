@@ -1,6 +1,15 @@
 html
 	scroll-behavior: smooth !important
 
+:root
+	font-family: $font-family-sans-serif
+
+	font-synthesis: none
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	-webkit-text-size-adjust: 100%
+
 ::-moz-selection,
 ::selection
 	color: $dark
@@ -17,7 +26,7 @@ $scale: 0.7
 
 a,
 a:visited
-	font-weight: 800
+	@extend .fw-black
 	color: $primary
 	text-decoration: none
 	span
@@ -41,7 +50,7 @@ img
 	height: auto
 
 .btn
-	font-weight: 800
+	@extend .fw-black	
 	border-radius: 4px
 	padding: 13px 24px 14px
 	display: inline-block

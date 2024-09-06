@@ -29,7 +29,7 @@
 					bottom: 25px
 					padding: 10px 20px
 				a
-					font-weight: 500
+					@extend .fw-bold
 					color: $white
 					@include media-breakpoint-up(md)
 						font-size: 1.3em
@@ -50,7 +50,7 @@
 .work_single
 	&_text
 		a
-			font-weight: 600
+			@extend .fw-bold
 			line-height: 1.20
 			span
 				border-bottom: $border-width solid lighten(#18181b, 40%)

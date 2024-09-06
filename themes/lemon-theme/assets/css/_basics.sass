@@ -1,10 +1,10 @@
 body
 	@extend .bg_white
-	@extend .font-weight-light !optional
-	font-family: $font-primary
+	@extend .fw-medium !optional
 	color: $gray-900
 	position: relative
 	font-size: $font-size-base * 1
+	font-family: $font-family-sans-serif
 
 #all
 	display: grid
@@ -48,9 +48,9 @@ body
 		&:focus
 			@extend .no-outline
 	#logo
+		a, p
+			@extend .fw-medium
 		font-size: $font-size-base * 1.2
-		// font-size: 1em
-		font-weight: 200
 		&:hover,
 		&:active,
 		&:focus

@@ -1,8 +1,17 @@
 @import 'bootstrap/scss/bootstrap-reboot.scss';
 @import 'bootstrap/scss/bootstrap-grid.scss';
-@import "_fonts";
 
-$font-primary: 'Roboto mono', 'Open sans', Arial, Helvetica, sans-serif;
+
+// Typography
+$font-weight-medium: 300;
+$font-weight-book: 400;
+$font-weight-bold: 600;
+$font-weight-black: 800;
+
+@import "_typography";
+
+$font-family-sans-serif: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif;
+
 
 // Colors
 $indigo: #6562FF;

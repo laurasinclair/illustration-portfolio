@@ -10,7 +10,7 @@
 						href="{{ .NextPage.Permalink }}"
 						><span
 							style="color: #000; border: none"
-							class="d-inline-block d-md-block mr-3"
+							class="d-inline-block d-md-block mr-3 fw-medium"
 							>Previous project</span
 						>«&nbsp;{{ .NextPage.Title | truncate 50 "..." }}</a
 					>
@@ -19,7 +19,9 @@
 			</div>
 
 			<div class="col order-3 order-md-2 text-center">
-				<button id="toggle">
+				<button
+					id="toggle"
+					class="fw-bold">
 					<span style="color: #000">All projects</span>
 				</button>
 			</div>
@@ -32,24 +34,25 @@
 						href="{{ .PrevPage.Permalink }}"
 						><span
 							style="color: #000; border: none"
-							class="d-inline-block d-md-block mr-3"
+							class="d-inline-block d-md-block mr-3 fw-medium"
 							>Next project</span
 						>{{ .PrevPage.Title | truncate 50 "..."}} »</a
 					>
 					{{- end -}}
 				</div>
 			</div>
-		</div> <!-- /row -->
-	</div> <!-- /container -->
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
 
 	<div
 		class="container-fluid"
 		id="related_all">
 		<div class="row my-5">
-			{{- $related := .Site.GetPage "section" "work" -}}
-			{{- range ($related.Pages.GroupByParam "related") -}}
-			{{- if eq .Key true -}} 
-			{{- range .Pages -}}
+			<!-- prettier-ignore -->
+			{{- $related := .Site.GetPage "section" "work" -}} 
+			{{- range ($related.Pages.GroupByParam "related") -}} {{- if eq .Key true -}} {{- range .Pages -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
@@ -61,8 +64,8 @@
 					</div>
 
 					<div class="card-img">
-						{{- $image := .Resources.GetMatch "thumbnail_*" -}}
-						{{- with $image -}}
+						<!-- prettier-ignore -->
+						{{- $image := .Resources.GetMatch "thumbnail_*" -}} {{- with $image -}}
 						<div
 							class="card-img mb-3"
 							style="background-image: url('{{ .Permalink | absURL }}');">
@@ -71,12 +74,13 @@
 						{{- end -}}
 					</div>
 				</div>
-			</div> <!-- /col -->
-			{{- end -}}
-			{{- end -}}
-			{{- end -}}
-		</div> <!-- /row -->
-	</div> <!-- /container -->
+			</div>
+			<!-- /col -->
+			{{- end -}} {{- end -}} {{- end -}}
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
 </section>
 
 <script type="text/javascript">
