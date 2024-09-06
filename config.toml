@@ -1,0 +1,42 @@
+languageCode = "en-uk"
+title = "Laura Sinclair"
+pluralizeListTitles = "false"
+baseURL = "/"
+theme = "lemon-theme"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Work"
+    url = "/#work"
+    weight = 2
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    url = "/get-in-touch"
+    weight = 4
+
+[params]
+  email = "hello@laurasnclr.com"
+  metadescription = "Laura Sinclair is an illustrator specialising in fun & happy creative artwork!"
+
+[related]
+    treshold = 1
+    includeNewer = true
+    toLower = false
+
+    [[related.indices]]
+        name = "CurrentSection.Title"
+        weight = 75
+    [[related.indices]]
+        name = "Section.Title"
+        weight = 50
+    [[related.indices]]
+        name = "description"
+        weight = 25

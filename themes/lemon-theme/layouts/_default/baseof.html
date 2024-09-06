@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	class="sr">
+	{{- partial "head.html" . -}}
+	<body
+		class="{{ .Section }}{{ with .Params.extraclass }} {{ . }}{{ end }}{{ with .Params.slug }} {{ . }}{{ end }}"
+		data-offset="450">
+		<div id="all">
+			<div id="sidebar">{{- partial "layout/sidebar.html" . -}}</div>
+			<main id="main">
+				{{- partial "layout/nav.html" . -}} {{- block "main" . -}}{{- end -}}
+			</main>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script>
+			document.body.className += ' js'; // adds a .js class only if javascript is enabled
+		</script>
+		<script src='{{"js/main.js" | absURL }}'></script>
+		<script src='{{"js/swaptext.js" | absURL }}'></script>
+	</body>
+</html>

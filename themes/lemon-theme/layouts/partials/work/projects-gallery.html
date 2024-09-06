@@ -1,0 +1,61 @@
+<section id="work" class="py-5">
+	<div class="container-fluid">
+		<div class="row mt-5">
+			<div class="col-12">
+				<div class="work-gallery_project">
+					<div class="work-gallery_project_title">
+						<a href="{{"work/illustration/by-the-lake" | absURL }}">By The Lake</a>
+					</div>
+					<a href="{{"work/illustration/by-the-lake" | absURL }}"><img src="{{"work/illustration/by-the-lake/thumbnail_by-the-lake.jpg" | absURL }}" alt="By The Lake | {{ .Site.Title }}" class="d-block d-sm-none"><img src="{{"work/illustration/by-the-lake/thumbnail-desktop_by-the-lake.jpg" | absURL }}" alt="By The Lake | Dirty Lemon Studio" class="d-none d-sm-block"></a>
+				</div>
+			</div>
+		</div> <!-- /row -->
+
+		<div class="row">
+			{{- $mainpage := .Site.GetPage "section" "work" -}}
+			{{- range ($mainpage.Pages.GroupByParam "mainpage") -}}
+			{{- if eq .Key true -}}
+			{{- range .Pages -}}
+			<div class="col-12 col-md-6">
+				<div class="work-gallery_project">
+					<div class="work-gallery_project_title">
+						<a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+					</div>
+					<a href="{{ .Permalink | absURL }}">
+					{{- $image := .Resources.GetMatch "thumbnail_*" -}}
+					{{- with $image -}}
+					<img src="{{ .Permalink | absURL  }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ .Title }} | Dirty Lemon Studio">
+					{{- end -}}
+					</a>
+				</div>
+			</div>
+			{{- end -}}
+			{{- end -}}
+			{{- end -}}
+		</div> <!-- /row -->
+
+		<div class="row mb-5">
+			<div class="col-12">
+				<div class="work-gallery_project">
+					<div class="work-gallery_project_title">
+						<a href="{{"work/illustration/all-the-lives-we-ever-lived" | absURL }}">All The Lives We Ever Lived</a>
+					</div>
+					<a href="{{"work/illustration/all-the-lives-we-ever-lived" | absURL }}"><img src="{{"work/illustration/all-the-lives-we-ever-lived/thumbnail_all-the-lives.jpg" | absURL }}" alt="All The Lives We Ever Lived | {{ .Site.Title }}" class="d-block d-md-none"><img src="{{"work/illustration/all-the-lives-we-ever-lived/thumbnail-desktop_all-the-lives.jpg" | absURL }}" alt="All The Lives We Ever Lived | Dirty Lemon Studio" class="d-none d-md-block"></a>
+				</div>
+			</div>
+		</div> <!-- /row -->
+	</div>
+
+	{{- $image := resources.Get "img/happylemon.png" -}}
+    {{- if $image -}}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 text-center mb-2 mb-md-5">
+				<div>
+					<img src="{{ $image.Permalink }}" alt="{{ .Site.Title }}" class="pe-md-5" width="300">
+				</div>
+			</div>
+		</div>
+	</div>
+    {{- end -}}
+</section> <!-- #work -->

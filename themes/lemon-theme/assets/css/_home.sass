@@ -1,0 +1,102 @@
+.home
+	header
+		@extend .bg_dark
+		@extend .text-white
+		margin-bottom: -1px // chrome fix: lines between divs
+		padding-top: 60px
+		overflow: hidden
+		// @include media-breakpoint-up(lg)
+		// 	min-height: 90vh
+		.container-fluid
+			margin-left: -30px
+			margin-right: -30px
+			@include media-breakpoint-up(sm)
+				margin-left: initial
+				margin-right: initial
+		h2
+			@extend .mb-3
+			@include media-breakpoint-up(lg)
+				font-size: 3em
+				margin-top: 1.5em
+			@include media-breakpoint-up(xl)
+				margin-top: 3em
+				margin-bottom: 3em
+			&+a, 
+			&+a:visited
+				@extend .text-white
+				@extend .mb-5
+		#grapes
+			overflow: hidden
+			z-index: 8
+			margin-bottom: -135px
+			@include media-breakpoint-up(lg)
+				margin-bottom: -95px
+			img
+				max-width: 120%
+				transform: translateX(-10%)
+				@include media-breakpoint-up(md)
+					max-width: 100%
+					transform: initial
+
+// animated text 
+.cd-headline
+	.cd-words-wrapper
+		display: inline-block
+		position: relative
+		text-align: left
+		b
+			display: inline-block
+			position: absolute
+			white-space: nowrap
+			left: 0
+			top: 0
+			&.is-visible
+				position: relative
+	&.scale 
+		b
+			opacity: 0
+		i
+			font-style: normal !important
+			display: inline-block
+			opacity: 0
+			transform: scale(0)
+			&.in
+				animation: scale-up 0.6s forwards
+			&.out
+				animation: scale-down 4.6s forwards
+
+.is-visible 
+	.cd-headline
+		&.scale 
+			i
+				opacity: 1
+
+.no-csstransitions 
+	.cd-headline
+		&.scale 
+			i
+				transform: scale(1)
+				opacity: 0
+			.is-visible 
+				i
+					opacity: 1
+
+@keyframes scale-up 
+	0%
+		transform: scale(0)
+		opacity: 0
+
+	60%
+		transform: scale(1.2)
+		opacity: 1
+
+	100%
+		transform: scale(1)
+		opacity: 1
+
+// .selected
+// 	margin-bottom: initial
+// 	h2
+// 		@include media-breakpoint-up(md)
+// 			margin-bottom: 2.5em
+// 			display: block

@@ -1,0 +1,88 @@
+<section class="related">
+	<div class="container-fluid">
+		<div
+			class="row my-5 flex-column flex-md-row justify-content-center align-items-center">
+			<div class="col order-1 order-md-1 text-center text-md-left">
+				<div class="next-post">
+					{{- if .NextInSection -}}
+					<a
+						class="link-reverse no-outline"
+						href="{{ .NextPage.Permalink }}"
+						><span
+							style="color: #000; border: none"
+							class="d-inline-block d-md-block mr-3"
+							>Previous project</span
+						>«&nbsp;{{ .NextPage.Title | truncate 50 "..." }}</a
+					>
+					{{- end -}}
+				</div>
+			</div>
+
+			<div class="col order-3 order-md-2 text-center">
+				<button id="toggle">
+					<span style="color: #000">All projects</span>
+				</button>
+			</div>
+
+			<div class="col order-2 order-md-3 text-center text-md-right">
+				<div class="previous-post">
+					{{- if .PrevInSection -}}
+					<a
+						class="link-reverse no-outline"
+						href="{{ .PrevPage.Permalink }}"
+						><span
+							style="color: #000; border: none"
+							class="d-inline-block d-md-block mr-3"
+							>Next project</span
+						>{{ .PrevPage.Title | truncate 50 "..."}} »</a
+					>
+					{{- end -}}
+				</div>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+
+	<div
+		class="container-fluid"
+		id="related_all">
+		<div class="row my-5">
+			{{- $related := .Site.GetPage "section" "work" -}}
+			{{- range ($related.Pages.GroupByParam "related") -}}
+			{{- if eq .Key true -}} 
+			{{- range .Pages -}}
+			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
+				<div class="card mb-4">
+					<div class="card-body">
+						<a
+							href="{{.Permalink}}"
+							class="stretched-link"
+							>{{.Title | truncate 16 "…" }}</a
+						>
+					</div>
+
+					<div class="card-img">
+						{{- $image := .Resources.GetMatch "thumbnail_*" -}}
+						{{- with $image -}}
+						<div
+							class="card-img mb-3"
+							style="background-image: url('{{ .Permalink | absURL }}');">
+							&nbsp;
+						</div>
+						{{- end -}}
+					</div>
+				</div>
+			</div> <!-- /col -->
+			{{- end -}}
+			{{- end -}}
+			{{- end -}}
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+</section>
+
+<script type="text/javascript">
+	let button = document.getElementById('toggle');
+	button.addEventListener('click', () => {
+		document.getElementById('related_all').classList.toggle('active');
+		document.getElementById('toggle').classList.toggle('active');
+	});
+</script>

@@ -1,0 +1,81 @@
+body
+	@extend .bg_white
+	@extend .font-weight-light !optional
+	font-family: $font-primary
+	color: $gray-900
+	position: relative
+	font-size: $font-size-base * 1
+
+#all
+	display: grid
+	grid-template-columns: [main] auto
+	@include media-breakpoint-up(md)
+		grid-template-columns: [sidebar] 7% [main] auto
+
+#sidebar
+	@extend .d-none
+	@extend .d-md-block
+	@extend .bg_dark
+	border-right: 1px solid #666
+	a
+		@extend .text-white
+	p
+		width: fit-content
+		white-space: nowrap
+		text-align: right
+		padding: 0
+		margin: 0
+		transform-origin: center
+		&:first-of-type
+			transform: rotate(-90deg) translateX(-50%)
+		&:last-of-type
+			transform: rotate(-90deg) translateX(50%)
+	&>div
+		padding-top: 1em
+		padding-bottom: 1em
+		height: 100vh
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+		top: 0
+		position: sticky
+	#logo,
+	.icon-lemon
+		opacity: 0
+		&:hover,
+		&:active,
+		&:focus
+			@extend .no-outline
+	#logo
+		font-size: $font-size-base * 1.2
+		// font-size: 1em
+		font-weight: 200
+		&:hover,
+		&:active,
+		&:focus
+			@extend .no-outline
+
+footer
+	margin-top: -40px
+	#get-in-touch
+		padding-top: 5em
+		padding-bottom: 5em
+
+.social
+	a,
+	a:visited
+		svg path
+			fill: $gray-900
+		&:hover,
+		&:focus
+			transition: all 0.2s ease-in-out
+			outline: none
+			svg path
+				fill: $primary
+a,
+a:hover,
+a:focus,
+a:active,
+span
+	@extend .no-outline

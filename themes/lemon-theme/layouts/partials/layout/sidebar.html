@@ -1,0 +1,10 @@
+<div>
+	{{- $image := resources.Get "img/001-lemon.png" -}}
+    {{- if $image -}}
+	<a href="{{ .Site.BaseURL }}"><img src="{{ $image.Permalink }}" alt="{{ .Site.Title }}" width="30"></a>
+    {{- end -}}
+
+	<p id="logo">
+		<a href="{{ .Site.BaseURL }}" class="text-white">{{ .Site.Title }}</a>
+	</p>
+</div>

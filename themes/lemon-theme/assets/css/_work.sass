@@ -1,0 +1,68 @@
+#work
+	.work-gallery
+		&_project
+			@extend .mb-3
+			@extend .mb-md-5
+			overflow: hidden
+			position: relative
+			border-radius: 4px
+			&:hover,
+			&:focus,
+			&:active
+				@extend .transition-2s
+				@extend .no-outline
+				box-shadow: 0 20px 60px transparentize($dark, 0.8)
+				> div
+					@extend .transition-2s
+					opacity: 1
+			&_title
+				background-color: $dark
+				color: $white
+				transition: transform 1000ms cubic-bezier(.32,0,.07,1)
+				opacity: 0
+				position: absolute
+				left: 24px
+				bottom: 10px
+				padding: 4px 22px
+				@include media-breakpoint-up(md)
+					left: 34px
+					bottom: 25px
+					padding: 10px 20px
+				a
+					font-weight: 500
+					color: $white
+					@include media-breakpoint-up(md)
+						font-size: 1.3em
+
+	br
+		margin-bottom: 1em
+
+	hr
+		margin-top: 50px
+		margin-bottom: 100px
+		@include media-breakpoint-up(md)
+			margin-top: 100px
+			margin-bottom: 150px
+		@include media-breakpoint-up(lg)
+			margin-top: 200px
+			margin-bottom: 250px
+
+.work_single
+	&_text
+		a
+			font-weight: 600
+			line-height: 1.20
+			span
+				border-bottom: 2px solid lighten(#18181b, 40%)
+	&_link
+		@extend .p-4
+		@extend .p-md-5
+		@extend .transition-2s
+		background-color: $indigo
+		display: inline-block
+		position: relative
+		border-radius: 4px
+		a
+			@extend .lead
+			border-bottom: 2px solid !important
+			color: $white

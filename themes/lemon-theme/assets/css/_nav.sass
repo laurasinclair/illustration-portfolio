@@ -1,0 +1,54 @@
+nav
+	@extend .bg_dark
+	width: 100%
+	margin-bottom: -1px // chrome fix: lines between divs
+	a,
+	a:visited
+		font-weight: bold
+		@extend .mt-4
+		@extend .d-inline-block
+		color: $white
+		padding: 6px 15px
+
+	.nav-element
+		position: fixed
+		z-index: 9
+		bottom: 1em
+		right: 50%
+		transform: translateX(50%)
+		width: max-content
+		@include media-breakpoint-up(md)
+			right: 3em
+			bottom: unset
+			transform: initial
+
+	#menu-desktop
+		.nav-element
+			a,
+			a:visited
+				margin: 0 5px
+				background-color: $dark
+				border-radius: 20px
+				margin-right: 0 !important
+				@include media-breakpoint-up(sm)
+					margin: 0 12px
+				@include media-breakpoint-up(md)
+					border: 2px solid $white
+				&:hover,
+				&:focus,
+				&:active
+					background-color: $secondary !important
+					border-color: $secondary
+					color: $dark
+		a,
+		a:visited
+			&:hover,
+			&:focus,
+			&:active
+				outline: none
+				color: $secondary
+		.menu-desktop_logo
+			margin-left: 1em
+			a
+				padding-left: 0 !important
+				margin-left: 0 !important

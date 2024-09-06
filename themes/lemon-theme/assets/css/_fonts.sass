@@ -1,0 +1,64 @@
+@font-face
+	font-family: 'Roboto mono'
+	src: url('/fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf') format('truetype')
+	font-weight: 100 900
+	font-style: normal
+	font-display: swap
+
+h1
+	font-size: $font-size-base * 1.8
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 2
+	@include media-breakpoint-up(md)
+		font-size: $font-size-base * 2.2
+	@include media-breakpoint-up(lg)
+		font-size: $font-size-base * 2.5
+	@include media-breakpoint-up(xl)
+		font-size: $font-size-base * 2.7
+
+h2
+	font-size: $font-size-base * 1.8
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 2.2
+	@include media-breakpoint-up(lg)
+		font-size: $font-size-base * 2.4
+	@include media-breakpoint-up(xl)
+		font-size: $font-size-base * 2.6
+
+h3
+	font-size: $font-size-base * 1.4
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 1.6
+	@include media-breakpoint-up(md)
+		font-size: $font-size-base * 1.8
+	@include media-breakpoint-up(lg)
+		font-size: $font-size-base * 2
+
+h4
+	font-size: $font-size-base * 1.2
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 1.4
+	@include media-breakpoint-up(md)
+		font-size: $font-size-base * 1.6
+
+h5
+	font-size: $font-size-base * 1
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 1.2
+	@include media-breakpoint-up(md)
+		font-size: $font-size-base * 1.4
+
+p,
+li
+	font-size: $font-size-base * 1
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 1.2
+
+.lead
+	font-size: $font-size-base * 1.1
+	@include media-breakpoint-up(sm)
+		font-size: $font-size-base * 1.2
+
+.label
+	font-size: $font-size-base * 1
+	font-weight: 800

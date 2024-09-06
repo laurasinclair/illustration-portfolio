@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div id="contact">
+	<header>
+		<div class="container-fluid">
+			<div class="row pb-3 pb-md-5 ps-sm-3 ps-md-5">
+				<div class="col-12 col-md-5 d-flex flex-column justify-content-center">
+					<h1 class="pb-3">
+						Let’s work together!
+					</h1>
+					<p class="lead">
+						If you have any questions or inquiries, don't hesitate to contact me! <br>
+						I'll come back to you very soon.
+					</p>
+				</div>
+
+				<div id="totem" class="col-12 col-md-7 text-center py-3 py-md-5">
+					{{- $image := resources.Get "img/totem_1.png" -}}
+					<picture>
+						<source srcset="{{ $image.Permalink }}" type="image/png">
+						<img src="{{ $image.Permalink }}" alt="{{ .Params.title }}" width="650">
+					</picture>
+				</div> <!-- /col -->
+			</div> <!-- /row -->
+		</div> <!-- /container -->
+	</header>
+	<div class="bg_dark" style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;'></div>
+</div>
+
+<div>
+	<div class="row mb-4 mb-md-5">
+		<div class="col-12 col-md-9 mx-auto">
+			{{ partial "footer/contact-form.html" . }}
+		</div> <!-- /col -->
+	</div> <!-- /row -->
+
+	<div class="text-center p-4 social-links bg_light">
+		{{ partial "social-links.html" . }}
+	</div>
+</div>
+
+{{ end }}

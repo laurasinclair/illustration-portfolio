@@ -1,0 +1,39 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{{- $title := print .Title " | " .Site.Title -}}
+	{{- if .IsHome -}}
+	{{- $title = print .Site.Title " | Illustration & Creative artwork" -}}
+	{{- end -}}
+	<title>{{ $title }}</title>
+
+	<meta name="title" content="{{ $title }}">
+	<meta name="description" content="{{ .Site.Params.metadescription }}">
+	{{ if .Params.noindex }}
+	<meta name="robots" content="noindex" /> 
+	{{ end }}
+
+	<meta property="og:type" content="website">
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="{{"" | absURL }}">
+	<meta property="og:url" content="{{"" | absURL }}">
+	<meta property="twitter:title" content="{{ $title }}">
+	<meta property="og:title" content="{{ $title }}">
+	<meta property="twitter:description" content="{{ .Site.Params.metadescription }}">
+	<meta property="og:description" content="{{ .Site.Params.metadescription }}">
+	
+	{{- $image := .Resources.GetMatch "featured_*" -}}
+	{{- if $image -}}
+	<meta property="twitter:image" content="{{ $image.Permalink }}">
+	<meta property="og:image" content="{{ $image.Permalink }}">
+	{{- else -}}
+	{{- $image := resources.Get "img/dirtylemonstudio_1200x627.jpg" -}}
+	<meta property="twitter:image" content="{{ $image.Permalink }}">
+	<meta property="og:image" content="{{ $image.Permalink }}">
+	{{- end -}}
+
+	<link rel="stylesheet" href='{{ "css/main.min.css" | absURL }}'>
+
+	{{- $image := resources.Get "img/favicon.png" -}}
+	<link rel="icon" href="{{ $image.Permalink }}" sizes="16x16 32x32" type="image/png">
+</head>
