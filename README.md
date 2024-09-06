@@ -9,4 +9,4 @@ To build it, run:
 
 ---
 
-![Temporary website](screenshot.jpeg)
+![Screenshot](screenshot.jpg)
