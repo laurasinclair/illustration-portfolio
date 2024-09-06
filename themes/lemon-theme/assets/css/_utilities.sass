@@ -72,7 +72,7 @@ section
 
 hr
 	border-top: none
-	border-bottom: 3px solid $dark
+	border-bottom: $border-width solid $dark
 
 ul
 	margin: 0
@@ -92,7 +92,7 @@ ul
 				top: 6px
 				height: 5px
 				width: 5px
-				border: 1px solid $dark
+				border: $border-width solid $dark
 				border-width: 2px 2px 0 0
 				transform: rotate(45deg)
 	&.line
@@ -103,7 +103,7 @@ ul
 				top: 12px
 				width: 8px
 				display: block
-				border-top: 2px solid $dark
+				border-top: $border-width solid $dark
 
 .reveal
 	opacity: 1 !important
@@ -133,7 +133,7 @@ ul
 	position: absolute
 	clip-path: inset(50%)
 	margin: -1px
-	border: 0
+	border: none
 	padding: 0
 	width: 1px
 	height: 1px
@@ -161,7 +161,7 @@ ul
 	@extend .d-block
 	overflow: hidden
 	border-radius: 50%
-	border: 2px solid $white
+	border: $border-width solid $white
 	box-shadow: 0 6px 10px transparentize($dark, 0.5)
 	height: auto
 	img
