@@ -1,6 +1,6 @@
 ---
 title: ""
-draft: false
+draft: true
 slug: ""
 weight: ""
 mainpage: true
