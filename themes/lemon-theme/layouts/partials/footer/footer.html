@@ -51,7 +51,9 @@
 		<!-- /container -->
 	</div>
 	<div class="p-4 bg_light w-100 footer-info">
-		<div class="d-flex justify-content-between justify-around">
+		<div
+			class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around"
+		>
 			<div>
 				Made with
 				<svg
@@ -76,7 +78,7 @@
 					>
 				</div>
 			</div>
-			{{ partial "social-links.html" . }}
+			<div class="mb-4 mb-md-0">{{ partial "social-links.html" . }}</div>
 		</div>
 
 		<div class="collapsible-wrapper">
