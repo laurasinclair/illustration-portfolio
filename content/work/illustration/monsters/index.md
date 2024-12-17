@@ -2,7 +2,7 @@
 title: "Monsters"
 draft: false
 slug: "monsters"
-weight: "1"
+weight: "2"
 mainpage: true
 related: true 
 

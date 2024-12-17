@@ -2,7 +2,7 @@
 title: "Goals"
 draft: false
 slug: "goals"
-weight: "2"
+weight: "11"
 mainpage: true
 related: true
 

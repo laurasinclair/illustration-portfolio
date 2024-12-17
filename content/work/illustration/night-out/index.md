@@ -2,7 +2,7 @@
 title: "Night Out"
 draft: false
 slug: "night-out"
-weight: "4"
+weight: "10"
 mainpage: true
 related: true
 

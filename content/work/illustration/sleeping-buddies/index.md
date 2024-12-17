@@ -2,7 +2,7 @@
 title: "Sleeping Buddies"
 draft: false
 slug: "sleeping-buddies"
-weight: "12"
+weight: "6"
 mainpage: true
 related: true
 

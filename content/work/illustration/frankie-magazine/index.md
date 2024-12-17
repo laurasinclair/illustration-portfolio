@@ -2,7 +2,7 @@
 title: "Frankie Magazine"
 draft: false
 slug: "frankie-magazine"
-weight: "10"
+weight: "1"
 mainpage: true
 related: true
 

@@ -3,9 +3,9 @@ $(document).ready(function () {
 	// (otherwise, it's displayed twice: once in the top nav, once in the sidebar)
 	$(window).scroll(function () {
 		if ($(document).scrollTop() > 250) {
-			$('#logo').addClass('reveal');
+			$("#logo").addClass("reveal");
 		} else {
-			$('#logo').removeClass('reveal');
+			$("#logo").removeClass("reveal");
 		}
 	});
 });
@@ -15,11 +15,22 @@ $(document).ready(function () {
 	$(window).scroll(function () {
 		if (
 			$(window).scrollTop() + $(window).height() >
-			$(document).height() - $('footer').height() + 550
+			$(document).height() - $("footer").height() + 550
 		) {
-			$('.nav-element').addClass('hide');
+			$(".nav-element").addClass("hide");
 		} else {
-			$('.nav-element').removeClass('hide');
+			$(".nav-element").removeClass("hide");
 		}
+	});
+});
+
+$(document).ready(function () {
+	$("#collapsible").click(function () {
+		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+		return false;
+	});
+
+	$(".toggle-label").click(function () {
+		$(".collapsible-content").toggleClass("collapsible-open");
 	});
 });

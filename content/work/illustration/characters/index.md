@@ -2,7 +2,7 @@
 title: "Characters"
 draft: false
 slug: "characters"
-weight: "4"
+weight: "7"
 mainpage: true
 related: true
 
