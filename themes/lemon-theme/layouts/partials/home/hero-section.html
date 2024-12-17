@@ -1,9 +1,10 @@
 <header>
 	<div class="row flex-column flex-sm-row">
 		<div
-			class="col-12 col-md-6 px-4 px-md-4 px-lg-5 d-flex flex-column justify-content-center">
+			class="col-12 col-md-6 px-4 px-md-4 px-lg-5 d-flex flex-column justify-content-center"
+		>
 			<h2 class="mt-0 mb-3 cd-headline letters scale">
-				{{ .Site.Title }} is an illustrator that makes
+				{{ .Site.Title }} is an illustrator who makes
 				<span class="cd-words-wrapper">
 					<b class="text-secondary is-visible">fun & happy</b>
 					<b class="text-primary">handmade</b>
@@ -13,9 +14,7 @@
 			</h2>
 
 			<a href="#work"
-				><span
-					class="text-white fw-medium"
-					style="font-size: 1.2rem"
+				><span class="text-white fw-medium" style="font-size: 1.2rem"
 					>Let's go!</span
 				>&nbsp;<img src="{{ "css/assets/icon_arrow-bottom.svg" | absURL }}"
 				alt=">" width="12"></a
@@ -23,18 +22,15 @@
 		</div>
 		<!-- /col -->
 
-		<div
-			id="grapes"
-			class="col-12 col-md-6 col-lg-6 text-center">
+		<div id="grapes" class="col-12 col-md-6 col-lg-6 text-center">
 			{{- $image := resources.Get "img/grapes.png" -}}
 			<picture>
-				<source
-					srcset="{{ $image.Permalink | absURL }}"
-					type="image/png" />
+				<source srcset="{{ $image.Permalink | absURL }}" type="image/png" />
 				<img
 					src="{{ $image.Permalink | absURL }}"
 					alt="{{ .Params.title }}"
-					width="700" />
+					width="700"
+				/>
 			</picture>
 		</div>
 		<!-- /col -->
@@ -43,4 +39,5 @@
 </header>
 <div
 	class="bg_dark"
-	style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;'></div>
+	style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;'
+></div>
