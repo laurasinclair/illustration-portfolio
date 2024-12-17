@@ -2,7 +2,7 @@
 title: "Glow In The Dark"
 draft: false
 slug: "glow-in-the-dark"
-weight: "5"
+weight: "9"
 mainpage: true
 related: true
 

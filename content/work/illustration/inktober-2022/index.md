@@ -2,7 +2,7 @@
 title: "Inktober 2022"
 draft: false
 slug: "inktober-2022"
-weight: "4"
+weight: "8"
 mainpage: true
 related: true
 
