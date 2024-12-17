@@ -25,7 +25,8 @@ $scale: 0.7
 		outline-offset: 2px
 
 a,
-a:visited
+a:visited,
+.link
 	@extend .fw-black
 	color: $primary
 	text-decoration: none
@@ -105,3 +106,40 @@ img
 
 .thank-you
 	background-color: $secondary
+
+
+// collapsible content in the footer
+.collapsible
+	&-wrapper
+		.toggle // the actual checkbox
+			display: none
+			&-label
+				cursor: pointer
+
+	&-content
+		max-height: 0px
+		overflow: hidden
+		transition: max-height .25s ease-in-out
+		> div
+			max-width: 920px
+	&-open
+		max-height: 100vh
+
+.footer-info,
+.footer-info p
+	font-size: 1.1rem !important
+	&:hover
+		.icon_heart
+			transform: scale(218%)
+			path
+				fill: $primary
+	.icon_heart
+		animation: heartbeat 2s infinite ease-in-out
+
+@keyframes heartbeat
+	0%
+		transform: scale(100%)
+	50%
+		transform: scale(118%)
+	100%
+		transform: scale(100%)
