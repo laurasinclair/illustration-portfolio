@@ -5,9 +5,10 @@
 			<h2 class="text-center mx-auto">{{ .Params.title }}</h2>
 		</div>
 	</div>
-	<!-- /container -->
 </header>
 
-<section>{{ template "_internal/disqus.html" . }}</section>
+<section>
+	{{ template "_internal/disqus.html" . }}
+</section>
 
 {{- partial "footer/footer.html" . -}} {{ end }}

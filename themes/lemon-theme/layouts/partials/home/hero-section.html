@@ -14,14 +14,13 @@
 				{{ .Params.hero_section.heading.part_two }}
 			</h2>
 
-			<a href="#work"
-				><span class="text-white fw-medium" style="font-size: 1.2rem">
-					{{ .Params.hero_section.cta }}</span
-				>&nbsp;<img src="{{ "css/assets/icon_arrow-bottom.svg" | absURL }}"
-				alt=">" width="12"></a
-			>
+			<a href="#work">
+				<span class="text-white fw-medium" style="font-size: 1.2rem">
+					{{ .Params.hero_section.cta }}
+				</span>&nbsp;<img src="{{ "css/assets/icon_arrow-bottom.svg" | absURL }}"
+				alt=">" width="12">
+			</a>
 		</div>
-		<!-- /col -->
 
 		<div id="grapes" class="col-12 col-md-6 col-lg-6 text-center">
 			{{- $image := resources.Get "img/grapes.png" -}}
@@ -34,13 +33,8 @@
 				/>
 			</picture>
 		</div>
-		<!-- /col -->
 	</div>
-	<!-- /row -->
 </header>
-<div
-	class="bg_dark"
-	style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;'
-></div>
+<div class="bg_dark mask_bottom"></div>
 
 {{ end }}
