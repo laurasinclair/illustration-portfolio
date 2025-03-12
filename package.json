@@ -24,8 +24,8 @@
 	},
 	"devDependencies": {
 		"concurrently": "^8.2.2",
-		"hugo-extended": "^0.80.0",
-		"nodemon": "^2.0.7",
-		"sass": "^1.77.2"
+		"hugo-extended": "^0.145.0",
+		"nodemon": "^3.1.9",
+		"sass": "^1.85.1"
 	}
 }

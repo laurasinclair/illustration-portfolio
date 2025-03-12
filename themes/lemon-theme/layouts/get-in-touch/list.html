@@ -28,8 +28,8 @@
 		</div>
 	</div>
 
-	<div class="text-center p-4 social-links bg_light">
-		{{ partial "social-links.html" . }}
+	<div class="p-4 bg_primary d-flex justify-content-center">
+		{{ partial "social-links.html" (dict "context" . "theme" "light")}}
 	</div>
 </div>
 {{ end }}

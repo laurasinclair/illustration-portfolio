@@ -77,18 +77,13 @@ footer
 				max-width: 920px
 		&-open
 			max-height: 100vh
-
 .social
-	a,
-	a:visited
-		svg path
-			fill: $gray-900
-		&:hover,
-		&:focus
-			transition: all 0.2s ease-in-out
-			outline: none
-			svg path
-				fill: $primary
+	&-icon,
+	&-icon:visited
+		display: block
+		svg 
+			width: 30px
+			height: 30px
 a,
 a:hover,
 a:focus,
@@ -96,3 +91,20 @@ a:active,
 span
 	@extend .no-outline
 
+@mixin icon
+	&:hover,
+	&:focus
+		transition: all 0.2s ease-in-out
+		outline: none
+		svg path
+			fill: $primary
+
+.icon
+	&-dark
+		@include icon
+		svg path
+			fill: $gray-900
+	&-light
+		@include icon
+		svg path
+			fill: $white
