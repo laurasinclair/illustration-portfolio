@@ -3,7 +3,7 @@ body
 	@extend .fw-medium !optional
 	color: $gray-900
 	position: relative
-	font-size: $font-size-base * 1
+	font-size: $font-size-base
 	font-family: $font-family-sans-serif
 
 #all
@@ -50,7 +50,7 @@ body
 	#logo
 		a, p
 			@extend .fw-medium
-		font-size: $font-size-base * 1.2
+		// font-size: $font-size-base * 1.2
 		&:hover,
 		&:active,
 		&:focus
@@ -61,6 +61,22 @@ footer
 	#get-in-touch
 		padding-top: 5em
 		padding-bottom: 5em
+	.collapsible // collapsible content in the footer
+		&-wrapper
+			.toggle // the actual checkbox
+				display: none
+				&-label
+					cursor: pointer
+
+		&-content
+			max-height: 0px
+			overflow: hidden
+			transition: max-height .25s ease-in-out
+			
+			> div
+				max-width: 920px
+		&-open
+			max-height: 100vh
 
 .social
 	a,
