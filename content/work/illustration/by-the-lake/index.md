@@ -5,7 +5,7 @@ slug: "by-the-lake"
 weight: "1"
 featured: true
 isOnHomePage: false
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	fontcolor: "#fff",

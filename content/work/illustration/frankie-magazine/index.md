@@ -4,7 +4,7 @@ draft: false
 slug: "frankie-magazine"
 weight: "1"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "A self-initiated project based on an article published in Frankie Magazine, about maintaining a healthy relationship with the Internet. \n

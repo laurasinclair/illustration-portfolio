@@ -1,7 +1,8 @@
 <section class="related">
 	<div class="container-fluid">
 		<div
-			class="row my-5 flex-column flex-md-row justify-content-center align-items-center">
+			class="row my-5 flex-column flex-md-row justify-content-center align-items-center"
+		>
 			<div class="col order-1 order-md-1 text-center text-md-left">
 				<div class="next-post">
 					{{- if .NextInSection -}}
@@ -19,9 +20,7 @@
 			</div>
 
 			<div class="col order-3 order-md-2 text-center">
-				<button
-					id="toggle"
-					class="fw-bold">
+				<button id="toggle" class="fw-bold">
 					<span style="color: #000">All projects</span>
 				</button>
 			</div>
@@ -46,19 +45,15 @@
 	</div>
 	<!-- /container -->
 
-	<div
-		class="container-fluid"
-		id="related_all">
+	<div class="container-fluid" id="related_all">
 		<div class="row my-5">
 			<!-- prettier-ignore -->
-			{{- $related := .Site.GetPage "section" "work" -}} 
-			{{- range ($related.Pages.GroupByParam "related") -}} {{- if eq .Key true -}} {{- range .Pages -}}
+			{{- $relatedProjects := .Site.GetPage "section" "work" -}} 
+			{{- range ($relatedProjects.Pages.GroupByParam "isInRelatedProjects") -}} {{- if eq .Key true -}} {{- range .Pages -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
-						<a
-							href="{{.Permalink}}"
-							class="stretched-link"
+						<a href="{{.Permalink}}" class="stretched-link"
 							>{{.Title | truncate 16 "…" }}</a
 						>
 					</div>
@@ -68,7 +63,8 @@
 						{{- $image := .Resources.GetMatch "thumbnail_*" -}} {{- with $image -}}
 						<div
 							class="card-img mb-3"
-							style="background-image: url('{{ .Permalink | absURL }}');">
+							style="background-image: url('{{ .Permalink | absURL }}');"
+						>
 							&nbsp;
 						</div>
 						{{- end -}}
@@ -84,9 +80,9 @@
 </section>
 
 <script type="text/javascript">
-	let button = document.getElementById('toggle');
-	button.addEventListener('click', () => {
-		document.getElementById('related_all').classList.toggle('active');
-		document.getElementById('toggle').classList.toggle('active');
+	let button = document.getElementById("toggle");
+	button.addEventListener("click", () => {
+		document.getElementById("related_all").classList.toggle("active");
+		document.getElementById("toggle").classList.toggle("active");
 	});
 </script>

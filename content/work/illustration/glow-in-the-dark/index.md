@@ -4,7 +4,7 @@ draft: false
 slug: "glow-in-the-dark"
 weight: "9"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "If you go to the forest at night, watch out! \n

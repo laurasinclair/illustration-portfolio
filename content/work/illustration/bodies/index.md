@@ -4,7 +4,7 @@ draft: false
 slug: "bodies"
 weight: "8"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "This small series is about bodies, \n

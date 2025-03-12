@@ -5,7 +5,7 @@ slug: "all-the-lives-we-ever-lived"
 featured: true
 weight: "100"
 isOnHomePage: false
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#151515",

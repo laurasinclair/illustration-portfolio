@@ -4,7 +4,7 @@ draft: false
 slug: "night-out"
 weight: "10"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "(description coming soon)",

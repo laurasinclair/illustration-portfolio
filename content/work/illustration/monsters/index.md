@@ -4,7 +4,7 @@ draft: false
 slug: "monsters"
 weight: "2"
 isOnHomePage: true
-related: true 
+isInRelatedProjects: true 
 
 block_project: {
 	description: "I've loved drawing monsters for as long as I can remember. \n

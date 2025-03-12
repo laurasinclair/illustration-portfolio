@@ -5,7 +5,7 @@ draft: false
 slug: "birds"
 weight: "10"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fff",

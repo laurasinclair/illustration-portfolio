@@ -5,7 +5,7 @@ draft: false
 slug: "raisenow"
 weight: "3"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 description: "Illustrations made when I was working at <a href=\"https://raisenow.com\" target=\"\_blank\">RaiseNow</a>. \n

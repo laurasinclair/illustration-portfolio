@@ -4,7 +4,7 @@ draft: false
 slug: "inktober-2022"
 weight: "8"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fff",

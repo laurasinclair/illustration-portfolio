@@ -4,7 +4,7 @@ draft: false
 slug: "goals"
 weight: "11"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fdbf0b",

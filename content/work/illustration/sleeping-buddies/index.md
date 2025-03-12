@@ -4,7 +4,7 @@ draft: false
 slug: "sleeping-buddies"
 weight: "6"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#000",

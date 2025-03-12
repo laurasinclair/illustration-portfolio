@@ -4,7 +4,7 @@ draft: false
 slug: "time-out"
 weight: "4"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#000000",

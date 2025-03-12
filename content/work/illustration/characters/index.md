@@ -4,7 +4,7 @@ draft: false
 slug: "characters"
 weight: "7"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "I've always loved observing and drawing the world around me, and paying attention to details. \n

@@ -4,7 +4,7 @@ draft: false
 slug: "the-quest"
 weight: "5"
 isOnHomePage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	fontcolor: "#fff",
