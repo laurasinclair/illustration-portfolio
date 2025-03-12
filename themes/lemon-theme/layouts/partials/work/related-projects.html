@@ -3,18 +3,17 @@
 		<div
 			class="row my-5 flex-column flex-md-row justify-content-center align-items-center"
 		>
-			<div class="col order-1 order-md-1 text-center text-md-left">
-				<div class="next-post">
+			<div class="col order-1 order-md-1">
+				<div class="d-flex align-items-center justify-content-center">
 					{{- if .NextInSection -}}
-					<a
-						class="link-reverse no-outline"
-						href="{{ .NextPage.Permalink }}"
-						><span
-							style="color: #000; border: none"
-							class="d-inline-block d-md-block mr-3 fw-medium"
-							>Previous project</span
-						>«&nbsp;{{ .NextPage.Title | truncate 50 "..." }}</a
-					>
+					<div class="related_post-previous">
+						<a href="{{ .NextPage.Permalink }}">
+							Previous project
+						</a>
+						<a href="{{ .NextPage.Permalink }}">
+							«&nbsp;{{ .NextPage.Title | truncate 50 "..." }}
+						</a>
+					</div>
 					{{- end -}}
 				</div>
 			</div>
@@ -26,28 +25,24 @@
 			</div>
 
 			<div class="col order-2 order-md-3 text-center text-md-right">
-				<div class="previous-post">
+				<div class="d-flex align-items-center justify-content-center">
 					{{- if .PrevInSection -}}
-					<a
-						class="link-reverse no-outline"
-						href="{{ .PrevPage.Permalink }}"
-						><span
-							style="color: #000; border: none"
-							class="d-inline-block d-md-block mr-3 fw-medium"
-							>Next project</span
-						>{{ .PrevPage.Title | truncate 50 "..."}} »</a
-					>
+					<div class="related_post-next">
+						<a href="{{ .PrevPage.Permalink }}">
+							Next project
+						</a>
+						<a href="{{ .PrevPage.Permalink }}">
+							{{ .PrevPage.Title | truncate 50 "..." }}&nbsp;»
+						</a>
+					</div>
 					{{- end -}}
 				</div>
 			</div>
 		</div>
-		<!-- /row -->
 	</div>
-	<!-- /container -->
 
 	<div class="container-fluid" id="related_all">
 		<div class="row my-5">
-			<!-- prettier-ignore -->
 			{{- $relatedProjects := .Site.GetPage "section" "illustration" -}} 
 			{{- range ($relatedProjects.Pages.GroupByParam "isInRelatedProjects") -}} {{- if eq .Key true -}} {{- range .Pages -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">

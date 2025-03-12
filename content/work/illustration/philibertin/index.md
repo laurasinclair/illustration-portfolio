@@ -1,7 +1,7 @@
 ---
 title: "Philibertin le Cruel"
 slug: "philibertin-le-cruel"
-draft: false
+draft: true
 weight: "100"
 
 block_project: {
