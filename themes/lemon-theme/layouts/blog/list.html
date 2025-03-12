@@ -1,0 +1,13 @@
+{{ define "main" }}
+<header class="mt-O bg_dark">
+	<div class="hero_large">
+		<div class="container-fluid">
+			<h2 class="text-center mx-auto">{{ .Params.title }}</h2>
+		</div>
+	</div>
+	<!-- /container -->
+</header>
+
+<section>{{ template "_internal/disqus.html" . }}</section>
+
+{{- partial "footer/footer.html" . -}} {{ end }}

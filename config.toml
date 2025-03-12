@@ -40,3 +40,7 @@ theme = "lemon-theme"
     [[related.indices]]
         name = "description"
         weight = 25
+
+[services]
+  [services.disqus]
+    shortname = 'laurasnclr'
