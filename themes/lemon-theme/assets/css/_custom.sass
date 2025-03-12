@@ -71,42 +71,6 @@ img
 			color: $white !important
 			background-color: $dark
 
-#pagenotfound,
-#thank-you
-	header
-		@extend .bg_dark
-		@extend .text-white
-		margin-bottom: -1px // chrome fix: lines between divs
-		padding-top: 60px
-		// @include media-breakpoint-up(lg)
-		// 	min-height: 90vh
-		h1
-			@extend .mb-3
-			@include media-breakpoint-up(lg)
-				margin-top: 1.5em 
-			@include media-breakpoint-up(xl)
-				margin-top: 3em 
-				margin-bottom: 3em
-			&+a, 
-			&+a:visited
-				@extend .text-white
-				@extend .mb-5
-		#grapes
-			overflow: hidden
-			z-index: 9
-			margin-bottom: -135px
-			@include media-breakpoint-up(lg)
-				margin-bottom: -95px
-			img
-				max-width: 120%
-				transform: translateX(-10%)
-				@include media-breakpoint-up(md)
-					max-width: 100%
-					transform: initial
-
-.thank-you
-	background-color: $secondary
-
 @mixin mask($type)
 	-webkit-mask-repeat: repeat-x
 	-webkit-mask-size: cover
