@@ -4,7 +4,7 @@ draft: false
 slug: "all-the-lives-we-ever-lived"
 featured: true
 weight: "100"
-mainpage: false
+isOnHomePage: false
 related: true
 
 block_project: {

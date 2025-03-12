@@ -3,7 +3,7 @@ title: "Goals"
 draft: false
 slug: "goals"
 weight: "11"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

@@ -4,7 +4,7 @@ draft: false
 slug: "philibertin-le-cruel"
 featured: false
 weight: "100"
-mainpage: false
+isOnHomePage: false
 related: false
 noindex: true
 

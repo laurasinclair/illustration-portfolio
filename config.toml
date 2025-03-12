@@ -25,6 +25,7 @@ theme = "lemon-theme"
 [params]
   email = "hello@laurasnclr.com"
   metadescription = "Laura Sinclair is an illustrator specialising in fun & happy creative artwork!"
+  websiteName = "Laura Sinclair | Illustration & creative artwork"
 
 [related]
     treshold = 1

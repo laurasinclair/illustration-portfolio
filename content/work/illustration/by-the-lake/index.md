@@ -4,7 +4,7 @@ draft: false
 slug: "by-the-lake"
 weight: "1"
 featured: true
-mainpage: false
+isOnHomePage: false
 related: true
 
 block_project: {

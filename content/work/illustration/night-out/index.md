@@ -3,7 +3,7 @@ title: "Night Out"
 draft: false
 slug: "night-out"
 weight: "10"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

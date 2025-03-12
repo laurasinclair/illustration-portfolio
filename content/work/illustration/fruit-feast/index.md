@@ -3,7 +3,7 @@ title: "Fruit Feast"
 draft: false
 slug: "fruit-feast"
 weight: "8"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

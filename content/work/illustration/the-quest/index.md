@@ -3,7 +3,7 @@ title: "The Quest"
 draft: false
 slug: "the-quest"
 weight: "5"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

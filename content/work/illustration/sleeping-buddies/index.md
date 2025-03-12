@@ -3,7 +3,7 @@ title: "Sleeping Buddies"
 draft: false
 slug: "sleeping-buddies"
 weight: "6"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

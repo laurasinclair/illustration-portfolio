@@ -3,7 +3,7 @@ title: "Glow In The Dark"
 draft: false
 slug: "glow-in-the-dark"
 weight: "9"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

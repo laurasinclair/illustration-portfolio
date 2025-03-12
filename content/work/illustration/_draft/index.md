@@ -3,7 +3,7 @@ title: ""
 draft: true
 slug: ""
 weight: ""
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

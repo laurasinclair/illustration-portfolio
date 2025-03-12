@@ -3,7 +3,7 @@ title: "Characters"
 draft: false
 slug: "characters"
 weight: "7"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

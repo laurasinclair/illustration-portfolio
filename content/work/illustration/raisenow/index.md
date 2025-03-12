@@ -4,7 +4,7 @@ title: "RaiseNow"
 draft: false
 slug: "raisenow"
 weight: "3"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

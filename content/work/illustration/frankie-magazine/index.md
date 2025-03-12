@@ -3,7 +3,7 @@ title: "Frankie Magazine"
 draft: false
 slug: "frankie-magazine"
 weight: "1"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

@@ -3,7 +3,7 @@ title: "Inktober 2022"
 draft: false
 slug: "inktober-2022"
 weight: "8"
-mainpage: true
+isOnHomePage: true
 related: true
 
 block_project: {

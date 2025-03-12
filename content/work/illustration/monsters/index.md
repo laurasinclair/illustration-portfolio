@@ -3,7 +3,7 @@ title: "Monsters"
 draft: false
 slug: "monsters"
 weight: "2"
-mainpage: true
+isOnHomePage: true
 related: true 
 
 block_project: {
