@@ -1,21 +1,22 @@
+{{ with site.GetPage "home" }}
 <header>
 	<div class="row flex-column flex-sm-row">
 		<div
 			class="col-12 col-md-6 px-4 px-md-4 px-lg-5 d-flex flex-column justify-content-center"
 		>
 			<h2 class="mt-0 mb-3 cd-headline letters scale">
-				{{ .Site.Title }} is an illustrator who makes
+				{{ .Site.Title }} {{ .Params.hero_section.heading.part_one }}
 				<span class="cd-words-wrapper">
 					<b class="text-secondary is-visible">fun & happy</b>
 					<b class="text-primary">handmade</b>
 					<b class="text-tertiary">off-beat</b>
 				</span>
-				creative artwork!
+				{{ .Params.hero_section.heading.part_two }}
 			</h2>
 
 			<a href="#work"
-				><span class="text-white fw-medium" style="font-size: 1.2rem"
-					>Let's go!</span
+				><span class="text-white fw-medium" style="font-size: 1.2rem">
+					{{ .Params.hero_section.cta }}</span
 				>&nbsp;<img src="{{ "css/assets/icon_arrow-bottom.svg" | absURL }}"
 				alt=">" width="12"></a
 			>
@@ -41,3 +42,5 @@
 	class="bg_dark"
 	style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;'
 ></div>
+
+{{ end }}
