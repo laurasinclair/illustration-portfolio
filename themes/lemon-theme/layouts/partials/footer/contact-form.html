@@ -8,14 +8,18 @@
 	<div class="row">
 		<div class="col-12 col-md-6">
 			<p>
-				<label for="name" class="form-label">Your Name:</label>
+				<label for="name" class="form-label">
+					{{ site.Data.contactForm.fields.name }}:
+				</label>
 				<input id="name" name="name" type="text" placeholder=" " />
 			</p>
 		</div>
 		<!-- /col -->
 		<div class="col-12 col-md-6">
 			<p>
-				<label for="email" class="form-label">Your Email:</label>
+				<label for="email" class="form-label">
+					{{ site.Data.contactForm.fields.email }}:
+				</label>
 				<input id="email" name="email" type="email" placeholder=" " />
 			</p>
 		</div>
@@ -25,42 +29,26 @@
 
 	<div class="row">
 		<div class="col-12">
-			<label for="topic[]"
-				><p class="form-label mb-0">I'm interested in...</p></label
-			>
+			<label for="topic[]">
+				<p class="form-label mb-0">
+					{{ site.Data.contactForm.fields.topics.label }}
+				</p>
+			</label>
 
 			<ul class="ks-cboxtags">
+				{{- $topics := .Site.Data.contactForm.fields.topics.choice -}} {{-
+				range $index, $topic := $topics -}}
+
 				<li>
 					<input
 						type="checkbox"
-						id="digital-illustrations"
+						id="{{ $topic | urlize }}"
 						name="topic[]"
-						value="Digital illustrations"
+						value="{{ $topic }}"
 					/>
-					<label for="digital-illustrations">Illustration</label>
+					<label for="{{ $topic | urlize }}">{{ $topic }}</label>
 				</li>
-				<li>
-					<input
-						type="checkbox"
-						id="art-direction"
-						name="topic[]"
-						value="Art direction"
-					/>
-					<label for="art-direction">Art direction</label>
-				</li>
-				<li>
-					<input
-						type="checkbox"
-						id="art-direction"
-						name="topic[]"
-						value="Art direction"
-					/>
-					<label for="art-direction">A wild creative project</label>
-				</li>
-				<li>
-					<input type="checkbox" id="other" name="topic[]" value="Other" />
-					<label for="other">Just saying hi!</label>
-				</li>
+				{{- end -}}
 			</ul>
 		</div>
 		<!-- /col -->
@@ -70,16 +58,18 @@
 	<div class="row">
 		<div class="col-12">
 			<p>
-				<label for="message" class="form-label">Message:</label>
+				<label for="message" class="form-label"
+					>{{ site.Data.contactForm.fields.message.label }}:</label
+				>
 				<textarea
 					id="message"
 					name="message"
-					placeholder="Heya! I have a question about..."
+					placeholder="{{ site.Data.contactForm.fields.message.placeholder }}"
 				></textarea>
 			</p>
 			<p>
 				<button class="btn" type="submit">
-					Submit your message
+					{{ site.Data.contactForm.fields.submitButton }}
 					<svg
 						width="16"
 						height="11"
