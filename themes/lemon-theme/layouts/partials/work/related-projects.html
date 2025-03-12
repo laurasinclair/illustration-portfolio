@@ -7,11 +7,11 @@
 				<div class="d-flex align-items-center justify-content-center">
 					{{- if .NextInSection -}}
 					<div class="related_post-previous">
-						<a href="{{ .NextPage.Permalink }}">
+						<a href="{{ .Next.Permalink }}">
 							Previous project
 						</a>
-						<a href="{{ .NextPage.Permalink }}">
-							«&nbsp;{{ .NextPage.Title | truncate 50 "..." }}
+						<a href="{{ .Next.Permalink }}">
+							«&nbsp;{{ .Next.Title | truncate 50 "..." }}
 						</a>
 					</div>
 					{{- end -}}
@@ -28,11 +28,11 @@
 				<div class="d-flex align-items-center justify-content-center">
 					{{- if .PrevInSection -}}
 					<div class="related_post-next">
-						<a href="{{ .PrevPage.Permalink }}">
+						<a href="{{ .Prev.Permalink }}">
 							Next project
 						</a>
-						<a href="{{ .PrevPage.Permalink }}">
-							{{ .PrevPage.Title | truncate 50 "..." }}&nbsp;»
+						<a href="{{ .Prev.Permalink }}">
+							{{ .Prev.Title | truncate 50 "..." }}&nbsp;»
 						</a>
 					</div>
 					{{- end -}}
