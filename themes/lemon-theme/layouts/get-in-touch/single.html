@@ -1,15 +1,15 @@
 {{ define "main" }}
+
 <div id="thank-you">
 	<header>
 		<div class="container-fluid">
 			<div class="row pb-3 pb-md-5">
 				<div class="col-12 col-md-5">
-					<h1 class="text-center">{{.Title}}</h1>
-					aaa
-					<p class="lead text-center">I'll get back to you very soon.</p>
+					<h1 class="text-center">{{.Params.content.heading}}</h1>
+					<p class="lead text-center">{{.Params.content.subheading}}</p>
 					<p class="text-center">
 						<a href="{{ .Site.BaseURL }}" class="arrow-right"
-							>Back to the home page
+							>{{.Params.content.link}}
 							<svg
 								width="16"
 								height="11"
