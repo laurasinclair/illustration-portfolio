@@ -81,7 +81,11 @@ footer
 	&-icon,
 	&-icon:visited
 		display: block
-		svg 
+		&:first-of-type
+			margin-left: 0 !important
+		&:last-of-type
+			margin-right: 0 !important
+		svg
 			width: 30px
 			height: 30px
 a,
