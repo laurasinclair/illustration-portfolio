@@ -1,4 +1,0 @@
----
-title: Work
-slug: work
----

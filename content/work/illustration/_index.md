@@ -1,4 +1,4 @@
 ---
-title: Illustration
-slug: illustration
+title: Work
+slug: work
 ---
