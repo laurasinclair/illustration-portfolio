@@ -8,73 +8,32 @@
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto">
 					<div class="bd-left">
-						<h2>Let’s work together!</h2>
+						<h2>{{ site.Data.footer.main.title }}</h2>
 
-						<p>
-							<span
-								>If you have any questions or inquiries, don't hesitate
-								to contact me!</span
-							>
-						</p>
+						<p>{{ site.Data.footer.main.subheading }}</p>
 					</div>
-
-					<p class="d-none">
-						<a href="mailto:{{ .Site.Params.email }}" class="arrow-right"
-							><span>{{ .Site.Params.email }}</span>
-							<svg
-								width="16"
-								height="11"
-								class="ml2 icon"
-								viewBox="0 0 282 201"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M171.07 24.652C165.368 18.9501 165.368 9.9735 171.07 4.2716C176.772 -1.23767 185.748 -1.23767 191.45 4.2716L276.863 89.6717C279.509 92.3172 281.14 95.99 281.14 100.061C281.14 104.132 279.509 107.805 276.863 110.463L191.45 195.863C185.748 201.565 176.772 201.565 171.07 195.863C165.368 190.161 165.368 181.185 171.07 175.483L232.224 114.534L15.1279 114.534C7.17867 114.547 0.860348 108.023 0.860347 100.074C0.860347 92.1246 7.17867 85.8062 15.1279 85.8062L232.211 85.8062L171.07 24.652Z"
-									fill="#343a40"
-								/></svg
-						></a>
-					</p>
 				</div>
-				<!-- /col -->
 			</div>
-			<!-- /row -->
 
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto">
 					{{ partial "footer/contact-form.html" . }}
 				</div>
-				<!-- /col -->
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
 	<div class="p-4 bg_light w-100 footer-info">
 		<div
 			class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around"
 		>
 			<div>
-				Made with
-				<svg
-					class="icon_heart mb-1 mx-1"
-					width="18px"
-					height="18px"
-					viewBox="0 0 16 16"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M1.24264 8.24264L8 15L14.7574 8.24264C15.553 7.44699 16 6.36786 16 5.24264V5.05234C16 2.8143 14.1857 1 11.9477 1C10.7166 1 9.55233 1.55959 8.78331 2.52086L8 3.5L7.21669 2.52086C6.44767 1.55959 5.28338 1 4.05234 1C1.8143 1 0 2.8143 0 5.05234V5.24264C0 6.36786 0.44699 7.44699 1.24264 8.24264Z"
-						fill="#6563FF"
-					/>
-				</svg>
-				by Laura Sinclair.
+				{{ site.Data.footer.website_info.message }}
 
 				<div class="collapsible-wrapper d-inline-block">
 					<input id="collapsible" class="toggle" type="checkbox" />
-					<label for="collapsible" class="toggle-label link"
-						>More info</label
-					>
+					<label for="collapsible" class="toggle-label link">
+						{{ site.Data.footer.website_info.link }}
+					</label>
 				</div>
 			</div>
 			<div class="mb-4 mb-md-0">{{ partial "social-links.html" . }}</div>
@@ -83,43 +42,7 @@
 		<div class="collapsible-wrapper">
 			<div class="collapsible-content">
 				<div class="pt-3 mb-4">
-					<p>Yes, I also make websites!</p>
-					<p>
-						I designed this website using
-						<a href="https://www.figma.com/" target="_blank">Figma</a>
-						for the overall look and feel, and Photoshop to edit
-						pictures.<br />
-						Built with html/css using
-						<a href="https://gohugo.io/" target="_blank">Hugo</a> to
-						generate static pages,
-						<a href="https://sass-lang.com/" target="_blank">SASS</a>
-						to compile css,
-						<a href="https://getbootstrap.com/" target="_blank"
-							>Bootstrap</a
-						>
-						for grid, spacing, and tons of css helpers. Bits of javascript
-						found on
-						<a href="https://codepen.io/" target="_blank">Codepen</a>,
-						<a href="https://github.com/explore" target="_blank">Github</a
-						>, or in the awesome
-						<a
-							href="https://www.superhi.com/courses/advanced-css-and-javascript"
-							target="_blank"
-							>SuperHi Javascript course</a
-						>. <br />All hosted on Github.
-					</p>
-					<p>
-						If you're interested, check out my
-						<a href="https://dev.laurasnclr.com" target="_blank"
-							>dev portfolio</a
-						>
-						or send me a message on
-						<a
-							href="https://www.linkedin.com/in/laurasnclr/"
-							target="_blank"
-							>linkedin</a
-						>!
-					</p>
+					{{ site.Data.footer.website_info.content | safeHTML }}
 				</div>
 			</div>
 		</div>
