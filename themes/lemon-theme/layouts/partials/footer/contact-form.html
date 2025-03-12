@@ -4,7 +4,6 @@
 	method="POST"
 	data-netlify="true"
 	action="/get-in-touch/thank-you/"
-	netlify
 >
 	<div class="row">
 		<div class="col-12 col-md-6">
@@ -26,7 +25,9 @@
 
 	<div class="row">
 		<div class="col-12">
-			<label><p class="form-label mb-0">I'm interested in...</p></label>
+			<label for="topic[]"
+				><p class="form-label mb-0">I'm interested in...</p></label
+			>
 
 			<ul class="ks-cboxtags">
 				<li>
@@ -36,7 +37,7 @@
 						name="topic[]"
 						value="Digital illustrations"
 					/>
-					<label for="digital-illustrations">Illustrations</label>
+					<label for="digital-illustrations">Illustration</label>
 				</li>
 				<li>
 					<input
@@ -46,6 +47,15 @@
 						value="Art direction"
 					/>
 					<label for="art-direction">Art direction</label>
+				</li>
+				<li>
+					<input
+						type="checkbox"
+						id="art-direction"
+						name="topic[]"
+						value="Art direction"
+					/>
+					<label for="art-direction">A wild creative project</label>
 				</li>
 				<li>
 					<input type="checkbox" id="other" name="topic[]" value="Other" />
