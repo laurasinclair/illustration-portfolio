@@ -40,8 +40,21 @@
 	background-size: cover !important
 	background-position: center center
 
+@mixin debug($color: #f58589)
+	outline: 2px solid $color !important
+	
 .debug
-	outline: 1px solid red
+	@include debug
+	&1
+		@include debug
+	&2
+		@include debug(#6478f6)
+	&3
+		@include debug(#ffb152)
+	&3
+		@include debug(#21e6bb)
+	&4
+		@include debug(#f664f1)
 
 .no-outline
 	outline: none

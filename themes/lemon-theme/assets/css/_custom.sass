@@ -110,13 +110,14 @@ img
 @mixin mask($type)
 	-webkit-mask-repeat: repeat-x
 	-webkit-mask-size: cover
-	-webkit-mask-position: top center
 	height: 100px
 	@if $type == 'top'
 		-webkit-mask: url("/css/assets/bgtop.png")
+		-webkit-mask-position: top center
+
 	@if $type == 'bottom'
 		-webkit-mask: url("/css/assets/bgbottom.png")
-		border: 2px solid red !important
+		-webkit-mask-position: bottom center
 
 .mask
 	&_top
