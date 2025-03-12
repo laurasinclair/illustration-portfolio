@@ -107,10 +107,19 @@ img
 .thank-you
 	background-color: $secondary
 
-@keyframes heartbeat
-	0%
-		transform: scale(100%)
-	50%
-		transform: scale(118%)
-	100%
-		transform: scale(100%)
+@mixin mask($type)
+	-webkit-mask-repeat: repeat-x
+	-webkit-mask-size: cover
+	-webkit-mask-position: top center
+	height: 100px
+	@if $type == 'top'
+		-webkit-mask: url("/css/assets/bgtop.png")
+	@if $type == 'bottom'
+		-webkit-mask: url("/css/assets/bgbottom.png")
+		border: 2px solid red !important
+
+.mask
+	&_top
+		@include mask(top)
+	&_bottom
+		@include mask(bottom)
