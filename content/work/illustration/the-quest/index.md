@@ -1,10 +1,9 @@
 ---
 title: "The Quest"
-draft: false
 slug: "the-quest"
+draft: false
 weight: "5"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	fontcolor: "#fff",

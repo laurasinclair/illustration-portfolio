@@ -1,0 +1,16 @@
+fields:
+   name: "Your name"
+   email: "Your email"
+   topics:
+      label: "I'm interested in..."
+      choice: [
+         "Illustration",
+         "Art Direction",
+         "A creative project",
+         "Just saying hi!",
+      ]
+   message:
+      label: "Message"
+      placeholder: "Heya! I have a question about..."
+   submitButton: "Submit your message"
+

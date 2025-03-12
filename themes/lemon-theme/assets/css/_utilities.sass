@@ -23,11 +23,12 @@
 .bg
 	&_dark
 		background-color: $dark
+	&_grey
+		background-color: $grey
 	&_light
-		background-color: lighten($dark, 90%)
-	&_white
-		background-color: $white
-		background-image: url(assets/bg_stardust.png)
+		&-stardust
+			@extend .bg_light
+			background-image: url(assets/bg_stardust.png)
 	&_primary
 		background-color: $indigo
 	&_secondary
@@ -41,8 +42,21 @@
 	background-size: cover !important
 	background-position: center center
 
+@mixin debug($color: #f58589)
+	outline: 2px solid $color !important
+	
 .debug
-	outline: 1px solid red
+	@include debug
+	&1
+		@include debug
+	&2
+		@include debug(#6478f6)
+	&3
+		@include debug(#ffb152)
+	&3
+		@include debug(#21e6bb)
+	&4
+		@include debug(#f664f1)
 
 .no-outline
 	outline: none
@@ -202,3 +216,6 @@ ul
 			opacity: 0
 			&.is-visible
 				opacity: 1
+
+.h-100
+	height: 100%

@@ -11,6 +11,7 @@ $font-weight-black: 800;
 @import "_typography";
 
 $font-family-sans-serif: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif;
+$font-size-base: 18px;
 
 
 // Colors
@@ -23,6 +24,7 @@ $secondary: $yellow;
 $tertiary: $red;
 
 $light: #f1f6f9;
+$grey: #dbdbdb;
 $dark: #000;
 
 // Layout

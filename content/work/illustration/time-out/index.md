@@ -1,10 +1,9 @@
 ---
 title: "Time Out"
-draft: false
 slug: "time-out"
+draft: false
 weight: "4"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#000000",

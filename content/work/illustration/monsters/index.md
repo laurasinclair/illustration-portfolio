@@ -1,10 +1,9 @@
 ---
 title: "Monsters"
-draft: false
 slug: "monsters"
+draft: false
 weight: "2"
-mainpage: true
-related: true 
+isInRelatedProjects: true 
 
 block_project: {
 	description: "I've loved drawing monsters for as long as I can remember. \n

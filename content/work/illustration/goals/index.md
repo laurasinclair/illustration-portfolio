@@ -1,10 +1,9 @@
 ---
 title: "Goals"
-draft: false
 slug: "goals"
+draft: false
 weight: "11"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fdbf0b",

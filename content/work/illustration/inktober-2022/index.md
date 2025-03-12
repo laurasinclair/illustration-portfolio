@@ -1,10 +1,9 @@
 ---
 title: "Inktober 2022"
-draft: false
 slug: "inktober-2022"
+draft: false
 weight: "8"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fff",

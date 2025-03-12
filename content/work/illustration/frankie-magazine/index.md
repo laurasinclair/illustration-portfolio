@@ -1,10 +1,9 @@
 ---
 title: "Frankie Magazine"
-draft: false
 slug: "frankie-magazine"
+draft: false
 weight: "1"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "A self-initiated project based on an article published in Frankie Magazine, about maintaining a healthy relationship with the Internet. \n

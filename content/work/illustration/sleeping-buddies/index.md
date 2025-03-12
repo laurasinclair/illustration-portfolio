@@ -1,10 +1,9 @@
 ---
 title: "Sleeping Buddies"
-draft: false
 slug: "sleeping-buddies"
+draft: false
 weight: "6"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#000",

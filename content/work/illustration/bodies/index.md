@@ -3,8 +3,7 @@ title: "Bodies"
 draft: false
 slug: "bodies"
 weight: "8"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "This small series is about bodies, \n

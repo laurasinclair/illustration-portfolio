@@ -1,11 +1,10 @@
 ---
 title: "All The Lives We Ever Lived"
-draft: false
 slug: "all-the-lives-we-ever-lived"
-featured: true
+draft: false
 weight: "100"
-mainpage: false
-related: true
+isFeatured: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#151515",

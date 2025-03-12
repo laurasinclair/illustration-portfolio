@@ -3,9 +3,8 @@ title: "By The Lake"
 draft: false
 slug: "by-the-lake"
 weight: "1"
-featured: true
-mainpage: false
-related: true
+isFeatured: true
+isInRelatedProjects: true
 
 block_project: {
 	fontcolor: "#fff",

@@ -1,0 +1,15 @@
+main:
+   title: "Let's work together!"
+   subheading: "If you have any questions or inquiries, don't hesitate to contact me."
+website_info:
+   message: "This website was made by my own little hands."
+   link: "More info"
+   content: |
+      <p>Yes, I also make websites!</p>
+      <p>
+        I designed this website using <a href="https://www.figma.com/" target="_blank">Figma</a> for the overall look and feel, and Photoshop to edit pictures.<br />
+        Built with html/css using <a href="https://gohugo.io/" target="_blank">Hugo</a> to generate static pages, <a href="https://sass-lang.com/" target="_blank">SASS</a> to compile css, <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> for grid, spacing, and tons of css helpers. Bits of javascript found on <a href="https://codepen.io/" target="_blank">Codepen</a>, <a href="https://github.com/explore" target="_blank">Github</a >, or in the awesome <a href="https://www.superhi.com/courses/advanced-css-and-javascript" target="_blank">SuperHi Javascript course</a>. <br />All hosted on Github.
+      </p>
+      <p>
+        If you're interested, check out my <a href="https://dev.laurasnclr.com" target="_blank">dev portfolio</a> or send me a message on <a href="https://www.linkedin.com/in/laurasnclr/" target="_blank">linkedin</a>!
+      </p>

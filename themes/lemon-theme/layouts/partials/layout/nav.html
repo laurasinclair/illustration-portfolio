@@ -2,24 +2,23 @@
 	<div class="container-fluid navigation">
 		{{- if .Site.Menus.main -}}
 		<div
-			id="menu-desktop"
-			class="d-md-flex justify-content-between align-items-center">
-			<div class="menu-desktop_logo">
+			class="menu d-md-flex justify-content-between align-items-center">
+			<div class="menu_nav-element_logo">
 				<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
 			</div>
 
-			<div class="nav-element">
-				<!-- prettier-ignore -->
+			<div class="menu_navbar">
 				{{- $current := . -}}
 				{{- range .Site.Menus.main -}}
-					{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
-					{{- $active = or $active (eq .Name $current.Title) -}}
-					{{- $active = or $active (and (eq .Name "Work") (eq $current.Section "work")) -}}
-				<a href="{{ .URL }}">{{ .Name }}</a>
+				{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
+				{{- $active = or $active (eq .Name $current.Title) -}}
+				{{- $active = or $active (and (eq .Name "Work") (eq $current.Section "work")) -}}
+				<div class="menu_nav-element_link">
+					<a href="{{ .URL }}">{{ .Name }}</a>
+				</div>
 				{{- end -}}
 			</div>
 		</div>
-		<!-- /#menu-desktop -->
 		{{- end -}}
 	</div>
 </nav>

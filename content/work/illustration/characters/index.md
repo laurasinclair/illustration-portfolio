@@ -1,10 +1,9 @@
 ---
 title: "Characters"
-draft: false
 slug: "characters"
+draft: false
 weight: "7"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "I've always loved observing and drawing the world around me, and paying attention to details. \n

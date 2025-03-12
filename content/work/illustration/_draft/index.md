@@ -3,8 +3,7 @@ title: ""
 draft: true
 slug: ""
 weight: ""
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fff",

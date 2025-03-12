@@ -1,10 +1,9 @@
 ---
 title: "Night Out"
-draft: false
 slug: "night-out"
+draft: false
 weight: "10"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "(description coming soon)",

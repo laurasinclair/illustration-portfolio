@@ -25,6 +25,18 @@ theme = "lemon-theme"
 [params]
   email = "hello@laurasnclr.com"
   metadescription = "Laura Sinclair is an illustrator specialising in fun & happy creative artwork!"
+  websiteName = "Laura Sinclair | Illustration & creative artwork"
+  [[params.social]]
+    name = "instagram"
+    url = "https://www.instagram.com/laura.snclr/"
+
+  [[params.social]]
+    name = "behance"
+    url = "https://www.behance.net/laurasnclr"
+
+  [[params.social]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/laurasnclr/"
 
 [related]
     treshold = 1

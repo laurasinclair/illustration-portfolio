@@ -1,9 +1,9 @@
 body
-	@extend .bg_white
+	@extend .bg_light-stardust
 	@extend .fw-medium !optional
 	color: $gray-900
 	position: relative
-	font-size: $font-size-base * 1
+	font-size: $font-size-base
 	font-family: $font-family-sans-serif
 
 #all
@@ -50,7 +50,7 @@ body
 	#logo
 		a, p
 			@extend .fw-medium
-		font-size: $font-size-base * 1.2
+		// font-size: $font-size-base * 1.2
 		&:hover,
 		&:active,
 		&:focus
@@ -61,18 +61,33 @@ footer
 	#get-in-touch
 		padding-top: 5em
 		padding-bottom: 5em
+	.collapsible // collapsible content in the footer
+		&-wrapper
+			.toggle // the actual checkbox
+				display: none
+				&-label
+					cursor: pointer
 
+		&-content
+			max-height: 0px
+			overflow: hidden
+			transition: max-height .25s ease-in-out
+			
+			> div
+				max-width: 920px
+		&-open
+			max-height: 100vh
 .social
-	a,
-	a:visited
-		svg path
-			fill: $gray-900
-		&:hover,
-		&:focus
-			transition: all 0.2s ease-in-out
-			outline: none
-			svg path
-				fill: $primary
+	&-icon,
+	&-icon:visited
+		display: block
+		&:first-of-type
+			margin-left: 0 !important
+		&:last-of-type
+			margin-right: 0 !important
+		svg
+			width: 30px
+			height: 30px
 a,
 a:hover,
 a:focus,
@@ -80,3 +95,20 @@ a:active,
 span
 	@extend .no-outline
 
+@mixin icon
+	&:hover,
+	&:focus
+		transition: all 0.2s ease-in-out
+		outline: none
+		svg path
+			fill: $primary
+
+.icon
+	&-dark
+		@include icon
+		svg path
+			fill: $gray-900
+	&-light
+		@include icon
+		svg path
+			fill: $white

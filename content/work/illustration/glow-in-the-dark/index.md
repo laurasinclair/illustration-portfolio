@@ -1,10 +1,9 @@
 ---
 title: "Glow In The Dark"
-draft: false
 slug: "glow-in-the-dark"
+draft: false
 weight: "9"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	description: "If you go to the forest at night, watch out! \n

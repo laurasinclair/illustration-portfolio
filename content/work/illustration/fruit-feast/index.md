@@ -1,10 +1,9 @@
 ---
 title: "Fruit Feast"
-draft: false
 slug: "fruit-feast"
+draft: false
 weight: "8"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 	bgcolor: "#fff",

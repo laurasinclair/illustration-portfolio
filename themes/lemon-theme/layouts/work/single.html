@@ -100,14 +100,19 @@
 		</div> <!-- /row -->
 	</div> <!-- /container -->
 </section>
-<div class="bg_dark" style='-webkit-mask: url({{ "css/assets/bgbottom.png" | absURL  }}); -webkit-mask-repeat: repeat-x; -webkit-mask-size: cover;-webkit-mask-position: bottom center; height: 100px;{{ if isset .Params.block_project "bgcolor" }} background-color: {{ .Params.block_project.bgcolor }}{{ else }} background-color: #f1f1f7;{{ end }}'></div>
+<div 
+	class="bg_dark mask_bottom" 
+	{{ with .Params.block_project.bgcolor }}
+	style="background-color: {{ . }}"
+	{{ end }}>
+</div>
 
 {{- end -}}
 
 {{- partial "work/related-projects.html" . -}}
 
-<div class="text-center p-4 social-links bg_light">
-	{{ partial "social-links.html" . }}
+<div class="p-4 bg_grey d-flex justify-content-center">
+	{{ partial "social-links.html"}}
 </div>
 
 {{- end -}}

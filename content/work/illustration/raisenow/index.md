@@ -1,11 +1,10 @@
 ---
 
 title: "RaiseNow"
-draft: false
 slug: "raisenow"
+draft: false
 weight: "3"
-mainpage: true
-related: true
+isInRelatedProjects: true
 
 block_project: {
 description: "Illustrations made when I was working at <a href=\"https://raisenow.com\" target=\"\_blank\">RaiseNow</a>. \n
