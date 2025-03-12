@@ -1,9 +1,8 @@
 ---
 title: "Time Out"
-draft: false
 slug: "time-out"
+draft: false
 weight: "4"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

@@ -1,9 +1,8 @@
 ---
 title: "Sleeping Buddies"
-draft: false
 slug: "sleeping-buddies"
+draft: false
 weight: "6"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

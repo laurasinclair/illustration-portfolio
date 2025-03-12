@@ -1,9 +1,8 @@
 ---
 title: "Goals"
-draft: false
 slug: "goals"
+draft: false
 weight: "11"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

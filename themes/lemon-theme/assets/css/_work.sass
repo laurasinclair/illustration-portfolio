@@ -6,6 +6,11 @@
 			overflow: hidden
 			position: relative
 			border-radius: 4px
+			img.featured
+				background-color: #151515
+				@include media-breakpoint-up(md)
+					aspect-ratio: 2.2/1
+					object-fit: cover
 			&:hover,
 			&:focus,
 			&:active

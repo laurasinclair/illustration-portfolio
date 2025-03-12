@@ -1,9 +1,8 @@
 ---
 title: "Monsters"
-draft: false
 slug: "monsters"
+draft: false
 weight: "2"
-isOnHomePage: true
 isInRelatedProjects: true 
 
 block_project: {

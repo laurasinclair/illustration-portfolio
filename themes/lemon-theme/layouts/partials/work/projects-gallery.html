@@ -1,6 +1,6 @@
 <section id="work" class="py-5">
 	<div class="container-fluid">
-		<div class="row mt-5">
+		<div class="row mt-5 d-none">
 			<div class="col-12">
 				<div class="work-gallery_project">
 					<div class="work-gallery_project_title">
@@ -8,54 +8,53 @@
 							>By The Lake</a
 						>
 					</div>
-					<a href='{{"work/illustration/by-the-lake" | absURL }}'
-						><img
+					<a href='{{"work/illustration/by-the-lake" | absURL }}'>
+				
+
+						<img
 							src='{{"work/illustration/by-the-lake/thumbnail_by-the-lake.jpg" | absURL }}'
 							alt="By The Lake | {{.Site.Params.websiteName}}"
 							class="d-block d-sm-none" /><img
 							src='{{"work/illustration/by-the-lake/thumbnail-desktop_by-the-lake.jpg" | absURL }}'
 							alt="By The Lake | {{.Site.Params.websiteName}}"
 							class="d-none d-sm-block"
-					/></a>
+						/>
+					</a>
 				</div>
 			</div>
 		</div>
 
-		{{- if .Site.GetPage "section" "work" -}} 
-		yes 
-		{{- else -}} 
-		no 
-		{{- end -}}
-
 		<div class="row">
-			{{- $allProjects := .Site.GetPage "section" "work" -}} 
-			{{- range ($allProjects.Pages.GroupByParam "isOnHomePage") -}} 
-			{{- if eq .Key true -}} 
-			{{- range .Pages -}}
-			<div class="col-12 col-md-6">
+			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
+			{{- if $illustrationSection -}}
+			{{- range $illustrationSection.Pages -}}
+			{{- $isFeatured := .Params.isFeatured -}}
+			<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
 				<div class="work-gallery_project">
+				
 					<div class="work-gallery_project_title">
-						<a href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+						<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
 					</div>
 					<a href="{{ .Permalink | absURL }}">
-						{{- $image := .Resources.GetMatch "thumbnail_*" -}} 
+						{{- $image := .Resources.GetMatch "thumbnail*" -}} 
 						{{- with $image -}}
+
 						<img
-							src="{{ .Permalink | absURL  }}"
+							src="{{ .Permalink | absURL }}"
 							width="{{ .Width }}"
 							height="{{ .Height }}"
 							alt="{{ .Title }}"
+							class='d-block {{ if $isFeatured }}featured{{ end }}'
 						/>
 						{{- end -}}
 					</a>
 				</div>
 			</div>
-			{{- end -}} 
-			{{- end -}} 
+			{{- end -}}
 			{{- end -}}
 		</div>
 
-		<div class="row mb-5">
+		<div class="row mb-5 d-none">
 			<div class="col-12">
 				<div class="work-gallery_project">
 					<div class="work-gallery_project_title">

@@ -3,7 +3,6 @@ title: "Bodies"
 draft: false
 slug: "bodies"
 weight: "8"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

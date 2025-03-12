@@ -1,12 +1,8 @@
 ---
 title: "Philibertin le Cruel"
-draft: false
 slug: "philibertin-le-cruel"
-featured: false
+draft: false
 weight: "100"
-isOnHomePage: false
-related: false
-noindex: true
 
 block_project: {
 	bgcolor: "#fff",

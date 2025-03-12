@@ -3,8 +3,7 @@ title: "By The Lake"
 draft: false
 slug: "by-the-lake"
 weight: "1"
-featured: true
-isOnHomePage: false
+isFeatured: true
 isInRelatedProjects: true
 
 block_project: {

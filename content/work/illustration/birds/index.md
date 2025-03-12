@@ -4,7 +4,6 @@ title: "Birds"
 draft: false
 slug: "birds"
 weight: "10"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

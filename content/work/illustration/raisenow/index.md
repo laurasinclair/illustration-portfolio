@@ -1,10 +1,9 @@
 ---
 
 title: "RaiseNow"
-draft: false
 slug: "raisenow"
+draft: false
 weight: "3"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

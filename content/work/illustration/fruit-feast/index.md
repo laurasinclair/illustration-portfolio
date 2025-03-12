@@ -1,9 +1,8 @@
 ---
 title: "Fruit Feast"
-draft: false
 slug: "fruit-feast"
+draft: false
 weight: "8"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

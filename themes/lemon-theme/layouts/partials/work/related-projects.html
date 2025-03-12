@@ -48,7 +48,7 @@
 	<div class="container-fluid" id="related_all">
 		<div class="row my-5">
 			<!-- prettier-ignore -->
-			{{- $relatedProjects := .Site.GetPage "section" "work" -}} 
+			{{- $relatedProjects := .Site.GetPage "section" "illustration" -}} 
 			{{- range ($relatedProjects.Pages.GroupByParam "isInRelatedProjects") -}} {{- if eq .Key true -}} {{- range .Pages -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">

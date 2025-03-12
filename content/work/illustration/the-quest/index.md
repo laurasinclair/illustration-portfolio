@@ -1,9 +1,8 @@
 ---
 title: "The Quest"
-draft: false
 slug: "the-quest"
+draft: false
 weight: "5"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

@@ -1,9 +1,8 @@
 ---
 title: "Frankie Magazine"
-draft: false
 slug: "frankie-magazine"
+draft: false
 weight: "1"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

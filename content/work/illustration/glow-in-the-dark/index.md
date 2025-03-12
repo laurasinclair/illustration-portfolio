@@ -1,9 +1,8 @@
 ---
 title: "Glow In The Dark"
-draft: false
 slug: "glow-in-the-dark"
+draft: false
 weight: "9"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {

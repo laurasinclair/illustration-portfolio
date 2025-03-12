@@ -1,9 +1,8 @@
 ---
 title: "Characters"
-draft: false
 slug: "characters"
+draft: false
 weight: "7"
-isOnHomePage: true
 isInRelatedProjects: true
 
 block_project: {
