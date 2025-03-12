@@ -1,6 +1,7 @@
 ---
 title: About
 slug: about
+draft: false
 content:
    heading: About
    catchphrase: Hey there 👋

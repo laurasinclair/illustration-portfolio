@@ -29,10 +29,8 @@
 
 	<div class="row">
 		<div class="col-12">
-			<label for="topic[]">
-				<p class="form-label mb-0">
-					{{ site.Data.contactForm.fields.topics.label }}
-				</p>
+			<label for="topic[]" class="form-label">
+				{{ site.Data.contactForm.fields.topics.label }}
 			</label>
 
 			<ul class="ks-cboxtags">
@@ -42,8 +40,8 @@
 				<li>
 					<input
 						type="checkbox"
-						id="{{ $topic | urlize }}"
 						name="topic[]"
+						id="{{ $topic | urlize }}"
 						value="{{ $topic }}"
 					/>
 					<label for="{{ $topic | urlize }}">{{ $topic }}</label>
