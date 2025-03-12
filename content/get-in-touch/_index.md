@@ -1,4 +1,5 @@
 ---
+title: Let's work together!
 slug: get-in-touch
 content:
    heading: Let's work together!
