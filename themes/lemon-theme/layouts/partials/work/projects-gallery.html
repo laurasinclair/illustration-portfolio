@@ -1,29 +1,5 @@
 <section id="work" class="py-5">
 	<div class="container-fluid">
-		<div class="row mt-5 d-none">
-			<div class="col-12">
-				<div class="work-gallery_project">
-					<div class="work-gallery_project_title">
-						<a href='{{"work/illustration/by-the-lake" | absURL }}'
-							>By The Lake</a
-						>
-					</div>
-					<a href='{{"work/illustration/by-the-lake" | absURL }}'>
-				
-
-						<img
-							src='{{"work/illustration/by-the-lake/thumbnail_by-the-lake.jpg" | absURL }}'
-							alt="By The Lake | {{.Site.Params.websiteName}}"
-							class="d-block d-sm-none" /><img
-							src='{{"work/illustration/by-the-lake/thumbnail-desktop_by-the-lake.jpg" | absURL }}'
-							alt="By The Lake | {{.Site.Params.websiteName}}"
-							class="d-none d-sm-block"
-						/>
-					</a>
-				</div>
-			</div>
-		</div>
-
 		<div class="row">
 			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
 			{{- if $illustrationSection -}}
@@ -52,34 +28,6 @@
 			</div>
 			{{- end -}}
 			{{- end -}}
-		</div>
-
-		<div class="row mb-5 d-none">
-			<div class="col-12">
-				<div class="work-gallery_project">
-					<div class="work-gallery_project_title">
-						<a
-							href='{{"work/illustration/all-the-lives-we-ever-lived" | absURL }}'
-						>
-							All The Lives We Ever Lived
-						</a>
-					</div>
-					<a
-						href='{{"work/illustration/all-the-lives-we-ever-lived" | absURL }}'
-					>
-						<img
-							src='{{"work/illustration/all-the-lives-we-ever-lived/thumbnail_all-the-lives.jpg" | absURL }}'
-							alt="All The Lives We Ever Lived | {{.Site.Params.websiteName}}"
-							class="d-block d-md-none"
-						/>
-						<img
-							src='{{"work/illustration/all-the-lives-we-ever-lived/thumbnail-desktop_all-the-lives.jpg" | absURL }}'
-							alt="All The Lives We Ever Lived | {{.Site.Params.websiteName}}"
-							class="d-none d-md-block"
-						/>
-					</a>
-				</div>
-			</div>
 		</div>
 	</div>
 

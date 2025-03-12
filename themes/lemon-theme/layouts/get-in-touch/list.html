@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div id="contact">
 	<header class="container-fluid">
-		<div class="row pb-3 pb-md-5 ps-sm-3 ps-md-5">
-			<div class="col-12 col-md-5 d-flex flex-column justify-content-center">
+		<div class="row pb-4 pb-md-5">
+			<div class="col-12 col-md-5 d-flex flex-column justify-content-center pb-4 pb-md-0 ps-md-4 ps-lg-5">
 				<h1 class="pb-3">{{.Params.content.heading}}</h1>
 				<p class="lead">{{.Params.content.subheading}}</p>
 			</div>
@@ -22,8 +22,8 @@
 	</header>
 	<div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
 
-	<div class="row mb-4 mb-md-5">
-		<div class="col-12 col-md-9 mx-auto">
+	<div class="container-fluid row mb-4">
+		<div class="col-12 col-lg-9 mx-auto">
 			{{ partial "footer/contact-form.html" . }}
 		</div>
 	</div>

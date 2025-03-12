@@ -1,9 +1,10 @@
 html
 	scroll-behavior: smooth !important
 
+
+
 :root
 	font-family: $font-family-sans-serif
-
 	font-synthesis: none
 	text-rendering: optimizeLegibility
 	-webkit-font-smoothing: antialiased
@@ -20,10 +21,11 @@ $scale: 0.7
 	$scale: 1
 
 *
+	box-sizing: border-box
 	&:focus
 		outline: 1px dotted $dark
 		outline-offset: 2px
-
+	
 a,
 a:visited,
 .link
@@ -88,3 +90,6 @@ img
 		@include mask(top)
 	&_bottom
 		@include mask(bottom)
+
+.container-fluid
+	margin: 0 auto

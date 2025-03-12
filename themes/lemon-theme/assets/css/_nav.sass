@@ -47,9 +47,8 @@ nav
 			&:active
 				outline: none
 				color: $secondary
-		.menu-desktop_logo,
 		.menu-desktop_logo a
-			@extend .ps-0
-			@extend .ps-md-2
-			@extend .ps-lg-3
+			padding-left: 0
+			@include media-breakpoint-up(lg)
+				padding-left: 1.8rem
 			font-size: $font-size-base
