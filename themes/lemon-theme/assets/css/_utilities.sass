@@ -24,10 +24,9 @@
 	&_dark
 		background-color: $dark
 	&_light
-		background-color: lighten($dark, 90%)
-	&_white
-		background-color: $white
-		background-image: url(assets/bg_stardust.png)
+		&-stardust
+			@extend .bg_light
+			background-image: url(assets/bg_stardust.png)
 	&_primary
 		background-color: $indigo
 	&_secondary
