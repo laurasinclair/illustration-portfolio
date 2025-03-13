@@ -1,9 +1,10 @@
 .home
-	header
+	header.hero
 		@extend .bg_dark
 		@extend .text-white
 		margin-bottom: -1px // chrome fix: lines between divs
 		padding-top: 60px
+		overflow-x: clip !important
 		h2
 			@extend .mb-3
 			@include media-breakpoint-up(lg)
