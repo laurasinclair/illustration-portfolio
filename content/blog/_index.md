@@ -1,6 +1,6 @@
 ---
 title: Blog
-draft: false
+draft: true
 slug: blog
 photo:
    {

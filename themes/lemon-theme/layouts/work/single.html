@@ -13,7 +13,7 @@
 			<h2 class="text-center mx-auto">{{ (replace .Params.title "\n" "<br>") | safeHTML }}</h2>
 			{{- end -}}
 		</div>
-	</div> <!-- /container -->
+	</div>  
 </header>
 
 {{- if isset .Params "block_project" -}}
@@ -64,14 +64,14 @@
 					<a href="{{.src}}" target="_blank" class="link_new-window stretched-link">{{ .text }}</a>
 				</div>
 				{{- end -}}
-			</div> <!-- /col -->
+			</div>  
 		
 			 <!-- this is a fix, to make sure the text column takes up the whole width if it doesn't have a class -->
 			{{- if .class -}}
 			{{- else -}}
 			<div class="d-none d-sm-block col-xl-4">
 				&nbsp;
-			</div> <!-- /col -->
+			</div>  
 			{{- end -}}
 				
 			{{- else if .gallery -}}
@@ -83,11 +83,11 @@
 					{{- if .src -}}
 					<div class="col-6 col-md-{{if (eq (len $imagescount) 2)}}6{{else if (eq (len $imagescount) 3)}}4{{else if (eq (len $imagescount) 4)}}3{{else}}12{{end}} prout">
 						<img src="{{ $.Permalink | absURL  }}{{.src}}" class="mb-5" alt="{{ $title }}">
-					</div> <!-- /col -->
+					</div>  
 					{{- end -}}
 					{{- end -}}
-				</div> <!-- /row -->
-			</div> <!-- /col -->
+				</div>  
+			</div>  
 			{{- end -}}
 	
 			{{- else -}}
@@ -97,8 +97,8 @@
 			</div>
 			{{- end -}}
 			{{- end -}}
-		</div> <!-- /row -->
-	</div> <!-- /container -->
+		</div>  
+	</div>  
 </section>
 <div 
 	class="bg_dark mask_bottom" 

@@ -6,7 +6,7 @@ fields:
       choice: [
          "Illustration",
          "Art Direction",
-         "A creative project",
+         "A FUN creative project!",
          "Just saying hi!",
       ]
    message:
