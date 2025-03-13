@@ -6,6 +6,7 @@ weight: "1"
 isInRelatedProjects: true
 
 block_project: {
+	bgcolor: "#EDF0F3",
 	description: "A self-initiated project based on an article published in Frankie Magazine, about maintaining a healthy relationship with the Internet. \n
 	I wanted to explore the idea that being online can't be portrayed as all good or all bad, it just is a part of our lives. \n
 	How do we set boundaries? How do we let go? \n
