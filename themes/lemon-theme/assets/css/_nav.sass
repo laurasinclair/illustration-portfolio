@@ -13,6 +13,7 @@ nav
 			transform: translateX(50%)
 			width: max-content
 			display: flex
+			pointer-events: none
 			@include media-breakpoint-up(lg)
 				right: 3em
 				bottom: unset
@@ -24,6 +25,7 @@ nav
 				font-weight: 200
 				padding: 6px 14px
 				display: block
+				pointer-events: fill
 			&_link
 				@extend .mt-5
 				@extend .menu_nav-element
