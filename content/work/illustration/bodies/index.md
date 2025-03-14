@@ -8,8 +8,8 @@ project_content:
   bgColor: "#020131"
   theme: dark
   description: |
-    This small series is about bodies <br />
-    taking our time to breath <br />
+    This small series is about bodies
+    taking our time to breath
     being in touch with ourselves.
   work:
     - type: image

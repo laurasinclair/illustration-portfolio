@@ -6,9 +6,9 @@ isPublic: true
 
 project_content:
   description: |
-    A self-initiated project based on an article published in Frankie Magazine, about maintaining a healthy relationship with the Internet.  <br />
-    I wanted to explore the idea that being online can't be portrayed as all good or all bad, it just is a part of our lives.  <br />
-    How do we set boundaries? How do we let go? <br />
+    A self-initiated project based on an article published in Frankie Magazine, about maintaining a healthy relationship with the Internet.
+    I wanted to explore the idea that being online can't be portrayed as all good or all bad, it just is a part of our lives.
+    How do we set boundaries? How do we let go?
     Are we ever fully disconnected?
   work:
     - type: image
