@@ -1,6 +1,5 @@
 
-<div class='col-12 col-md-4 col-lg-4 mx-auto d-flex align-items-center justify-content-center flex-column work_single_link {{if eq .theme "dark"}}theme-dark{{end}}'>
+<div class='col-12 col-md-4 col-lg-4 mx-auto d-flex align-items-center justify-content-center flex-column work_single_link {{if eq .theme "dark"}}theme-dark{{end}}' style="position: relative;">
 	<p class="lead mb-1">Come have a look!</p>
-	{{- $image := resources.Get "css/assets/icon_open-new-window.svg" -}}
 	<a href="{{.src}}" target="_blank" class="link_new-window stretched-link">{{ .text }}</a>
 </div>
