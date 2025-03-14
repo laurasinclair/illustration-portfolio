@@ -51,6 +51,17 @@
 
 .work
 	&_single
+		&_hero
+			@extend .bg_dark
+			@extend .text-white
+			@extend .px-5
+			padding-top: 40px
+			&_text
+				@extend .py-5
+				p
+					font-weight: 400
+		&_showcase
+			@extend .pt-3
 		&_text
 			a
 				@extend .fw-bold
@@ -70,3 +81,4 @@
 			&.theme-dark
 				background-color: #5657b857
 				color: $white
+			

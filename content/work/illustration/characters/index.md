@@ -8,7 +8,8 @@ isPublic: true
 project_content:
   bgColor: "#e8e8e8"
   description: |
-    I've always loved observing and drawing the world around me, and paying attention to details. Over the years, I have drawn hundreds of characters! Here are a few of them.
+    I've always loved observing and drawing the world around me, and paying attention to details. <br />
+    Over the years, I have drawn HUNDREDS of characters! Here are a few of them.
   work:
     - type: image
       src: img/illustration_characters-01.png

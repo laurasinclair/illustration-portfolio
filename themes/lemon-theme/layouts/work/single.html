@@ -1,45 +1,45 @@
 {{-  define "main" -}}
-<header class="mt-O bg_dark text-white">
-	<div class="container">
-		<div class="hero_large">
-			{{- $image := .Resources.GetMatch "project-title_*" -}}
-			{{- with $image -}}
-			<div class="row">
-				<div class="col-12 col-sm-8 col-md-6 col-lg-5 mx-auto text-center">
-					<img src="{{ .Permalink | absURL }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Params.Title }}">
-				</div>
-			</div>
-			{{- else -}}
-			<h2 class="text-center mx-auto">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
-			{{- end -}}
-		</div>
-	</div>  
-</header>
 
 {{- if isset .Params "project_content" -}}
 {{- $backgroundColor := .Params.project_content.bgColor | default "#f1f1f7" -}}
 {{- $theme := .Params.project_content.theme }}
-<section 
-	id="work"
-	{{- if eq $theme "dark" -}}
-	class="theme-dark"
-	{{- end -}}
-	{{- with $backgroundColor -}}
-	style="background-color: {{ . }}"
-	{{- end -}}
->
-	<div class="container-fluid">
-		{{ if isset .Params.project_content "description" -}}
-		<div class="row">
-			<div class="col-12 col-md-8 col-lg-6 mx-auto mb-5">
-				<p class='description text-center relative {{if eq $theme "dark"}}text-white{{end}}'>
-					{{ (replace .Params.project_content.description "\n" "<br>") | safeHTML }}
+{{- $description := .Params.project_content.description -}}
+
+<div class='work_single theme-{{- if eq $theme "dark" -}}dark{{- else -}}light{{- end -}}'>
+	<header class="work_single_hero">
+		{{- $image := .Resources.GetMatch "project-title_*" -}}
+		{{- with $image -}}
+		<div class="work_single_hero_image row">
+			<div class="col-12 col-md-6 mx-auto text-center px-0 pb-5">
+				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3" />
+				{{ with $description -}}
+				<p>
+					{{ . | safeHTML }}
 				</p>
+				{{- end -}}
+			</div>
+		</div>
+		{{- else -}}
+		<div class="work_single_hero_text row">
+			<div class="col-12 col-md-6 px-0 pb-5">
+				<h2 class="mb-3">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
+				{{ with $description -}}
+				<p class="mb-0">
+					{{ . | safeHTML }}
+				</p>
+				{{- end -}}
 			</div>
 		</div>
 		{{- end -}}
+	</header>
 
-		<div>
+	<section
+		class="work_single_showcase"
+		{{- with $backgroundColor -}}
+		style="background-color: {{ . }}"
+		{{- end -}}
+	>
+		<div class="container-fluid">
 			{{ range .Params.project_content.work -}}
 			<div class="row">
 				{{- if .group -}}
@@ -74,22 +74,21 @@
 				{{- end -}} <!-- if .group or .type -->
 			</div>
 			{{- end -}} <!-- range .Params.project_content.work -->
-		</div>
-	</div>  
-</section>
-<div 
-	class="bg_dark mask_bottom"
-	{{ with $backgroundColor}}
-	style="background-color: {{ . }}"
-	{{ end }}>
+		</div>  
+	</section>
+	<div 
+		class="bg_dark mask_bottom"
+		{{ with $backgroundColor}}
+		style="background-color: {{ . }}"
+		{{ end }}>
+	</div>
+
+	{{- end -}}
+
+	{{- partial "work/related.html" . -}}
+
+	<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
+		{{ partial "social-links.html"}}
+	</div>
 </div>
-
-{{- end -}}
-
-{{- partial "work/related.html" . -}}
-
-<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
-	{{ partial "social-links.html"}}
-</div>
-
 {{- end -}}
