@@ -30,7 +30,7 @@
 				{{- end -}}
 			</div>
 		</div>
-		{{- end -}}
+		{{- end -}} <!-- if/else there's a title image in the folder -->
 	</header>
 
 	<section
@@ -71,7 +71,7 @@
 				{{- else if eq .type "link" }}
 					{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
 				{{- end -}} <!-- checking exact file type -->
-				{{- end -}} <!-- if .group or .type -->
+				{{- end -}} <!-- if/else .group or .type -->
 			</div>
 			{{- end -}} <!-- range .Params.project_content.work -->
 		</div>  

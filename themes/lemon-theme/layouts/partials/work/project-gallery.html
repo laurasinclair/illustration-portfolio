@@ -1,16 +1,15 @@
-<section id="work" class="py-5">
+<section class="work_gallery" class="py-5">
 	<div class="container-fluid">
 		<div class="row">
 			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
-			{{- if $illustrationSection -}}
 			{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
 			{{- if eq .Key true -}} 
 			{{- range .Pages -}}
 			{{- $isFeatured := .Params.isFeatured -}}
 			<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
-				<div class="work-gallery_project">
+				<div class="work_gallery_project">
 				
-					<div class="work-gallery_project_title">
+					<div class="work_gallery_project_title">
 						<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
 					</div>
 					<a href="{{ .Permalink | absURL }}">
@@ -28,14 +27,14 @@
 					</a>
 				</div>
 			</div>
-			{{- end -}}
-			{{- end -}}
-			{{- end -}}
-			{{- end -}}
+			{{- end -}} <!-- range .Pages -->
+			{{- end -}} <!-- if isPublic -->
+			{{- end -}} <!-- range illustration section -->
 		</div>
 	</div>
 
-	{{- $image := resources.Get "img/happylemon.png" -}} {{- if $image -}}
+	{{- $image := resources.Get "img/happylemon.png" -}}
+	{{- if $image -}}
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 text-center mb-2 mb-md-5">
@@ -50,5 +49,5 @@
 			</div>
 		</div>
 	</div>
-	{{- end -}}
+	{{- end -}} <!-- if image exists -->
 </section>
