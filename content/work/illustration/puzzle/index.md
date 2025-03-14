@@ -1,19 +1,26 @@
 ---
-title: "Puzzle"
-slug: "puzzle"
+title: Hippo Puzzle
 draft: false
-weight: "10"
+weight: 10
 isPublic: true
 
-project_content: {
-	# description: "(description coming soon)",
-	bgColor: "#0D0D0D",
-	textColor: "#fff",
-	work: [ 
-		{class: "col-12 col-md-10", src: "img/illustration_night-out-01.jpg"},
-		{class: "col-12 col-md-6", src: "img/illustration_night-out-02.jpg"},
-		{class: "col-12 col-md-6", src: "img/illustration_night-out-03.jpg"}
-	]
-}
+project_content:
+  work:
+    - type: image
+      src: img/hippo-puzzle.jpg
+      class: col-md-10
+
+    - group:
+      - type: image
+        src: img/hippo-puzzle01.jpg
+      - type: image
+        src: img/hippo-puzzle02.jpg
+      - type: image
+        src: img/hippo-puzzle03.jpg
+ 
+    - type: image
+      src: img/hippo_in_park.png
+      class: px-5 col-sm-6 col-lg-3 mt-4
+
 
 ---

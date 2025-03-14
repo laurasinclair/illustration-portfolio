@@ -1,19 +1,21 @@
 ---
-title: "By The Lake"
+title: By The Lake
 draft: false
-slug: "by-the-lake"
-weight: "1"
+weight: 1
 isFeatured: true
 isPublic: true
 
-project_content: {
-	textColor: "#fff",
-	bgColor: "#040404",
-	work: [ 
-		{class: "col-12 col-md-10 my-4 my-md-3", src: "img/illustration_by-the-lake-01.jpg"},
-		{class: "col-12 col-md-10 my-4 my-md-3", src: "img/illustration_by-the-lake-02.jpg"},
-		{class: "col-12 col-md-10 my-4 my-md-3", src: "img/illustration_by-the-lake-03.jpg"}
-	]
-}
+project_content:
+  bgColor: "#040404"
+  work:
+    - type: image
+      src: img/illustration_by-the-lake-01.jpg
+      class: col-md-10 my-4
+    - type: image
+      src: img/illustration_by-the-lake-02.jpg
+      class: col-md-10 my-4
+    - type: image
+      src: img/illustration_by-the-lake-03.jpg
+      class: col-md-10 my-4
 
 ---

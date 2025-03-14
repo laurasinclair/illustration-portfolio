@@ -1,16 +1,14 @@
 ---
-title: "Time Out"
-slug: "time-out"
+title: Time Out
 draft: false
-weight: "4"
+weight: 4
 isPublic: true
 
-project_content: {
-	bgColor: "#000000",
-	textColor: "#fff",
-	work: [ 
-		{class: "col-12 col-md-10", src: "img/illustration_time-out-01.png"}
-	]
-}
+project_content:
+  bgColor: "#000000"
+  work:
+    - type: image
+      src: img/illustration_time-out-01.png
+      class: col-lg-10
 
 ---

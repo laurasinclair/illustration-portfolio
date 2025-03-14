@@ -1,19 +1,16 @@
 ---
-title: "Goals"
-slug: "goals"
+title: Goals
 draft: false
-weight: "11"
+weight: 11
 isPublic: true
 
-project_content: {
-	bgColor: "#fdbf0b",
-	description: "This is an illustration I made for two reasons: \n
-	1. An hommage to the best thing in the world: sleeping 💛 \n
-	2. A big NO THANK YOU to the pressure that social media puts on us to be productive and set unreachable goals for ourselves. \n 
-	Instead, let's just be nice to ourselves, and to those around us.",
-	work: [ 
-		{class: "col-12 col-md-10", src: "img/illustration_goals-01.jpg"}
-	]
-}
+project_content:
+  description: |
+    This is an illustration I made for two reasons: <br />
+    1. An hommage to the best thing in the world: sleeping 💛 <br />
+    2. A big NO THANK YOU to the pressure that social media puts on us to be productive and set unreachable goals for ourselves.
+  work:
+    - type: image
+      src: img/illustration_goals-01.jpg
 
 ---

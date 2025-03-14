@@ -1,6 +1,5 @@
 ---
 title: RaiseNow
-slug: raisenow
 draft: false
 weight: 3
 isPublic: true
@@ -31,7 +30,6 @@ project_content:
     - group:
       - type: image
         src: img/rnw_13-3.jpg
-        alt: test
 
       - type: image
         src: img/rnw_icons.jpg
@@ -70,7 +68,7 @@ project_content:
       class: col-lg-6
 
     - type: link
-      src: "https://www.raisenow.com"
-      text: "www.raisenow.com"
+      src: https://www.raisenow.com
+      label: www.raisenow.com
 
 ---
