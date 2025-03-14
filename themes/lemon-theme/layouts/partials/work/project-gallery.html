@@ -3,7 +3,9 @@
 		<div class="row">
 			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
 			{{- if $illustrationSection -}}
-			{{- range $illustrationSection.Pages -}}
+			{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
+			{{- if eq .Key true -}} 
+			{{- range .Pages -}}
 			{{- $isFeatured := .Params.isFeatured -}}
 			<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
 				<div class="work-gallery_project">
@@ -26,6 +28,8 @@
 					</a>
 				</div>
 			</div>
+			{{- end -}}
+			{{- end -}}
 			{{- end -}}
 			{{- end -}}
 		</div>

@@ -1,25 +1,29 @@
 ---
-title: "Sleeping Buddies"
-slug: "sleeping-buddies"
+title: Sleeping Buddies
 draft: false
-weight: "6"
-isInRelatedProjects: true
+weight: 6
+isPublic: true
 
-block_project: {
-	bgcolor: "#000",
-	fontcolor: "#fff",
-	work: [ 
-		{class: "col-12", src: "img/illustration_sleeping-buddies-01.jpg"},
-		{
-			text: true, 
-			class: "col-12 text-center my-5 text-white", 
-			content: "Behind the scenes:"
-		},
-		{class: "col-6 col-md-3", src: "img/illustration_sleeping-buddies-03.png"},
-		{class: "col-6 col-md-3", src: "img/illustration_sleeping-buddies-04.png"},
-		{class: "col-6 col-md-3", src: "img/illustration_sleeping-buddies-05.png"},
-		{class: "col-6 col-md-3", src: "img/illustration_sleeping-buddies-06.png"},
-	]
-}
+project_content: 
+  bgColor: "#000"
+  theme: dark
+  work:
+    - type: image
+      src: img/illustration_sleeping-buddies-01.jpg
+
+    - type: text
+      content: |
+        Behind the scenes:
+      class: text-center
+
+    - group:
+      - type: image
+        src: img/illustration_sleeping-buddies-03.png
+      - type: image
+        src: img/illustration_sleeping-buddies-04.png
+      - type: image
+        src: img/illustration_sleeping-buddies-05.png
+      - type: image
+        src: img/illustration_sleeping-buddies-06.png
 
 ---

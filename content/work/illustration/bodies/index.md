@@ -1,21 +1,24 @@
 ---
-title: "Bodies"
+title: Bodies
 draft: false
-slug: "bodies"
-weight: "8"
-isInRelatedProjects: true
+weight: 8
+isPublic: true
 
-block_project: {
-	description: "This small series is about bodies, \n
-	taking our time, breathing, \n
-	being in touch with ourselves.",
-	bgcolor: "#020131",
-	fontcolor: "#fff",
-	work: [ 
-		{class: "col-12 col-md-7", src: "img/bubble-ladies_1.png"},
-		{class: "col-12 col-md-7", src: "img/bubble-ladies_2.png"},
-		{class: "col-12 col-md-7", src: "img/bubble-ladies_3.png"}
-	]
-}
-
+project_content:
+  bgColor: "#020131"
+  theme: dark
+  description: |
+    This small series is about bodies, <br />
+    taking our time to breath, <br />
+    being in touch with ourselves.
+  work:
+    - type: image
+      src: img/bubble-ladies_1.png
+      class: col-md-7
+    - type: image
+      src: img/bubble-ladies_2.png
+      class: col-md-7
+    - type: image
+      src: img/bubble-ladies_3.png
+      class: col-md-7
 ---

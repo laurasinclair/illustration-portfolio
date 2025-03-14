@@ -91,3 +91,30 @@ img
 
 .container-fluid
 	margin: 0 auto
+
+.breadcrumbs
+	ul
+		display: flex
+		align-items: center
+		font-weight: 400
+		li
+			&:not(:last-of-type)
+				&:after
+					content: '>'
+					margin: 0 8px
+					color: transparentize($white, 0.5)
+
+	a
+		padding: 8px 10px
+		font-weight: 400
+		color: transparentize($white, 0.5)
+		&.active
+			color: transparentize($white, 0.2)
+		&:hover
+			color: $white
+			path
+				fill: $white
+	svg
+		margin-bottom: 2px
+		path
+			fill: transparentize($white, 0.5)

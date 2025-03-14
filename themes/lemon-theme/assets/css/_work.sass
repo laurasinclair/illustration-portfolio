@@ -39,9 +39,6 @@
 					@extend .fw-bold
 					color: $white
 
-	br
-		margin-bottom: 1em
-
 	hr
 		margin-top: 50px
 		margin-bottom: 100px
@@ -52,27 +49,38 @@
 			margin-top: 200px
 			margin-bottom: 250px
 
-.work_single
-	&_text
-		a
-			@extend .fw-bold
-			line-height: 1.20
-			span
-				border-bottom: $border-width solid lighten(#18181b, 40%)
-	&_link
-		@extend .p-4
-		@extend .p-md-5
-		@extend .transition-2s
-		background-color: $indigo
-		display: inline-block
-		position: relative
-		border-radius: 4px
-		border: $border-width solid $indigo
-		&:hover
-			border: $border-width solid transparentize($white, 0.3)
-		a
-			@extend .lead
-			border-bottom: $border-width solid !important
-			color: $white
-			&:hover
+.work
+	&_single
+		&_hero
+			@extend .bg_dark
+			@extend .text-white
+			@extend .px-5
+			padding-top: 40px
+			&_text
+				@extend .py-5
+				p
+					font-weight: 400
+		&_showcase
+			@extend .pt-3
+			img
+				border-radius: 4px
+		&_text
+			a
+				@extend .fw-bold
+				line-height: 1.20
+				span
+					border-bottom: $border-width solid lighten(#18181b, 40%)
+		&_link
+			@extend .p-4
+			@extend .p-md-5
+			@extend .transition-2s
+			display: inline-block
+			border-radius: 4px
+			text-align: center
+			background-color: #878db02e
+			a
+				border-bottom: $border-width solid !important
+			&.theme-dark
+				background-color: #5657b857
 				color: $white
+			

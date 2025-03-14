@@ -1,6 +1,7 @@
 ---
 title: "Thank you for getting in touch!"
 slug: thank-you
+layout: full-page-two-columns
 optional:
    extraCSS: "bg_dark"
 content:
