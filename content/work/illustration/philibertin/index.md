@@ -4,9 +4,9 @@ slug: "philibertin-le-cruel"
 draft: true
 weight: "100"
 
-block_project: {
-	bgcolor: "#fff",
-	fontcolor: "#000",
+project_content: {
+	bgColor: "#fff",
+	textColor: "#000",
 	work: [ 
 		{class: "col-12 col-md-7", src: "img/phil_001.jpg"},
 		{class: "col-12 col-md-7", src: "img/phil_002.jpg"},

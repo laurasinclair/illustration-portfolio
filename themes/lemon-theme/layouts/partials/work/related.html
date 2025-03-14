@@ -1,8 +1,6 @@
 <section class="related">
 	<div class="container-fluid">
-		<div
-			class="row my-5 flex-column flex-md-row justify-content-center align-items-center"
-		>
+		<div class="row mb-5 flex-column flex-md-row justify-content-center align-items-center">
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
 					{{- if .NextInSection -}}
@@ -44,7 +42,9 @@
 	<div class="container-fluid" id="related_all">
 		<div class="row my-5">
 			{{- $relatedProjects := .Site.GetPage "section" "illustration" -}} 
-			{{- range ($relatedProjects.Pages.GroupByParam "isInRelatedProjects") -}} {{- if eq .Key true -}} {{- range .Pages -}}
+			{{- range ($relatedProjects.Pages.GroupByParam "isPublic") -}} 
+			{{- if eq .Key true -}} 
+			{{- range .Pages -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
@@ -54,7 +54,6 @@
 					</div>
 
 					<div class="card-img">
-						<!-- prettier-ignore -->
 						{{- $image := .Resources.GetMatch "thumbnail_*" -}} {{- with $image -}}
 						<div
 							class="card-img mb-3"
@@ -66,8 +65,9 @@
 					</div>
 				</div>
 			</div>
-			 
-			{{- end -}} {{- end -}} {{- end -}}
+			{{- end -}} 
+			{{- end -}} 
+			{{- end -}}
 		</div>
 		 
 	</div>

@@ -3,11 +3,11 @@ title: "Sleeping Buddies"
 slug: "sleeping-buddies"
 draft: false
 weight: "6"
-isInRelatedProjects: true
+isPublic: true
 
-block_project: {
-	bgcolor: "#000",
-	fontcolor: "#fff",
+project_content: {
+	bgColor: "#000",
+	textColor: "#fff",
 	work: [ 
 		{class: "col-12", src: "img/illustration_sleeping-buddies-01.jpg"},
 		{

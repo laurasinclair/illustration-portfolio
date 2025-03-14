@@ -3,12 +3,12 @@ title: "Night Out"
 slug: "night-out"
 draft: false
 weight: "10"
-isInRelatedProjects: true
+isPublic: false
 
-block_project: {
+project_content: {
 	description: "(description coming soon)",
-	bgcolor: "#0D0D0D",
-	fontcolor: "#fff",
+	bgColor: "#0D0D0D",
+	textColor: "#fff",
 	work: [ 
 		{class: "col-12 col-md-10", src: "img/illustration_night-out-01.jpg"},
 		{class: "col-12 col-md-6", src: "img/illustration_night-out-02.jpg"},

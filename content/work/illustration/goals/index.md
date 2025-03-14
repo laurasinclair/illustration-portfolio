@@ -3,10 +3,10 @@ title: "Goals"
 slug: "goals"
 draft: false
 weight: "11"
-isInRelatedProjects: true
+isPublic: true
 
-block_project: {
-	bgcolor: "#fdbf0b",
+project_content: {
+	bgColor: "#fdbf0b",
 	description: "This is an illustration I made for two reasons: \n
 	1. An hommage to the best thing in the world: sleeping 💛 \n
 	2. A big NO THANK YOU to the pressure that social media puts on us to be productive and set unreachable goals for ourselves. \n 

@@ -3,13 +3,13 @@ title: "Monsters"
 slug: "monsters"
 draft: false
 weight: "2"
-isInRelatedProjects: true 
+isPublic: true
 
-block_project: {
+project_content: {
 	description: "I've loved drawing monsters for as long as I can remember. \n
 	For this series, I've played with shapes and color palettes I don't often use. It was fun!",
-	fontcolor: "#fff",
-	bgcolor: "#000000",
+	textColor: "#fff",
+	bgColor: "#000000",
 	work: [
 		{class: "col-12 col-md-6 col-lg-4", src: "img/illustration_monsters-01.png"},
 		{class: "col-12 col-md-6 col-lg-4", src: "img/illustration_monsters-02.png"},

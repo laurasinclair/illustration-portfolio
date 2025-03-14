@@ -4,11 +4,11 @@ slug: "all-the-lives-we-ever-lived"
 draft: false
 weight: "100"
 isFeatured: true
-isInRelatedProjects: true
+isPublic: true
 
-block_project: {
-	bgcolor: "#151515",
-	fontcolor: "#fff",
+project_content: {
+	bgColor: "#151515",
+	textColor: "#fff",
 	work: [ 
 		{class: "col-12", src: "img/illustration_all-the-lives-01.jpg"},
 		{

@@ -1,118 +1,95 @@
 {{-  define "main" -}}
-<header class="mt-O bg_dark">
+<header class="mt-O bg_dark text-white">
 	<div class="container">
 		<div class="hero_large">
 			{{- $image := .Resources.GetMatch "project-title_*" -}}
 			{{- with $image -}}
 			<div class="row">
-				<div class="col-12 col-sm-8 col-md-6 mx-auto text-center">
+				<div class="col-12 col-sm-8 col-md-6 col-lg-5 mx-auto text-center">
 					<img src="{{ .Permalink | absURL }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Params.Title }}">
 				</div>
 			</div>
 			{{- else -}}
-			<h2 class="text-center mx-auto">{{ (replace .Params.title "\n" "<br>") | safeHTML }}</h2>
+			<h2 class="text-center mx-auto">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
 			{{- end -}}
 		</div>
 	</div>  
 </header>
 
-{{- if isset .Params "block_project" -}}
-<section id="work"{{ if isset .Params.block_project "bgcolor" }} style="background-color: {{ .Params.block_project.bgcolor }}"{{ else }} style="background-color: #f1f1f7;"{{ end }}>
+{{- if isset .Params "project_content" -}}
+{{- $backgroundColor := .Params.project_content.bgColor | default "#f1f1f7" -}}
+{{- $theme := .Params.project_content.theme }}
+<section 
+	id="work"
+	{{- if eq $theme "dark" -}}
+	class="theme-dark"
+	{{- end -}}
+	{{- with $backgroundColor -}}
+	style="background-color: {{ . }}"
+	{{- end -}}
+>
 	<div class="container-fluid">
-		{{- if isset .Params.block_project "description" -}}
+		{{ if isset .Params.project_content "description" -}}
 		<div class="row">
 			<div class="col-12 col-md-8 col-lg-6 mx-auto mb-5">
-				<p class="description text-center"{{ if isset .Params.block_project "fontcolor" }} style="color: {{ .Params.block_project.fontcolor }}"{{ end }}>
-				{{- (replace .Params.block_project.description "\n" "<br>") | safeHTML -}}
+				<p class='description text-center relative {{if eq $theme "dark"}}text-white{{end}}'>
+					{{ (replace .Params.project_content.description "\n" "<br>") | safeHTML }}
 				</p>
 			</div>
 		</div>
 		{{- end -}}
 
-		<div class="row">
-			{{- $title := print .Page.Title " | " .Site.Title -}}
-			{{- range .Params.block_project.work -}}
-
-			{{- if .text -}}
-			<div {{ if .class }}class="{{ .class }}"{{ else }}class="col-12 col-md-10 col-lg-8 col-xl-6 col-xxl-4 offset-lg-1 offset-xl-2 offset-xxl-3 pt-5 mt-5 mb-5 pb-5"{{ end }}{{ if .id }} id="{{ .id }}"{{ end }}>
-				{{- if .title -}}
-				<h3 class="display-4 fw-medium mb-4">{{ (replace .title "\n" "<br>") | safeHTML }}</h3>
-				{{- end -}}
-		
-				{{- if .text -}}
-				<p class="work_single_text fs-5">
-					{{ (replace .content "\n" "<br>") | safeHTML }}
-				</p>
-				{{- end -}}
-		
-				{{- if .list -}}
-				<div class="work_single_list fs-5">
-					<ul class="arrow">
-						{{- range .list -}}
-						<li>
-							<p>{{ . }}</p>
-						</li>
-						{{- end -}}
-					</ul>
+		<div>
+			{{ range .Params.project_content.work -}}
+			<div class="row">
+				{{- if .group -}}
+				{{- range .group -}}
+				<div class="col-12 col-md mt-4 mb-5">					
+					{{ if eq .type "image" }}
+						{{ partial "work/image.html" . -}}
+					{{- else if eq .type "text" }}
+						{{ partial "work/text.html" (merge . (dict "theme" $theme)) }}
+					{{- else if eq .type "list" }}
+						{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
+					{{- else if eq .type "link" }}
+						{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+					{{- end }} <!-- checking exact file type -->
 				</div>
+				{{- end -}} <!-- range .group -->
+				{{- else if .type -}}
+				{{- if .sectionTitle -}}
+				{{ partial "work/section-title.html" (merge . (dict "theme" $theme))}}
 				{{- end -}}
-				
-				{{- if .link -}}
-				<div class="work_single_link">
-					<p class="mb-1">Come have a look!</p>
-					{{- $image := resources.Get "css/assets/icon_open-new-window.svg" -}}
-					<a href="{{.src}}" target="_blank" class="link_new-window stretched-link">{{ .text }}</a>
+				{{ if eq .type "image" }}
+				<div class="col-12 mt-4 mb-5 mx-auto d-flex justify-content-center {{with .class}}{{.}}{{end}}">
+					{{ partial "work/image.html" . }}
 				</div>
-				{{- end -}}
-			</div>  
-		
-			 <!-- this is a fix, to make sure the text column takes up the whole width if it doesn't have a class -->
-			{{- if .class -}}
-			{{- else -}}
-			<div class="d-none d-sm-block col-xl-4">
-				&nbsp;
-			</div>  
-			{{- end -}}
-				
-			{{- else if .gallery -}}
-			{{- if .images -}}
-			{{ $imagescount := .images }}
-			<div class="col-12 col-xl-10 mx-auto mb-5">
-				<div class="container-fluid row"{{ if .id }} id="{{ .id }}"{{ end }}>
-					{{- range .images -}}
-					{{- if .src -}}
-					<div class="col-6 col-md-{{if (eq (len $imagescount) 2)}}6{{else if (eq (len $imagescount) 3)}}4{{else if (eq (len $imagescount) 4)}}3{{else}}12{{end}} prout">
-						<img src="{{ $.Permalink | absURL  }}{{.src}}" class="mb-5" alt="{{ $title }}">
-					</div>  
-					{{- end -}}
-					{{- end -}}
-				</div>  
-			</div>  
-			{{- end -}}
-	
-			{{- else -}}
-			{{- $image := .Resources.GetMatch "block_project" "work" -}}
-			<div class="{{ .class }} mx-auto mb-4 mb-md-5">
-				<img src="{{ $.Permalink | absURL  }}{{.src}}" class="mb-5" alt="{{ $title }}"{{ if .id }} id="{{ .id }}"{{ end }}>
+				{{- else if eq .type "text" }}
+					{{ partial "work/text.html" (merge . (dict "theme" $theme)) }}
+				{{- else if eq .type "list" }}
+					{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
+				{{- else if eq .type "link" }}
+					{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+				{{- end -}} <!-- checking exact file type -->
+				{{- end -}} <!-- if .group or .type -->
 			</div>
-			{{- end -}}
-			{{- end -}}
-		</div>  
+			{{- end -}} <!-- range .Params.project_content.work -->
+		</div>
 	</div>  
 </section>
 <div 
-	class="bg_dark mask_bottom" 
-	{{ with .Params.block_project.bgcolor }}
+	class="bg_dark mask_bottom"
+	{{ with $backgroundColor}}
 	style="background-color: {{ . }}"
 	{{ end }}>
 </div>
 
 {{- end -}}
 
-{{- partial "work/related-projects.html" . -}}
+{{- partial "work/related.html" . -}}
 
 <div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
-		{{ partial "social-links.html"}}
-	</div>
+	{{ partial "social-links.html"}}
+</div>
 
 {{- end -}}

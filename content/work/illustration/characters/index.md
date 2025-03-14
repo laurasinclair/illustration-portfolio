@@ -3,9 +3,10 @@ title: "Characters"
 slug: "characters"
 draft: false
 weight: "7"
-isInRelatedProjects: true
+isPublic: true
 
-block_project: {
+project_content: {
+	bgColor: "#e8e8e8",
 	description: "I've always loved observing and drawing the world around me, and paying attention to details. \n
 	Over the years, I have drawn hundreds of characters! Here are a few of them.",
 	work: [ 

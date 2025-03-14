@@ -1,12 +1,11 @@
 ---
 title: "Inktober 2022"
-slug: "inktober-2022"
 draft: false
 weight: "8"
-isInRelatedProjects: true
+isPublic: true
 
-block_project: {
-	bgcolor: "#fff",
+project_content: {
+	bgColor: "#fff",
 	description: "A selection of illustrations made for <a href=\"https://inktober.com\" target=\"_blank\" class=\"link_new-window\"><span>Inktober 2022</span></a>. \n
 	To make each day quick and efficient (yet fun and lively!), I used a curated palette of three main colors, and a style that could be easily replicated each day.",
 	work: [ 

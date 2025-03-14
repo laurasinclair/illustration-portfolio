@@ -3,6 +3,7 @@ title: About
 slug: about
 draft: false
 layout: about
+
 content:
    heading: About
    catchphrase: Hey there 👋

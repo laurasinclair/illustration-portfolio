@@ -27,3 +27,8 @@
   from = "/work"
   to = "/#work"
   status = 301
+
+[[redirects]]
+	from = "/*"
+	to = "/404/"
+	status = 404
