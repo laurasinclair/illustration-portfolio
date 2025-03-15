@@ -6,31 +6,29 @@
 {{- $description := .Params.project_content.description -}}
 
 <div class='work_single theme-{{- if eq $theme "dark" -}}dark{{- else -}}light{{- end -}}'>
-	<header class="work_single_hero">
-		{{- $image := .Resources.GetMatch "project-title_*" -}}
-		{{- with $image -}}
-		<div class="work_single_hero_image row">
-			<div class="col-12 col-md-6 mx-auto text-center px-0 pb-5">
+	<header class="work_single_hero bg_dark text_white container-fluid">
+		<div class="row">
+			{{- $image := .Resources.GetMatch "project-title_*" -}}
+			{{- with $image -}}
+			<div class="col-12 col-md-6 mx-auto text-center pb-5">
 				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3" />
 				{{ with $description -}}
-				<p>
+				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
 				</p>
 				{{- end -}}
 			</div>
-		</div>
-		{{- else -}}
-		<div class="work_single_hero_text row">
-			<div class="col-12 col-md-6 px-0 pb-5">
+			{{- else -}}
+			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 my-4">
 				<h2 class="mb-3">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
 				{{ with $description -}}
-				<p class="mb-0">
+				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
 				</p>
 				{{- end -}}
 			</div>
+			{{- end -}} <!-- if/else there's a title image in the folder -->
 		</div>
-		{{- end -}} <!-- if/else there's a title image in the folder -->
 	</header>
 
 	<section
@@ -39,7 +37,7 @@
 		style="background-color: {{ . }}"
 		{{- end -}}
 	>
-		<div class="container-fluid">
+		<div class="container-fluid ">
 			{{ range .Params.project_content.work -}}
 			<div class="row">
 				{{- if .group -}}

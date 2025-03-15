@@ -48,14 +48,7 @@
 					color: map.get($colors, "white")
 	&_single
 		&_hero
-			@extend .bg_dark
-			@extend .text_white
-			@extend .px-5
 			padding-top: 40px
-			&_text
-				@extend .py-5
-				p
-					font-weight: 400
 		&_showcase
 			@extend .pt-3
 			img
@@ -65,16 +58,13 @@
 				@extend .fw_bold
 				line-height: 1.20
 		&_link
-			@extend .p-4
-			@extend .p-md-5
-			@extend .transition-2s
-			display: inline-block
 			border-radius: 4px
-			text-align: center
 			background-color: #878db02e
 			a
+				font-size: 1.2em
 				border-bottom: $border-width solid !important
 			&.theme-dark
+				p, a
+					@extend .text_white
 				background-color: #5657b857
-				color: map.get($colors, "white")
 			
