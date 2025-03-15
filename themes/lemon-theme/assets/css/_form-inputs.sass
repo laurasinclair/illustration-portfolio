@@ -1,0 +1,75 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities" as *;
+@use "sass:map"
+
+label
+	@include label
+
+input
+	&[type=text],
+	&[type=email]
+		@include input
+
+textarea
+	@include textarea
+
+button.btn_submit
+	@extend .btn_primary_dark
+		
+.checkbox-animated
+	list-style: none
+	li
+		@extend .d-inline-block
+		margin-right: 10px
+		input[type="checkbox"]
+			&:hover
+				cursor: pointer
+				& + label
+					@extend .bg_secondary
+			&:checked
+				& + label
+					@extend .bg_dark
+					@extend .text_white
+					@extend .transition-2s
+					border: $border-width solid map.get($colors, "dark")
+					&::before
+						content: ''
+						background-image: url('assets/icon_check-1.svg')
+						transform: rotate(-360deg)
+							transition: transform .3s ease-in-out
+			&:focus
+				& + label
+					@extend .bg_secondary
+		label
+			@extend .d-inline-block
+			@extend .text_dark
+			@extend .transition-2s
+			background: transparent
+			border: $border-width solid map.get($colors, "dark") !important
+			border-radius: 25px
+			white-space: nowrap
+			margin: 5px 0px
+			padding: 8px 14px
+			-webkit-touch-callout: none
+			-webkit-user-select: none
+			-moz-user-select: none
+			-ms-user-select: none
+			user-select: none
+			-webkit-tap-highlight-color: transparent
+			cursor: pointer
+			&::before
+				display: inline-block
+				background-image: url('assets/icon_plus.svg')
+				padding: 2px 6px 2px 2px
+				content: ''
+				margin-right: 10px
+				background-repeat: no-repeat
+				background-size: cover
+				width: 14px
+				height: 14px
+				transition: transform .3s ease-in-out
+		input[type="checkbox"]
+			display: absolute
+			position: absolute
+			opacity: 0

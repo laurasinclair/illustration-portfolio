@@ -1,3 +1,9 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities";
+@use "sass:map"
+@use "sass:color"
+
 .work
 	&_gallery
 		&_project
@@ -9,7 +15,7 @@
 			img.featured
 				width: 100%
 				background-color: #151515 // a bit arbitrary, it's the "all the lives we ever lived" background
-				@include media-breakpoint-up(md)
+				@include bootstrap.media-breakpoint-up(md)
 					aspect-ratio: 2.2/1
 					object-fit: cover
 			&:hover,
@@ -17,13 +23,13 @@
 			&:active
 				@extend .transition-2s
 				@extend .no-outline
-				box-shadow: 0 20px 60px transparentize($dark, 0.8)
+				box-shadow: 0 20px 60px color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 				> div
 					@extend .transition-2s
 					opacity: 1
 			&_title
-				background-color: $dark
-				color: $white
+				@extend .bg_dark
+				@extend .text_white
 				transition: transform 1000ms cubic-bezier(.32,0,.07,1)
 				opacity: 0
 				position: absolute
@@ -31,19 +37,19 @@
 				bottom: 10px
 				padding: 6px 14px
 				display: block
-				border: 1px solid transparentize($white, 0.8)
-				@include media-breakpoint-up(md)
+				border: 1px solid color.adjust(map.get($colors, "white"), $alpha: -0.8)
+				@include bootstrap.media-breakpoint-up(md)
 					left: 34px
 					bottom: 25px
 					padding: 8px 16px
-					font-size: $font-size-base * 1.1
+					font-size: bootstrap.$font-size-base * 1.2
 				a
-					@extend .fw-bold
-					color: $white
+					@extend .fw_bold
+					color: map.get($colors, "white")
 	&_single
 		&_hero
 			@extend .bg_dark
-			@extend .text-white
+			@extend .text_white
 			@extend .px-5
 			padding-top: 40px
 			&_text
@@ -56,10 +62,8 @@
 				border-radius: 4px
 		&_text
 			a
-				@extend .fw-bold
+				@extend .fw_bold
 				line-height: 1.20
-				span
-					border-bottom: $border-width solid lighten(#18181b, 40%)
 		&_link
 			@extend .p-4
 			@extend .p-md-5
@@ -72,5 +76,5 @@
 				border-bottom: $border-width solid !important
 			&.theme-dark
 				background-color: #5657b857
-				color: $white
+				color: map.get($colors, "white")
 			

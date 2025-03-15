@@ -1,6 +1,6 @@
 {{ define "main" }}
-<div id="contact">
-	<header class="container-fluid">
+<header class="bg_dark text_white">
+	<div class="container-fluid">
 		<div class="row pb-4 pb-md-5">
 			<div class="col-12 col-md-5 d-flex flex-column justify-content-center pb-4 pb-md-0 ps-md-4 ps-lg-5">
 				<h1 class="pb-3">{{.Params.content.heading}}</h1>
@@ -19,17 +19,17 @@
 				</picture>
 			</div>
 		</div>
-	</header>
-	<div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
-
-	<div class="container-fluid row mb-4">
-		<div class="col-12 col-lg-9 mx-auto">
-			{{ partial "footer/contact-form.html" . }}
-		</div>
 	</div>
+</header>
+<div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
 
-	<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
-		{{ partial "social-links.html"}}
+<div class="container-fluid row mb-4">
+	<div class="col-12 col-lg-9 mx-auto">
+		{{ partial "footer/contact-form.html" . }}
 	</div>
+</div>
+
+<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
+	{{ partial "social-links.html"}}
 </div>
 {{ end }}

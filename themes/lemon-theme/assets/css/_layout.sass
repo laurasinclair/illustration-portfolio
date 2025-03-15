@@ -1,0 +1,90 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities" as *;
+@use "sass:map"
+@use "sass:color"
+
+#all
+	min-height: 100vh
+	display: grid
+	grid-template-columns: [main] auto
+	@include bootstrap.media-breakpoint-up(md)
+		grid-template-columns: [sidebar] 7% [main] auto
+
+#sidebar
+	@extend .d-none
+	@extend .d-md-block
+	@extend .bg_dark
+	border-right: 1px solid color.adjust(map.get($colors, "white"), $alpha: -0.5)
+	a
+		@extend .text_white
+	p
+		@extend .p-0
+		@extend .m-0
+		width: fit-content
+		white-space: nowrap
+		text-align: right
+		transform-origin: center
+		&:first-of-type
+			transform: rotate(-90deg) translateX(-50%)
+		&:last-of-type
+			transform: rotate(-90deg) translateX(50%)
+	&>div
+		padding-top: 1em
+		padding-bottom: 1em
+		height: 100vh
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+		top: 0
+		position: sticky
+	#logo,
+	.icon-lemon
+		opacity: 0
+		&:hover,
+		&:active,
+		&:focus
+			@extend .no-outline
+	#logo
+		a, p
+			@extend .fw_medium
+		&:hover,
+		&:active,
+		&:focus
+			@extend .no-outline
+
+section
+	padding-top: 2em
+	padding-bottom: 2em
+	@include bootstrap.media-breakpoint-up(sm)
+		padding-top: 2.5em
+		padding-bottom: 2.5em
+	@include bootstrap.media-breakpoint-up(md)
+		padding-top: 3em
+		padding-bottom: 3em
+	@include bootstrap.media-breakpoint-up(lg)
+		padding-top: 4em
+		padding-bottom: 4em
+	@include bootstrap.media-breakpoint-up(xl)
+		padding-top: 5em
+		padding-bottom: 5em
+
+footer
+	margin-top: -40px
+	.collapsible // collapsible content in the footer
+		&-wrapper
+			.toggle // the actual checkbox
+				display: none
+				&-label
+					cursor: pointer
+
+		&-content
+			max-height: 0px
+			overflow: hidden
+			transition: max-height .25s ease-in-out
+			
+			> div
+				max-width: 920px
+		&-open
+			max-height: 100vh

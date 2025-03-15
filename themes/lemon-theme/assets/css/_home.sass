@@ -1,37 +1,32 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "utilities";
+
 .home
 	header.hero
-		@extend .bg_dark
-		@extend .text-white
 		margin-bottom: -1px // chrome fix: lines between divs
 		padding-top: 60px
 		overflow-x: clip !important
-		h2
-			@extend .mb-3
-			@include media-breakpoint-up(lg)
-				font-size: 3em
+		h1
+			@include bootstrap.media-breakpoint-up(lg)
 				margin-top: 1.5em
-			@include media-breakpoint-up(xl)
+			@include bootstrap.media-breakpoint-up(xl)
 				margin-top: 3em
 				margin-bottom: 3em
-			&+a, 
-			&+a:visited
-				@extend .text-white
-				@extend .mb-5
 		#grapes
 			z-index: 8
 			margin-bottom: -135px
-			@include media-breakpoint-up(lg)
+			@include bootstrap.media-breakpoint-up(lg)
 				margin-bottom: -95px
 			img
 				max-width: 120%
 				transform: translateX(-10%)
-				@include media-breakpoint-up(md)
+				@include bootstrap.media-breakpoint-up(md)
 					max-width: 100%
 					transform: initial
 
 // animated text 
-.cd-headline
-	.cd-words-wrapper
+.animated-text
+	&_wrapper
 		display: inline-block
 		position: relative
 		text-align: left
@@ -56,14 +51,15 @@
 			&.out
 				animation: scale-down 4.6s forwards
 
-.is-visible 
-	.cd-headline
-		&.scale 
-			i
+.no-js 
+	.animated-text_wrapper
+		b
+			opacity: 0
+			&.is-visible
 				opacity: 1
 
-.no-csstransitions 
-	.cd-headline
+.no-csstransitions
+	.animated-text
 		&.scale 
 			i
 				transform: scale(1)

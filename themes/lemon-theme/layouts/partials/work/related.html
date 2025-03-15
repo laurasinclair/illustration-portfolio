@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="col order-3 order-md-2 text-center">
-				<button id="toggle" class="fw-bold">
+				<button id="toggle" class="fw_bold">
 					<span style="color: #000">All projects</span>
 				</button>
 			</div>
@@ -39,7 +39,7 @@
 		</div>
 	</div>
 
-	<div class="container-fluid" id="related_all">
+	<div class="related_all container-fluid">
 		<div class="row my-5">
 			{{- $relatedProjects := .Site.GetPage "section" "illustration" -}} 
 			{{- range ($relatedProjects.Pages.GroupByParam "isPublic") -}} 
@@ -48,7 +48,7 @@
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
-						<a href="{{.Permalink}}" class="stretched-link"
+						<a href="{{.Permalink}}" class="stretched-link fw_bold"
 							>{{.Title | truncate 16 "…" }}</a
 						>
 					</div>
@@ -75,7 +75,7 @@
 <script type="text/javascript">
 	let button = document.getElementById("toggle");
 	button.addEventListener("click", () => {
-		document.getElementById("related_all").classList.toggle("active");
+		document.querySelector(".related_all").classList.toggle("active");
 		document.getElementById("toggle").classList.toggle("active");
 	});
 </script>

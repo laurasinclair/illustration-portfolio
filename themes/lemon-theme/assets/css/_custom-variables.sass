@@ -1,0 +1,47 @@
+@use "sass:map"
+
+// Typography
+$font-weight-medium: 400
+$font-weight-book: 600
+$font-weight-bold: 700
+$font-weight-black: 900
+
+$font-weights: (
+    "medium": $font-weight-medium,
+    "book": $font-weight-book,
+    "bold": $font-weight-bold,
+    "black": $font-weight-black,
+)
+
+@mixin font-weight($weight)
+    font-weight: map.get($font-weights, $weight)
+    
+$font-family: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif
+
+@mixin bg-color($color)
+    background-color: map.get($colors, $color)
+
+// Colors
+$indigo: #6562FF
+$yellow: #FFC107
+$red: #FF5C00
+$light: #f1f6f9
+$white: #fff
+$grey: #dbdbdb
+$black: #000
+
+$colors: (
+    "primary": $indigo,
+    "secondary": $yellow,
+    "tertiary": $red,
+    "light": $grey,
+    "white": $white,
+    "grey": $grey,
+    "dark": $black
+)
+
+// Layout
+$grid-gutter-width: 55px !default
+
+// Recurring
+$border-width: 1.8px

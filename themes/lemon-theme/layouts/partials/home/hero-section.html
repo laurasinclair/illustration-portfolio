@@ -1,21 +1,21 @@
 {{ with site.GetPage "home" }}
-<header class="hero">
+<header class="hero bg_dark text-white">
 	<div class="row flex-column flex-sm-row">
 		<div
 			class="col-12 col-md-6 px-4 px-lg-5 d-flex flex-column justify-content-center"
 		>
-			<h2 class="mt-0 mb-3 cd-headline letters scale">
+			<h1 class="mt-0 mb-3 animated-text letters scale">
 				{{ .Site.Title }} {{ .Params.hero_section.heading.part_one }}
-				<span class="cd-words-wrapper">
-					<b class="text-secondary is-visible">fun & happy</b>
-					<b class="text-primary">handmade</b>
-					<b class="text-tertiary">off-beat</b>
+				<span class="animated-text_wrapper">
+					<b class="text_secondary is-visible">fun & happy</b>
+					<b class="text_primary">handmade</b>
+					<b class="text_tertiary">off-beat</b>
 				</span>
 				{{ .Params.hero_section.heading.part_two }}
-			</h2>
+			</h1>
 
-			<a href="#work">
-				<span class="text-white fw-medium" style="font-size: 1.2rem">
+			<a href="#work" class="text_white mb-5">
+				<span class="text_white fw_medium" style="font-size: 1.2rem">
 					{{ .Params.hero_section.cta }}
 				</span>&nbsp;<img src='{{ "css/assets/icon_arrow-bottom.svg" | absURL }}'
 				alt=">" width="12">

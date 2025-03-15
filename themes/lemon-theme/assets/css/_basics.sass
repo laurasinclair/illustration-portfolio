@@ -1,94 +1,41 @@
+@use "bootstrap/scss/bootstrap" as bootstrap
+@use "custom-variables" as *;
+@use "utilities" as *;
+@use "sass:map"
+
+*
+	box-sizing: border-box
+	&:focus
+		outline: 1px dotted map.get($colors, "dark")
+		outline-offset: 2px
+
+html
+	scroll-behavior: smooth !important
+
+:root
+	font-family: $font-family
+	font-synthesis: none
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	-webkit-text-size-adjust: 100%
+
+::-moz-selection,
+::selection
+	color: map.get($colors, "dark")
+	background: map.get($colors, "secondary")
+
 body
-	@extend .bg_light-stardust
-	@extend .fw-medium !optional
-	color: $gray-900
-	position: relative
-	font-size: $font-size-base
-	font-family: $font-family-sans-serif
+	@extend .bg_white_stardust
+	@extend .fw_medium
+	@extend .text_dark
+	@extend .position-relative
+	font-family: $font-family
+	font-size: bootstrap.$font-size-base * 1.2
 
-#all
-	min-height: 100vh
-	display: grid
-	grid-template-columns: [main] auto
-	@include media-breakpoint-up(md)
-		grid-template-columns: [sidebar] 7% [main] auto
+.container-fluid
+	margin: 0 auto
 
-#sidebar
-	@extend .d-none
-	@extend .d-md-block
-	@extend .bg_dark
-	border-right: 1px solid #666
-	a
-		@extend .text-white
-	p
-		width: fit-content
-		white-space: nowrap
-		text-align: right
-		padding: 0
-		margin: 0
-		transform-origin: center
-		&:first-of-type
-			transform: rotate(-90deg) translateX(-50%)
-		&:last-of-type
-			transform: rotate(-90deg) translateX(50%)
-	&>div
-		padding-top: 1em
-		padding-bottom: 1em
-		height: 100vh
-		display: flex
-		flex-direction: column
-		justify-content: space-between
-		align-items: center
-		top: 0
-		position: sticky
-	#logo,
-	.icon-lemon
-		opacity: 0
-		&:hover,
-		&:active,
-		&:focus
-			@extend .no-outline
-	#logo
-		a, p
-			@extend .fw-medium
-		// font-size: $font-size-base * 1.2
-		&:hover,
-		&:active,
-		&:focus
-			@extend .no-outline
-
-footer
-	margin-top: -40px
-	#get-in-touch
-		padding-top: 5em
-		padding-bottom: 5em
-	.collapsible // collapsible content in the footer
-		&-wrapper
-			.toggle // the actual checkbox
-				display: none
-				&-label
-					cursor: pointer
-
-		&-content
-			max-height: 0px
-			overflow: hidden
-			transition: max-height .25s ease-in-out
-			
-			> div
-				max-width: 920px
-		&-open
-			max-height: 100vh
-.social
-	&-icon,
-	&-icon:visited
-		display: block
-		&:first-of-type
-			margin-left: 0 !important
-		&:last-of-type
-			margin-right: 0 !important
-		svg
-			width: 30px
-			height: 30px
 a,
 a:hover,
 a:focus,
@@ -96,20 +43,28 @@ a:active,
 span
 	@extend .no-outline
 
-@mixin icon
+a,
+a:visited,
+.link
+	@extend .fw_black
+	@extend .text_primary
+	text-decoration: none
+	span
+		border-bottom: 1px solid
+	svg
+		@extend .transition-2s
 	&:hover,
+	&:active,
 	&:focus
-		transition: all 0.2s ease-in-out
-		outline: none
-		svg path
-			fill: $primary
+		@extend .text_primary
+		@extend .transition-2s
+		text-decoration: none
+		span,
+		&.link
+			border-bottom: $border-width solid
 
-.icon
-	&-dark
-		@include icon
-		svg path
-			fill: $gray-900
-	&-light
-		@include icon
-		svg path
-			fill: $white
+img
+	max-width: 100%
+	max-height: 100%
+	display: inline-block
+	height: auto

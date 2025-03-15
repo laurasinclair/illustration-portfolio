@@ -1,82 +1,85 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities" as *;
+
 @font-face
 	font-family: 'CircularStd'
 	src: url('/fonts/circularstd/CircularStd-Black.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Black.woff') format('woff'), url('/fonts/circularstd/CircularStd-Black.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Black.svg#CircularStd-Black') format('svg')
-	font-weight: $font-weight-black
+	@include font-weight("black")
 	font-style: normal
 
 @font-face
 	font-family: 'CircularStd'
 	src: url('/fonts/circularstd/CircularStd-Bold.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Bold.woff') format('woff'), url('/fonts/circularstd/CircularStd-Bold.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Bold.svg#CircularStd-Bold') format('svg')
-	font-weight: $font-weight-bold
+	@include font-weight("bold")
 	font-style: normal
 
 @font-face
 	font-family: 'CircularStd'
 	src: url('/fonts/circularstd/CircularStd-Book.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Book.woff') format('woff'), url('/fonts/circularstd/CircularStd-Book.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Book.svg#CircularStd-Book') format('svg')
-	font-weight: $font-weight-book
+	@include font-weight("book")
 	font-style: normal
 
 @font-face
 	font-family: 'CircularStd'
 	src: url('/fonts/circularstd/CircularStd-Medium.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Medium.woff') format('woff'), url('/fonts/circularstd/CircularStd-Medium.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Medium.svg#CircularStd-Medium') format('svg')
-	font-weight: $font-weight-medium
+	@include font-weight("medium")
 	font-style: normal
 
 h1
-	@extend .fw-bold
-	font-size: $font-size-base * 1.8
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 2
-	@include media-breakpoint-up(md)
-		font-size: $font-size-base * 2.2
-	@include media-breakpoint-up(lg)
-		font-size: $font-size-base * 2.5
-	@include media-breakpoint-up(xl)
-		font-size: $font-size-base * 2.7
+	@extend .fw_bold
+	font-size: bootstrap.$font-size-base * 1.8
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 2
+	@include bootstrap.media-breakpoint-up(md)
+		font-size: bootstrap.$font-size-base * 2.2
+	@include bootstrap.media-breakpoint-up(lg)
+		font-size: 3em
 
 h2
-	@extend .fw-bold
-	font-size: $font-size-base * 1.8
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 2.2
-	@include media-breakpoint-up(lg)
-		font-size: $font-size-base * 2.4
-	@include media-breakpoint-up(xl)
-		font-size: $font-size-base * 2.6
+	@extend .fw_bold
+	font-size: bootstrap.$font-size-base * 1.8
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 2.2
+	@include bootstrap.media-breakpoint-up(lg)
+		font-size: bootstrap.$font-size-base * 2.4
+	@include bootstrap.media-breakpoint-up(xl)
+		font-size: bootstrap.$font-size-base * 2.6
 
 h3
-	font-size: $font-size-base * 1.4
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 1.6
-	@include media-breakpoint-up(md)
-		font-size: $font-size-base * 1.8
-	@include media-breakpoint-up(lg)
-		font-size: $font-size-base * 2
+	font-size: bootstrap.$font-size-base * 1.4
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 1.6
+	@include bootstrap.media-breakpoint-up(md)
+		font-size: bootstrap.$font-size-base * 1.8
+	@include bootstrap.media-breakpoint-up(lg)
+		font-size: bootstrap.$font-size-base * 2
 
 h4
-	font-size: $font-size-base * 1.2
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 1.4
-	@include media-breakpoint-up(md)
-		font-size: $font-size-base * 1.6
+	font-size: bootstrap.$font-size-base * 1.2
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 1.4
+	@include bootstrap.media-breakpoint-up(md)
+		font-size: bootstrap.$font-size-base * 1.6
 
 h5
-	font-size: $font-size-base * 1
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 1.2
-	@include media-breakpoint-up(md)
-		font-size: $font-size-base * 1.4
+	font-size: bootstrap.$font-size-base * 1
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 1.2
+	@include bootstrap.media-breakpoint-up(md)
+		font-size: bootstrap.$font-size-base * 1.4
 
 p,
 li
-	@include media-breakpoint-up(sm)
-		// font-size: $font-size-base * 1.2
+	@include bootstrap.media-breakpoint-up(sm)
+		// font-size: bootstrap.$font-size-base * 1.2
 
 .lead
-	font-size: $font-size-base * 1.1
-	@include media-breakpoint-up(sm)
-		font-size: $font-size-base * 1.2
+	@extend .fw_book
+	font-size: bootstrap.$font-size-base * 1.1
+	@include bootstrap.media-breakpoint-up(sm)
+		font-size: bootstrap.$font-size-base * 1.2
 
 .label
-	@extend .fw-bold
-	font-size: $font-size-base * 1
+	@extend .fw_bold
+	font-size: bootstrap.$font-size-base * 1

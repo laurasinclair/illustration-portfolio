@@ -1,24 +1,23 @@
-<nav>
+<nav class="bg_dark">
 	<div class="container-fluid navigation">
-		{{- if .Site.Menus.main -}}
-		<div
-			class="menu d-md-flex justify-content-between align-items-center">
-			<div class="menu_nav-element_logo">
-				<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+		{{- if .Site.Menus.main }}
+		<div class="menu d-md-flex justify-content-between align-items-center">
+			<div class="menu_nav-element_logo mt-4">
+				<a href="{{ .Site.BaseURL }}" class="ps-0">{{ .Site.Title }}</a>
 			</div>
 
 			<div class="menu_navbar">
-				{{- $current := . -}}
+				{{ $current := . -}}
 				{{- range .Site.Menus.main -}}
 				{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
 				{{- $active = or $active (eq .Name $current.Title) -}}
 				{{- $active = or $active (and (eq .Name "Work") (eq $current.Section "work")) -}}
-				<div class="menu_nav-element_link">
-					<a href="{{ .URL }}">{{ .Name }}</a>
+				<div class="menu_nav-element_link mt-5 {{with $active}}active{{end}}">
+					<a href="{{ .URL }}" class="bg_dark">{{ .Name }}</a>
 				</div>
-				{{- end -}}
+				{{- end }} <!-- range menu elements -->
 			</div>
 		</div>
-		{{- end -}}
+		{{- end }} <!-- if menu exists -->
 	</div>
 </nav>
