@@ -1,6 +1,6 @@
 <footer>
 	<div class="bg_secondary mask_top"></div>
-	<div id="get-in-touch" class="bg_secondary">
+	<div id="get-in-touch" class="bg_secondary py-5">
 		<div class="container">
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto">
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="p-4 bg_white w-100 footer-info mb-5 mb-lg-0">
+	<div class="p-4 bg_light w-100 footer-info mb-5 mb-lg-0">
 		<div class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around">
 			<div>
 				{{ site.Data.footer.website_info.message }}
@@ -36,7 +36,7 @@
 
 		<div class="collapsible-wrapper">
 			<div class="collapsible-content">
-				<div class="pt-3 mb-4">
+				<div class="pt-3 mb-4"> <!--// on mobile, keeps space for nav buttons -->
 					{{ site.Data.footer.website_info.content | safeHTML }}
 				</div>
 			</div>

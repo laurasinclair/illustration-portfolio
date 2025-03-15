@@ -1,8 +1,16 @@
 @use "bootstrap/scss/bootstrap" as bootstrap;
-@use "custom-variables" as *;
-@use "utilities";
+@use "../custom-variables" as *;
+@use "../utilities";
 @use "sass:map"
 @use "sass:color"
+
+@mixin nav-element
+	a // common to all nav elements
+		@extend .text_white
+		@extend .fw_book
+		@extend .d-block
+		padding: 6px 14px
+		pointer-events: fill
 
 nav
 	margin-bottom: -1px // chrome fix: lines between divs
@@ -22,14 +30,8 @@ nav
 				transform: initial
 
 		&_nav-element
-			a // common to all nav elements
-				color: map.get($colors, "white")
-				font-weight: 200
-				padding: 6px 14px
-				display: block
-				pointer-events: fill
 			&_link
-				@extend .menu_nav-element
+				@include nav-element
 				font-size: 1.1rem
 				margin: 0 2px
 				a
@@ -40,11 +42,10 @@ nav
 					&:hover,
 					&:focus,
 					&:active
-						background-color: map.get($colors, "secondary") !important
+						@extend .bg_secondary
+						@extend .text_dark
 						border-color: map.get($colors, "secondary")
-						color: map.get($colors, "dark")
-	
 			&_logo
-				@extend .menu_nav-element
+				@include nav-element
 				@include bootstrap.media-breakpoint-up(lg)
 					padding-left: 1.8rem

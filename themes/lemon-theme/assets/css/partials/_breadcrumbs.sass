@@ -1,0 +1,31 @@
+@use "../custom-variables" as *;
+@use "../utilities" as *;
+@use "sass:map"
+@use "sass:color"
+
+.breadcrumbs
+	ul
+		display: flex
+		align-items: center
+		font-weight: 400
+		li
+			&:not(:last-of-type)
+				&:after
+					content: '>'
+					margin: 0 8px
+					color: color.adjust(map.get($colors, "white"), $alpha: -0.5)
+
+	a
+		padding: 8px 10px
+		font-weight: 400
+		color: color.adjust(map.get($colors, "white"), $alpha: -0.5)
+		&.active
+			color: color.adjust(map.get($colors, "white"), $alpha: -0.8)
+		&:hover
+			@extend .text_white
+			path
+				fill: map.get($colors, "white")
+	svg
+		margin-bottom: 2px
+		path
+			fill: color.adjust(map.get($colors, "white"), $alpha: -0.8)

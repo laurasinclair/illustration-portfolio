@@ -50,15 +50,8 @@ hr
 	border-bottom: $border-width solid map.get($colors, "dark")
 
 ul
-	margin: 0
-	padding: 0
-	li
-		list-style: none
-		position: relative
-		padding: 0
-		margin-left: 0
-
-ul
+	@extend .m-0
+	@extend .p-0
 	&.arrow
 		li::before
 				content: ""
@@ -182,6 +175,21 @@ ul
 		color: color.adjust(map.get($colors, "dark"), $alpha: -0.5)
 		font-style: italic
 
+@mixin label
+	@extend .fw_bold
+	@extend .mb-2
+	@extend .d-block
+
+@mixin input
+	@include form-inputs
+	padding: 0.74em 1em
+
+@mixin textarea
+	@include form-inputs
+	min-height: 8rem
+	resize: vertical
+	padding: 1em
+
 @mixin btn
 	@extend .fw_black
 	border-radius: 4px
@@ -211,3 +219,18 @@ ul
 		background-color: map.get($colors, "dark")
 		svg
 			transform: translate(5px, 0)
+
+.mask
+	@each $position in ("top", "bottom")
+		&_#{$position}
+			@include mask($position)
+
+.icon
+	&-dark
+		@include icon
+		svg path
+			fill: bootstrap.$gray-900
+	&-light
+		@include icon
+		svg path
+			fill: map.get($colors, "white")

@@ -1,15 +1,16 @@
 @use "utilities";
-
 @use "typography";
-
-@use "_custom";
 
 // layout
 @use "basics";
 @use "layout";
-@use "nav";
-@use "related";
-@use "contact-form";
+@use "form-inputs";
+
+// partials
+@use "partials/breadcrumbs";
+@use "partials/nav";
+@use "partials/related";
+@use "partials/social";
 
 // pages
 @use "home";
