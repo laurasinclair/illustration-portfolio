@@ -1,34 +1,15 @@
-html
-	scroll-behavior: smooth !important
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities" as *;
+@use "sass:map"
+@use "sass:color"
 
-:root
-	font-family: $font-family-sans-serif
-	font-synthesis: none
-	text-rendering: optimizeLegibility
-	-webkit-font-smoothing: antialiased
-	-moz-osx-font-smoothing: grayscale
-	-webkit-text-size-adjust: 100%
-
-::-moz-selection,
-::selection
-	color: $dark
-	background: $secondary
-
-$scale: 0.7
-@include media-breakpoint-up(lg)
-	$scale: 1
-
-*
-	box-sizing: border-box
-	&:focus
-		outline: 1px dotted $dark
-		outline-offset: 2px
 	
 a,
 a:visited,
 .link
-	@extend .fw-black
-	color: $primary
+	@include font-weight("black")
+	color: map.get($colors, "primary")
 	text-decoration: none
 	span
 		border-bottom: 1px solid
@@ -37,7 +18,7 @@ a:visited,
 	&:hover,
 	&:active,
 	&:focus
-		color: $primary
+		color: map.get($colors, "primary")
 		text-decoration: none
 		@extend .transition-2s
 		span,
@@ -50,44 +31,31 @@ img
 	display: inline-block
 	height: auto
 
-.btn
-	@extend .fw-black	
-	border-radius: 4px
-	padding: 13px 24px 14px
-	display: inline-block
-	margin-top: 10px
-	margin-bottom: 10px
-	text-align: center
-	&-primary-dark
-		@extend .btn
-		@extend .text-white
-		background-color: $primary
-		svg, path
-			fill: $white
-		&:hover,
-		&:active,
-		&:focus
-			@extend .no-outline
-			color: $white !important
-			background-color: $dark
-
-@mixin mask($type)
-	-webkit-mask-repeat: repeat-x
-	-webkit-mask-size: cover
-	height: 100px
-	@if $type == 'top'
-		-webkit-mask: url("/css/assets/bgtop.png")
-		-webkit-mask-position: top center
-
-	@if $type == 'bottom'
-		-webkit-mask: url("/css/assets/bgbottom.png")
-		-webkit-mask-position: bottom center
+// .btn
+// 	@extend .fw_black
+// 	border-radius: 4px
+// 	padding: 13px 24px 14px
+// 	display: inline-block
+// 	margin-top: 10px
+// 	margin-bottom: 10px
+// 	text-align: center
+// 	&-primary-dark
+// 		@extend .btn
+// 		@extend .text_white
+// 		font-size: inherit !important
+// 		svg, path
+// 			fill: map.get($colors, "white")
+// 		&:hover,
+// 		&:active,
+// 		&:focus
+// 			@extend .no-outline
+// 			color: map.get($colors, "white") !important
+// 			background-color: map.get($colors, "dark")
 
 .mask
-	&_top
-		@include mask(top)
-	&_bottom
-		@include mask(bottom)
+	@each $position in ("top", "bottom")
+		&_#{$position}
+			@include mask($position)
 
 .container-fluid
 	margin: 0 auto
@@ -102,19 +70,19 @@ img
 				&:after
 					content: '>'
 					margin: 0 8px
-					color: transparentize($white, 0.5)
+					color: color.adjust(map.get($colors, "white"), $alpha: -0.5)
 
 	a
 		padding: 8px 10px
 		font-weight: 400
-		color: transparentize($white, 0.5)
+		color: color.adjust(map.get($colors, "white"), $alpha: -0.5)
 		&.active
-			color: transparentize($white, 0.2)
+			color: color.adjust(map.get($colors, "white"), $alpha: -0.8)
 		&:hover
-			color: $white
+			@extend .text_white
 			path
-				fill: $white
+				fill: map.get($colors, "white")
 	svg
 		margin-bottom: 2px
 		path
-			fill: transparentize($white, 0.5)
+			fill: color.adjust(map.get($colors, "white"), $alpha: -0.8)

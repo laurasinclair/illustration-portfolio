@@ -1,0 +1,17 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+
+section
+	padding-top: 2em
+	padding-bottom: 2em
+	@include bootstrap.media-breakpoint-up(sm)
+		padding-top: 2.5em
+		padding-bottom: 2.5em
+	@include bootstrap.media-breakpoint-up(md)
+		padding-top: 3em
+		padding-bottom: 3em
+	@include bootstrap.media-breakpoint-up(lg)
+		padding-top: 4em
+		padding-bottom: 4em
+	@include bootstrap.media-breakpoint-up(xl)
+		padding-top: 5em
+		padding-bottom: 5em

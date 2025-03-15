@@ -1,53 +1,50 @@
-nav
-	@extend .bg_dark
-	width: 100%
-	margin-bottom: -1px // chrome fix: lines between divs
-	overflow: visible
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities";
+@use "sass:map"
+@use "sass:color"
 
+nav
+	margin-bottom: -1px // chrome fix: lines between divs
 	.menu
 		&_navbar
-			position: fixed
+			@extend .position-fixed
+			@extend .d-flex
 			z-index: 9
 			bottom: 1em
 			right: 50%
 			transform: translateX(50%)
 			width: max-content
-			display: flex
 			pointer-events: none
-			@include media-breakpoint-up(lg)
-				right: 3em
+			@include bootstrap.media-breakpoint-up(lg)
+				right: 2em
 				bottom: unset
 				transform: initial
 
 		&_nav-element
 			a // common to all nav elements
-				color: $white
+				color: map.get($colors, "white")
 				font-weight: 200
 				padding: 6px 14px
 				display: block
 				pointer-events: fill
 			&_link
-				@extend .mt-5
 				@extend .menu_nav-element
-				font-size: 1rem
+				font-size: 1.1rem
 				margin: 0 2px
 				a
-					background-color: $dark
-					border-radius: 20px
-					border: $border-width solid $white
-					@include media-breakpoint-up(md)
+					border-radius: 26px
+					border: $border-width solid map.get($colors, "white")
+					@include bootstrap.media-breakpoint-up(md)
 						margin: 0 0 8px 8px
 					&:hover,
 					&:focus,
 					&:active
-						background-color: $secondary !important
-						border-color: $secondary
-						color: $dark
+						background-color: map.get($colors, "secondary") !important
+						border-color: map.get($colors, "secondary")
+						color: map.get($colors, "dark")
 	
 			&_logo
-				@extend .mt-4
 				@extend .menu_nav-element
-				a
-					@extend .ps-0
-				@include media-breakpoint-up(lg)
+				@include bootstrap.media-breakpoint-up(lg)
 					padding-left: 1.8rem

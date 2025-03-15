@@ -1,62 +1,36 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "sass:map"
+@use "sass:color"
+@use "sass:list"
+
 .text-center
 	text-align: center
 
-.text
-	&-primary
-		color: $primary
-	&-secondary
-		color: $secondary
-	&-tertiary
-		color: $tertiary
-	&-white
-		color: $white
-.fw
-	&-medium
-		font-weight: $font-weight-medium
-	&-book
-		font-weight: $font-weight-book
-	&-bold
-		font-weight: $font-weight-bold
-	&-black
-		font-weight: $font-weight-black
+@each $name, $weight in $font-weights
+	.fw_#{$name}
+		font-weight: $weight
 
-.bg
-	&_dark
-		background-color: $dark
-	&_grey
-		background-color: $grey
-	&_light
-		&-stardust
-			@extend .bg_light
+@each $name, $color in $colors
+	.bg_#{$name}
+		background-color: $color
+		&_stardust
+			@extend .bg_white
 			background-image: url(assets/bg_stardust.png)
-	&_primary
-		background-color: $indigo
-	&_secondary
-		background-color: $secondary
+	.text_#{$name}
+		color: $color
 
 .bd-left
 	@extend .ps-4
-	border-left: 5px solid $dark
+	border-left: 5px solid map.get($colors, "dark")
 
-.pic-bg
-	background-size: cover !important
-	background-position: center center
-
-@mixin debug($color: #f58589)
+@mixin debug($color)
 	outline: 2px solid $color !important
-	
-.debug
-	@include debug
-	&1
-		@include debug
-	&2
-		@include debug(#6478f6)
-	&3
-		@include debug(#ffb152)
-	&3
-		@include debug(#21e6bb)
-	&4
-		@include debug(#f664f1)
+
+$debug-colors: #f58589, #6478f6, #ffb152, #21e6bb, #f664f1
+@for $i from 1 through list.length($debug-colors)
+	.debug#{$i}
+		@include debug(list.nth($debug-colors, $i))
 
 .no-outline
 	outline: none
@@ -65,38 +39,15 @@
 	transition: all 0.2s ease-in-out
 
 .highlight
-	position: relative
+	@extend .bg_dark
+	@extend .position-relative
 	color: $light
-	background: $dark
 	padding: 0 4px 1px
 	border-radius: 2px
 
-section
-	padding-top: 2em
-	padding-bottom: 2em
-	@include media-breakpoint-up(sm)
-		padding-top: 2.5em
-		padding-bottom: 2.5em
-	@include media-breakpoint-up(md)
-		padding-top: 3em
-		padding-bottom: 3em
-	@include media-breakpoint-up(lg)
-		padding-top: 4em
-		padding-bottom: 4em
-	@include media-breakpoint-up(xl)
-		padding-top: 5em
-		padding-bottom: 5em
-
-.move
-	&:hover,
-	&:active,
-	&:focus
-		svg
-			transform: translate(5px, 0)
-
 hr
 	border-top: none
-	border-bottom: $border-width solid $dark
+	border-bottom: $border-width solid map.get($colors, "dark")
 
 ul
 	margin: 0
@@ -116,7 +67,7 @@ ul
 				top: 6px
 				height: 5px
 				width: 5px
-				border: $border-width solid $dark
+				border: $border-width solid map.get($colors, "dark")
 				border-width: 2px 2px 0 0
 				transform: rotate(45deg)
 	&.line
@@ -127,17 +78,17 @@ ul
 				top: 12px
 				width: 8px
 				display: block
-				border-top: $border-width solid $dark
+				border-top: $border-width solid map.get($colors, "dark")
 
-.reveal
+.reveal // used to hide the sidebar logo at first, shows it on scroll
+	@extend .transition-2s
 	opacity: 1 !important
 	display: block !important
-	@extend .transition-2s
 
-.hide
+.hide // used to hide nav buttonw when we reach the footer
+	@extend .transition-2s
 	opacity: 0 !important
 	display: none !important
-	@extend .transition-2s
 
 @keyframes translate
 	0%
@@ -153,45 +104,6 @@ ul
 	to
 		transform: rotate(359deg)
 
-.screen-reader-text
-	position: absolute
-	clip-path: inset(50%)
-	margin: -1px
-	border: none
-	padding: 0
-	width: 1px
-	height: 1px
-	overflow: hidden
-	word-wrap: normal !important
-	clip: rect(1px, 1px, 1px, 1px)
-	&:focus
-		display: block
-		top: 5px
-		left: 5px
-		z-index: 10
-		clip-path: none
-		background-color: #eee
-		padding: 15px 23px 14px
-		width: auto
-		height: auto
-		text-decoration: none
-		line-height: normal
-		color: #444
-		font-size: 1em
-		clip: auto !important
-
-.img-round
-	@extend .me-3
-	@extend .d-block
-	overflow: hidden
-	border-radius: 50%
-	border: $border-width solid $white
-	box-shadow: 0 6px 10px transparentize($dark, 0.5)
-	height: auto
-	img
-		width: 100%
-		height: auto
-
 .hero
 	&_medium
 		padding: 3.4em 0 4em
@@ -201,7 +113,7 @@ ul
 		@extend .bg_dark
 		padding: 5em 0 6em
 		h2
-			@extend .text-white
+			@extend .text_white
 			padding: 2em 0
 
 .stretched-link::after
@@ -214,12 +126,88 @@ ul
 	content: ""
 	background-color: transparent
 
-.no-js 
-	.cd-words-wrapper 
-		b
-			opacity: 0
-			&.is-visible
-				opacity: 1
-
 .h-100
 	height: 100%
+
+@mixin icon
+	&:hover,
+	&:focus
+		transition: all 0.2s ease-in-out
+		outline: none
+		svg path
+			fill: map.get($colors, "primary")
+
+@mixin mask($type)
+	-webkit-mask-repeat: repeat-x
+	-webkit-mask-size: cover
+	height: 100px
+	@if $type == 'top'
+		-webkit-mask: url("/css/assets/bgtop.png")
+		-webkit-mask-position: top center
+
+	@if $type == 'bottom'
+		-webkit-mask: url("/css/assets/bgbottom.png")
+		-webkit-mask-position: bottom center
+
+.bg-cover
+	background-size: cover !important
+	background-position: center center
+
+@mixin form-inputs
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	box-shadow: none
+	width: 100%
+	background: transparent
+	border: $border-width solid map.get($colors, "dark")
+	border-radius: 6px
+	display: block
+	@extend .text_dark
+	&::selection
+		color: map.get($colors, "white")
+		background: map.get($colors, "primary")
+	&:focus
+		outline: none
+		background-color: map.get($colors, "dark")
+		border-color: map.get($colors, "dark")
+		color: map.get($colors, "secondary")
+		&::placeholder
+			color: map.get($colors, "dark")
+	&:invalid
+		outline: none
+		box-shadow: none
+		border-color: red
+	&::placeholder
+		color: color.adjust(map.get($colors, "dark"), $alpha: -0.5)
+		font-style: italic
+
+@mixin btn
+	@extend .fw_black
+	border-radius: 4px
+	padding: 13px 24px 14px
+	display: inline-block
+	margin-top: 10px
+	margin-bottom: 10px
+	text-align: center
+	
+.btn_primary_dark
+	@include btn
+	@extend .bg_dark
+	@extend .text_white
+	font-size: inherit !important
+	svg
+		@extend .transition-2s
+		width: 16px
+		height: 11px
+		margin-left: 3px
+		path
+			fill: map.get($colors, "white")
+	&:hover,
+	&:active,
+	&:focus
+		@extend .no-outline
+		color: map.get($colors, "white") !important
+		background-color: map.get($colors, "dark")
+		svg
+			transform: translate(5px, 0)

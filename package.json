@@ -1,23 +1,23 @@
 {
-	"name": "dirtylemon-studio",
+	"name": "illustration-portfolio",
 	"version": "1.0.0",
 	"description": "A little portfolio website using Hugo CMS for content management, resulting in a fast, lightweight platform that avoids unnecessary dependencies.",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/laurasinclair/dirtylemon-studio.git"
+		"url": "git+https://github.com/laurasinclair/illustration-portfolio.git"
 	},
 	"scripts": {
 		"dev": "concurrently \"npm run dev:*\"",
-		"dev:sass": "sass -w --load-path=node_modules --style=compressed themes/lemon-theme/assets/css/main.scss themes/lemon-theme/static/css/main.min.css",
+		"dev:sass": "sass -w --quiet-deps --load-path=node_modules/ --style=compressed themes/lemon-theme/assets/css/main.scss themes/lemon-theme/static/css/main.min.css",
 		"dev:hugo": "hugo server"
 	},
 	"author": "Laura Sinclair",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/laurasinclair/dirtylemon-studio/issues"
+		"url": "https://github.com/laurasinclair/illustration-portfolio/issues"
 	},
-	"homepage": "https://github.com/laurasinclair/dirtylemon-studio#readme",
+	"homepage": "https://github.com/laurasinclair/illustration-portfolio#readme",
 	"dependencies": {
 		"@adamholtzman/image-compress": "^1.0.1",
 		"bootstrap": "^5.3.3"

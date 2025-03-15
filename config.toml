@@ -52,3 +52,7 @@ theme = "lemon-theme"
     [[related.indices]]
         name = "description"
         weight = 25
+
+[build]
+  [build.sass]
+    noDeprecationWarnings = true

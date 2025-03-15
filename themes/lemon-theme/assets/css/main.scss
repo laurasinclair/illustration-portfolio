@@ -1,51 +1,16 @@
-@import 'bootstrap/scss/bootstrap-reboot.scss';
-@import 'bootstrap/scss/bootstrap-grid.scss';
+@use "utilities";
 
+@use "typography";
 
-// Typography
-$font-weight-medium: 300;
-$font-weight-book: 400;
-$font-weight-bold: 600;
-$font-weight-black: 800;
-
-@import "_typography";
-
-$font-family-sans-serif: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif;
-$font-size-base: 18px;
-
-
-// Colors
-$indigo: #6562FF;
-$yellow: #FFC107;
-$red: #FF5C00;
-
-$primary: $indigo;
-$secondary: $yellow;
-$tertiary: $red;
-
-$light: #f1f6f9;
-$grey: #dbdbdb;
-$dark: #000;
-
-// Layout
-$grid-gutter-width: 55px !default;
-
-// Recurring
-$border-width: 1.8px;
-
-
-@import "_custom";
-
+@use "_custom";
 
 // layout
-@import "_utilities";
-@import "_basics";
-@import "_nav";
-@import "_related";
-@import "_contact-form";
+@use "basics";
+@use "layout";
+@use "nav";
+@use "related";
+@use "contact-form";
 
 // pages
-@import "_home";
-@import "_work";
-@import "_about";
-@import "_get-in-touch";
+@use "home";
+@use "work";

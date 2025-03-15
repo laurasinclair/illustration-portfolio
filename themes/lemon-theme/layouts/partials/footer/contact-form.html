@@ -5,32 +5,32 @@
 	data-netlify="true"
 	action="/get-in-touch/thank-you/"
 >
-	<div class="row">
+	<div class="row mb-4">
 		<div class="col-12 col-md-6">
 			<p>
-				<label for="name" class="form-label">
+				<label for="name" class="form_label">
 					{{ site.Data.contactForm.fields.name }}:
 				</label>
-				<input id="name" name="name" type="text" placeholder=" " />
+				<input id="name" name="name" type="text" placeholder=" " value="tererekr hkext" style="height: 3.8rem" />
 			</p>
 		</div>
 		<div class="col-12 col-md-6">
 			<p>
-				<label for="email" class="form-label">
+				<label for="email" class="form_label">
 					{{ site.Data.contactForm.fields.email }}:
 				</label>
-				<input id="email" name="email" type="email" placeholder=" " />
+				<input id="email" name="email" type="email" placeholder=" "  value="tererekr hkext"  />
 			</p>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-12">
-			<label for="topic[]" class="form-label">
+			<label for="topic[]" class="form_label">
 				{{ site.Data.contactForm.fields.topics.label }}
 			</label>
 
-			<ul class="ks-cboxtags">
+			<ul class="checkbox-animated mb-3">
 				{{- $topics := .Site.Data.contactForm.fields.topics.choice -}} 
 				{{- range $index, $topic := $topics -}}
 
@@ -51,7 +51,7 @@
 	<div class="row">
 		<div class="col-12">
 			<p>
-				<label for="message" class="form-label"
+				<label for="message" class="form_label"
 					>{{ site.Data.contactForm.fields.message.label }}:</label
 				>
 				<textarea
@@ -61,7 +61,7 @@
 				></textarea>
 			</p>
 			<p>
-				<button class="btn" type="submit">
+				<button class="btn_submit" type="submit">
 					{{ site.Data.contactForm.fields.submitButton }}
 					<svg
 						width="16"

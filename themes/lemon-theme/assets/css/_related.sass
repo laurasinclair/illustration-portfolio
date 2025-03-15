@@ -1,15 +1,17 @@
-
-@import 'bootstrap/scss/_card.scss'
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities";
+@use "sass:map"
 
 .related
-	@include media-breakpoint-up(sm)
+	@include bootstrap.media-breakpoint-up(sm)
 		white-space: nowrap
 	#toggle
 		@extend .no-outline
 		background: none
 		border: none
 		span
-			border-bottom: $border-width solid $dark
+			border-bottom: $border-width solid map.get($colors, "dark")
 			display: inline-block
 		&::after
 			content: ""
@@ -23,7 +25,7 @@
 			&::after
 				transition: all .4s ease-in-out
 				transform: rotate(180deg)
-	#related_all
+	&_all
 		transition: all .2s ease-in-out
 		position: relative
 		overflow: hidden
@@ -40,9 +42,9 @@
 		&:focus,
 		&:active
 			cursor: pointer
-			background-color: $primary
+			background-color: map.get($colors, "primary")
 			a, a:visited
-				color: $white
+				color: map.get($colors, "white")
 		&-img
 			border-radius: 0
 			width: 100%
@@ -51,34 +53,33 @@
 			background-position: center center
 		a, a:visited
 			border: none
-			font-weight: 600
 			&:hover
 				@extend .no-outline
-				color: $white
+				color: map.get($colors, "white")
 		&-body
 			padding: 0.6rem 0.9rem
 	&_post
 		a
-			@include media-breakpoint-up(md)
+			@include bootstrap.media-breakpoint-up(md)
 				display: block
 				width: 100%
 			&:nth-of-type(1)
 				@extend .no-outline 
 				font-weight: 300
-				color: $dark !important
+				color: map.get($colors, "dark") !important
 		&-previous
 			@extend .related_post
 			text-align: right !important
 			a:nth-of-type(1)
 				margin-right: 12px
-			@include media-breakpoint-up(md)
+			@include bootstrap.media-breakpoint-up(md)
 				margin-right: 0
 		&-next
 			@extend .related_post
 			text-align: left !important
 			a:nth-of-type(1)
 				margin-right: 12px
-			@include media-breakpoint-up(md)
+			@include bootstrap.media-breakpoint-up(md)
 				margin-right: 0
 
 		
