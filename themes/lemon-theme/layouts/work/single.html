@@ -51,6 +51,8 @@
 						{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
 					{{- else if eq .type "link" }}
 						{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+					{{- else if eq .type "iframe" }}
+						{{ partial "work/iframe.html" (merge . (dict "theme" $theme)) }}
 					{{- end }} <!-- checking exact file type -->
 				</div>
 				{{- end -}} <!-- range .group -->
@@ -68,6 +70,8 @@
 					{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
 				{{- else if eq .type "link" }}
 					{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+				{{- else if eq .type "iframe" }}
+					{{ partial "work/iframe.html" (merge . (dict "theme" $theme)) }}
 				{{- end -}} <!-- checking exact file type -->
 				{{- end -}} <!-- if/else .group or .type -->
 			</div>
