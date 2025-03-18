@@ -13,7 +13,7 @@
 
 @each $name, $color in $colors
 	.bg_#{$name}
-		background-color: $color
+		@include bg-color($color)
 		&_stardust
 			@extend .bg_white
 			background-image: url(assets/bg_stardust.png)

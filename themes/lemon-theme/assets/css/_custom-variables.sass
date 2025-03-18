@@ -1,14 +1,14 @@
 @use "sass:map"
 
 // Typography
-$font-weight-medium: 400
-$font-weight-book: 600
+$font-weight-book: 500
+$font-weight-medium: 600
 $font-weight-bold: 700
 $font-weight-black: 900
 
 $font-weights: (
-    "medium": $font-weight-medium,
     "book": $font-weight-book,
+    "medium": $font-weight-medium,
     "bold": $font-weight-bold,
     "black": $font-weight-black,
 )
@@ -17,9 +17,6 @@ $font-weights: (
     font-weight: map.get($font-weights, $weight)
     
 $font-family: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif
-
-@mixin bg-color($color)
-    background-color: map.get($colors, $color)
 
 // Colors
 $indigo: #6562FF
@@ -39,6 +36,9 @@ $colors: (
     "grey": $grey,
     "dark": $black
 )
+
+@mixin bg-color($color)
+    background-color: map.get($colors, $color)
 
 // Layout
 $grid-gutter-width: 55px !default

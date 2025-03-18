@@ -31,7 +31,9 @@ body
 	@extend .text_dark
 	@extend .position-relative
 	font-family: $font-family
-	font-size: bootstrap.$font-size-base * 1.2
+	font-size: bootstrap.$font-size-base * 1.1
+	@include bootstrap.media-breakpoint-up(lg)
+		font-size: bootstrap.$font-size-base * 1.2
 
 .container-fluid
 	margin: 0 auto

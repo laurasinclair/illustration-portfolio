@@ -16,70 +16,36 @@
 
 @font-face
 	font-family: 'CircularStd'
-	src: url('/fonts/circularstd/CircularStd-Book.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Book.woff') format('woff'), url('/fonts/circularstd/CircularStd-Book.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Book.svg#CircularStd-Book') format('svg')
-	@include font-weight("book")
-	font-style: normal
-
-@font-face
-	font-family: 'CircularStd'
 	src: url('/fonts/circularstd/CircularStd-Medium.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Medium.woff') format('woff'), url('/fonts/circularstd/CircularStd-Medium.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Medium.svg#CircularStd-Medium') format('svg')
 	@include font-weight("medium")
 	font-style: normal
 
+@font-face
+	font-family: 'CircularStd'
+	src: url('/fonts/circularstd/CircularStd-Book.eot?#iefix') format('embedded-opentype'),  url('/fonts/circularstd/CircularStd-Book.woff') format('woff'), url('/fonts/circularstd/CircularStd-Book.ttf')  format('truetype'), url('/fonts/circularstd/CircularStd-Book.svg#CircularStd-Book') format('svg')
+	@include font-weight("book")
+	font-style: normal
+
 h1
 	@extend .fw_bold
-	font-size: bootstrap.$font-size-base * 1.8
-	@include bootstrap.media-breakpoint-up(sm)
-		font-size: bootstrap.$font-size-base * 2
-	@include bootstrap.media-breakpoint-up(md)
-		font-size: bootstrap.$font-size-base * 2.2
+	font-size: bootstrap.$font-size-base * 2.6
 	@include bootstrap.media-breakpoint-up(lg)
-		font-size: 3em
+		font-size: bootstrap.$font-size-base * 3.6
 
 h2
 	@extend .fw_bold
-	font-size: bootstrap.$font-size-base * 1.8
-	@include bootstrap.media-breakpoint-up(sm)
-		font-size: bootstrap.$font-size-base * 2.2
+	font-size: bootstrap.$font-size-base * 2.4
 	@include bootstrap.media-breakpoint-up(lg)
-		font-size: bootstrap.$font-size-base * 2.4
-	@include bootstrap.media-breakpoint-up(xl)
-		font-size: bootstrap.$font-size-base * 2.6
+		font-size: bootstrap.$font-size-base * 2.8
 
 h3
-	font-size: bootstrap.$font-size-base * 1.4
-	@include bootstrap.media-breakpoint-up(sm)
-		font-size: bootstrap.$font-size-base * 1.6
-	@include bootstrap.media-breakpoint-up(md)
-		font-size: bootstrap.$font-size-base * 1.8
+	@extend .fw_medium
+	font-size: bootstrap.$font-size-base * 1.8
 	@include bootstrap.media-breakpoint-up(lg)
-		font-size: bootstrap.$font-size-base * 2
-
-h4
-	font-size: bootstrap.$font-size-base * 1.2
-	@include bootstrap.media-breakpoint-up(sm)
-		font-size: bootstrap.$font-size-base * 1.4
-	@include bootstrap.media-breakpoint-up(md)
-		font-size: bootstrap.$font-size-base * 1.6
-
-h5
-	font-size: bootstrap.$font-size-base * 1
-	@include bootstrap.media-breakpoint-up(sm)
-		font-size: bootstrap.$font-size-base * 1.2
-	@include bootstrap.media-breakpoint-up(md)
-		font-size: bootstrap.$font-size-base * 1.4
-
-p,
-li
-	@include bootstrap.media-breakpoint-up(sm)
-		// font-size: bootstrap.$font-size-base * 1.2
+		font-size: bootstrap.$font-size-base * 2.2
 
 .lead
 	@extend .fw_book
 	font-size: bootstrap.$font-size-base * 1.1
 	@include bootstrap.media-breakpoint-up(sm)
 		font-size: bootstrap.$font-size-base * 1.2
-
-.label
-	@extend .fw_bold
-	font-size: bootstrap.$font-size-base * 1
