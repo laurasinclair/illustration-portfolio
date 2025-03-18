@@ -18,9 +18,6 @@ $font-weights: (
     
 $font-family: 'CircularStd', 'Open sans', 'Noto sans', Arial, Helvetica, sans-serif
 
-@mixin bg-color($color)
-    background-color: map.get($colors, $color)
-
 // Colors
 $indigo: #6562FF
 $yellow: #FFC107
@@ -39,6 +36,9 @@ $colors: (
     "grey": $grey,
     "dark": $black
 )
+
+@mixin bg-color($color)
+    background-color: map.get($colors, $color)
 
 // Layout
 $grid-gutter-width: 55px !default
