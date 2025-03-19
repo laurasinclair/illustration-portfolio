@@ -44,34 +44,34 @@
 				{{- range .group -}}
 				<div class="col-12 col-md mt-4 mb-5">					
 					{{ if eq .type "image" }}
-						{{ partial "work/image.html" . -}}
+						{{ partial "work/showcase/image.html" . -}}
 					{{- else if eq .type "text" }}
-						{{ partial "work/text.html" (merge . (dict "theme" $theme)) }}
+						{{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
 					{{- else if eq .type "list" }}
-						{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
+						{{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
 					{{- else if eq .type "link" }}
-						{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+						{{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
 					{{- else if eq .type "iframe" }}
-						{{ partial "work/iframe.html" (merge . (dict "theme" $theme)) }}
+						{{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
 					{{- end }} <!-- checking exact file type -->
 				</div>
 				{{- end -}} <!-- range .group -->
 				{{- else if .type -}}
 				{{- if .sectionTitle -}}
-				{{ partial "work/section-title.html" (merge . (dict "theme" $theme))}}
+				{{ partial "work/showcase/section-title.html" (merge . (dict "theme" $theme))}}
 				{{- end -}}
 				{{ if eq .type "image" }}
 				<div class="col-12 mt-4 mb-5 mx-auto d-flex justify-content-center {{with .class}}{{.}}{{end}}">
-					{{ partial "work/image.html" . }}
+					{{ partial "work/showcase/image.html" . }}
 				</div>
 				{{- else if eq .type "text" }}
-					{{ partial "work/text.html" (merge . (dict "theme" $theme)) }}
+					{{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
 				{{- else if eq .type "list" }}
-					{{ partial "work/list.html" (merge . (dict "theme" $theme)) }}
+					{{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
 				{{- else if eq .type "link" }}
-					{{ partial "work/link.html" (merge . (dict "theme" $theme)) }}
+					{{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
 				{{- else if eq .type "iframe" }}
-					{{ partial "work/iframe.html" (merge . (dict "theme" $theme)) }}
+					{{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
 				{{- end -}} <!-- checking exact file type -->
 				{{- end -}} <!-- if/else .group or .type -->
 			</div>

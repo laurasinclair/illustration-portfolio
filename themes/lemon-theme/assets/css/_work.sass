@@ -6,6 +6,33 @@
 
 .work
 	&_gallery
+		display: grid
+		grid-template-columns: [work_gallery_nav] 12% [work_gallery_projects] auto
+		&_section
+			@extend .pt-5
+			margin-bottom: 10rem
+			&:last-of-type
+				@extend .mb-0
+		&_nav
+			@extend .py-5
+			@extend .pe-5
+			position: relative
+			ul
+				position: sticky
+				top: 10px
+				left: 0
+			&_link
+				@extend .text_dark
+				@extend .fw_book
+				&:hover,
+				&:active,
+				&:focus
+					@extend .fw_book
+					color: map.get($colors, "primary") !important
+				&.active
+					@extend .fw_black
+					&:hover
+						@extend .active
 		&_project
 			@extend .mb-3
 			@extend .mb-md-5
@@ -39,8 +66,8 @@
 				display: block
 				border: 1px solid color.adjust(map.get($colors, "white"), $alpha: -0.8)
 				@include bootstrap.media-breakpoint-up(md)
-					left: 34px
-					bottom: 25px
+					// left: 34px
+					// bottom: 25px
 					padding: 8px 16px
 					font-size: bootstrap.$font-size-base * 1.2
 				a

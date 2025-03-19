@@ -1,37 +1,91 @@
-<section id="work" class="work_gallery" class="py-5">
-	<div class="container-fluid">
-		<div class="row">
-			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
-			{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
-			{{- if eq .Key true -}} 
-			{{- range .Pages -}}
-			{{- $isFeatured := .Params.isFeatured -}}
-			<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
-				<div class="work_gallery_project">
-				
-					<div class="work_gallery_project_title">
-						<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
-					</div>
-					<a href="{{ .Permalink | absURL }}">
-						{{- $image := .Resources.GetMatch "thumbnail*" -}} 
-						{{- with $image -}}
-
-						<img
-							src="{{ .Permalink | absURL }}"
-							width="{{ .Width }}"
-							height="{{ .Height }}"
-							alt="{{ .Title }}"
-							class='d-block {{ if $isFeatured }}featured{{ end }}'
-						/>
-						{{- end -}}
-					</a>
-				</div>
-			</div>
-			{{- end -}} <!-- range .Pages -->
-			{{- end -}} <!-- if isPublic -->
-			{{- end -}} <!-- range illustration section -->
+<section id="work" class="pb-5 pt-0">
+	<div class="container-fluid work_gallery">
+		<div id="work_gallery_nav" class="work_gallery_nav">
+			<ul>
+				<li>
+					<a href="#illustration" class="active work_gallery_nav_link">Illustration</a>
+				</li>
+				<li>
+					<a href="#paper" class="work_gallery_nav_link">Paper</a>
+				</li>
+				<li>
+					<a href="#playground" class="work_gallery_nav_link">Playground</a>
+				</li>
+			</ul>
 		</div>
-	</div>
+
+		<div id="work_gallery_projects">
+			<div id="illustration" class="row work_gallery_section">
+				<div class="col-12 d-none">
+					<h3 class="mb-4 mb-lg-5">Illustration</h3>
+				</div>
+				{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
+				{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
+				{{- if eq .Key true -}} 
+				{{- range .Pages -}}
+				{{- $isFeatured := .Params.isFeatured -}}
+				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
+					<div class="work_gallery_project">
+						<div class="work_gallery_project_title">
+							<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
+						</div>
+						<a href="{{ .Permalink | absURL }}">
+							{{- $image := .Resources.GetMatch "thumbnail*" -}} 
+							{{- with $image -}}
+
+							<img
+								src="{{ .Permalink | absURL }}"
+								width="{{ .Width }}"
+								height="{{ .Height }}"
+								alt="{{ .Title }}"
+								class='d-block {{ if $isFeatured }}featured{{ end }}'
+							/>
+							{{- end -}}
+						</a>
+					</div>
+				</div>
+				{{- end -}} <!-- range .Pages -->
+				{{- end -}} <!-- if isPublic -->
+				{{- end -}} <!-- range illustration section -->
+			</div> <!-- .row #illustration -->
+
+
+			<div id="paper" class="row work_gallery_section">
+				<div class="col-12 d-none">
+					<h3 class="mb-4 mb-lg-5">Paper</h3>
+				</div>
+				{{- $paperSection := .Site.GetPage "section" "paper" -}}
+
+				{{- range ($paperSection.Pages.GroupByParam "isPublic") -}}
+				{{- if eq .Key true -}} 
+				{{- range .Pages -}}
+				{{- $isFeatured := .Params.isFeatured -}}
+				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
+					<div class="work_gallery_project">
+						<div class="work_gallery_project_title">
+							<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
+						</div>
+						<a href="{{ .Permalink | absURL }}">
+							{{- $image := .Resources.GetMatch "thumbnail*" -}} 
+							{{- with $image -}}
+
+							<img
+								src="{{ .Permalink | absURL }}"
+								width="{{ .Width }}"
+								height="{{ .Height }}"
+								alt="{{ .Title }}"
+								class='d-block {{ if $isFeatured }}featured{{ end }}'
+							/>
+							{{- end -}}
+						</a>
+					</div>
+				</div>
+				{{- end -}} <!-- range .Pages -->
+				{{- end -}} <!-- if isPublic -->
+				{{- end -}} <!-- range paper section -->
+			</div> <!-- .row #paper -->
+		</div>
+	</div> <!-- .work_gallery -->
 
 	{{- $image := resources.Get "img/happylemon.png" -}}
 	{{- if $image -}}
@@ -51,3 +105,27 @@
 	</div>
 	{{- end -}} <!-- if image exists -->
 </section>
+
+{{- define "footer-scripts" -}}
+<script>
+	document.addEventListener("DOMContentLoaded", function () { // fires when the HTML document has been completely loaded and parsed, but before images, stylesheets, and other external resources are fully loaded (avoiding errors when selecting elements)
+		const sections = document.querySelectorAll(".work_gallery_section");
+		const navLinks = document.querySelectorAll(".work_gallery_nav_link");
+
+		// IntersectionObserver() -> detect when an element enters or exits the viewport
+		const observer = new IntersectionObserver((entries) => { 
+			entries.forEach((sectionName) => {
+				if (sectionName.isIntersecting) {
+					navLinks.forEach((link) => link.classList.remove("active")); 
+					const activeLink = document.querySelector(`a[href="#${sectionName.target.id}"]`);
+					if (activeLink) activeLink.classList.add("active");
+				}
+			});
+			},
+			{ threshold: 0.1 } // trigger the callback function when at least 10% of the target element is visible in the viewport
+		);
+
+		sections.forEach((section) => observer.observe(section));
+	});
+</script>
+{{- end -}}
