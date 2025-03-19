@@ -25,6 +25,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+	// footer info
 	$("#collapsible").click(function () {
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 		return false;
@@ -34,3 +35,5 @@ $(document).ready(function () {
 		$(".collapsible-content").toggleClass("collapsible-open");
 	});
 });
+
+document.body.className += ' js'; // adds a .js class only if javascript is enabled
