@@ -3,6 +3,7 @@ title: Cat
 draft: false
 weight: 1
 isPublic: true
+layout: work
 
 project_content:
   description: |
