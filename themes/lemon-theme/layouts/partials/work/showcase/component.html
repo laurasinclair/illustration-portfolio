@@ -1,0 +1,14 @@
+{{ $theme := .theme | default "light" }} 
+{{- if eq .type "image" }}
+    {{ partial "work/showcase/image.html" (merge . (dict "layout" .layout)) }}
+{{- else if eq .type "text" }}
+    {{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
+{{- else if eq .type "list" }}
+    {{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
+{{- else if eq .type "link" }}
+    {{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
+{{- else if eq .type "iframe" }}
+    {{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
+{{- else if eq .type "video" }}
+    {{ partial "work/showcase/video.html" . }}
+{{- end }}

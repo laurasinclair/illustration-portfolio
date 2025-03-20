@@ -8,71 +8,52 @@
 <div class='work_single theme-{{- if eq $theme "dark" -}}dark{{- else -}}light{{- end -}}'>
 	<header class="work_single_hero bg_dark text_white container-fluid">
 		<div class="row">
-			{{- $image := .Resources.GetMatch "project-title_*" -}}
+			{{ $image := .Resources.GetMatch "project-title_*" -}}
 			{{- with $image -}}
 			<div class="col-12 col-md-6 mx-auto text-center pb-5">
 				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3" />
-				{{ with $description -}}
+				{{ with $description }}
 				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
 				</p>
-				{{- end -}}
+				{{- end }}
 			</div>
 			{{- else -}}
 			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 my-4">
 				<h2 class="mb-3">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
-				{{ with $description -}}
+				{{ with $description }}
 				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
 				</p>
-				{{- end -}}
+				{{- end }}
 			</div>
 			{{- end -}} <!-- if/else there's a title image in the folder -->
 		</div>
 	</header>
 
-	<section
-		class="work_single_showcase"
+	<section class="work_single_showcase"
 		{{- with $backgroundColor -}}
 		style="background-color: {{ . }}"
 		{{- end -}}
 	>
-		<div class="container-fluid ">
-			{{ range .Params.project_content.work -}}
+		<div class="container-fluid">
+			{{- range .Params.project_content.work }}
 			<div class="row">
-				{{- if .group -}}
-				{{- range .group -}}
-				<div class="col-12 col-md mt-4 mb-5">					
-					{{ if eq .type "image" }}
-						{{ partial "work/showcase/image.html" . -}}
-					{{- else if eq .type "text" }}
-						{{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
-					{{- else if eq .type "list" }}
-						{{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
-					{{- else if eq .type "link" }}
-						{{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
-					{{- else if eq .type "iframe" }}
-						{{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
-					{{- end }} <!-- checking exact file type -->
-				</div>
+				{{- if .group }}
+				{{- range .group }}
+				<div class="col-12 col-md mt-4 mb-5">
+                    {{- partial "work/showcase/component.html" (merge . (dict "layout" "group" "theme" $theme)) }}
+                </div>
 				{{- end -}} <!-- range .group -->
+
 				{{- else if .type -}}
+
 				{{- if .sectionTitle -}}
-				{{ partial "work/showcase/section-title.html" (merge . (dict "theme" $theme))}}
-				{{- end -}}
-				{{ if eq .type "image" }}
-				<div class="col-12 mt-4 mb-5 mx-auto d-flex justify-content-center {{with .class}}{{.}}{{end}}">
-					{{ partial "work/showcase/image.html" . }}
-				</div>
-				{{- else if eq .type "text" }}
-					{{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
-				{{- else if eq .type "list" }}
-					{{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
-				{{- else if eq .type "link" }}
-					{{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
-				{{- else if eq .type "iframe" }}
-					{{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
-				{{- end -}} <!-- checking exact file type -->
+				{{- partial "work/showcase/section-title.html" (merge . (dict "theme" $theme)) -}}
+				{{- end -}} <!-- if .sectionTitle -->
+
+				{{- partial "work/showcase/component.html" (merge . (dict "layout" "col-12" "theme" $theme)) -}}
+				
 				{{- end -}} <!-- if/else .group or .type -->
 			</div>
 			{{- end -}} <!-- range .Params.project_content.work -->
@@ -80,9 +61,9 @@
 	</section>
 	<div 
 		class="bg_dark mask_bottom"
-		{{ with $backgroundColor}}
+		{{- with $backgroundColor -}}
 		style="background-color: {{ . }}"
-		{{ end }}>
+		{{- end }}>
 	</div>
 
 	{{- end -}}

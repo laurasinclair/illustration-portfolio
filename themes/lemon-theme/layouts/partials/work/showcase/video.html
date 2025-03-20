@@ -1,0 +1,14 @@
+<div class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
+    <video 
+        autoplay loop muted playsinline 
+        style="width: 100%;"
+        class="rounded"
+    >
+        {{ with .url.mp4 }}
+        <source src="{{ . }}" type="video/mp4">
+        {{ end }}
+        {{ with .backupImg }}
+        <img src="{{ . }}" alt="">
+        {{ end }}
+    </video>
+</div>
