@@ -145,6 +145,9 @@ ul
 	background-position: center center
 
 @mixin form-inputs
+	@extend .text_dark
+	@extend .d-block
+	@extend .mb-3
 	-webkit-appearance: none
 	-moz-appearance: none
 	appearance: none
@@ -153,23 +156,13 @@ ul
 	background: transparent
 	border: $border-width solid map.get($colors, "dark")
 	border-radius: 6px
-	display: block
-	@extend .text_dark
-	&::selection
-		color: map.get($colors, "white")
-		background: map.get($colors, "primary")
 	&:focus
 		outline: none
-		background-color: map.get($colors, "dark")
 		border-color: map.get($colors, "dark")
-		color: map.get($colors, "secondary")
-		&::placeholder
-			color: map.get($colors, "dark")
-	&:invalid
-		outline: none
-		box-shadow: none
-		border-color: red
-	&::placeholder
+		background-color: color.adjust(map.get($colors, "primary"), $alpha: -0.8)
+		&:placeholder
+			color: map.get($colors, "secondary")
+	&:placeholder
 		color: color.adjust(map.get($colors, "dark"), $alpha: -0.5)
 		font-style: italic
 
@@ -197,6 +190,11 @@ ul
 	margin-bottom: 10px
 	text-align: center
 	border: none
+	&:disabled
+		background-color: color.adjust(map.get($colors, "dark"), $lightness: 90%)
+		color: color.adjust(map.get($colors, "dark"), $lightness: 70%)
+		svg path
+			fill: color.adjust(map.get($colors, "dark"), $lightness: 70%)
 	
 .btn_primary_dark
 	@include btn
