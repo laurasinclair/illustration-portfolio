@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-	{{- partial "head.html" . -}}
-	<body
-		class="{{ .Section }}{{ with .Params.optional.extraCSS }} {{ . }}{{ end }}{{ with .Params.slug }} {{ . }}{{ end }}"
-		data-offset="450">
+	{{ partial "head.html" . }}
+
+	{{- $bodyClasses := .Section }}
+	{{- with .Params.optional.extraCSS }}{{ $bodyClasses = printf "%s %s" $bodyClasses . }}{{ end }}
+	{{- with .Params.slug }}{{ $bodyClasses = printf "%s %s" $bodyClasses (.) }}{{ else }}{{ $bodyClasses = printf "%s %s" $bodyClasses (. | urlize ) }}{{ end }}
+	<body class="{{ $bodyClasses }}">
 		<div id="all">
 			<div id="sidebar">{{ partial "layout/sidebar.html" . }}</div>
 			<main id="main" class="d-flex flex-column flex-1">
