@@ -74,7 +74,7 @@
 		const sections = document.querySelectorAll(".work_gallery_section");
 		const navLinks = document.querySelectorAll(".work_gallery_nav_link");
 
-		navLinks[0].classList.add("active"); // by default, only the first one is active
+		if (navLinks.length > 0) navLinks[0].classList.add("active"); // by default, only the first one is active
 
 		// IntersectionObserver() -> detect when an element enters or exits the viewport
 		const observer = new IntersectionObserver((entries) => { 

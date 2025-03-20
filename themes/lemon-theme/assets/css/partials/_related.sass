@@ -38,6 +38,7 @@
 		&_btn
 			@extend .mx-2
 			@extend .fw_book
+			@extend .text_dark
 			background-color: transparent
 			font-family: $font-family
 			border-radius: 20px
@@ -69,8 +70,10 @@
 			img
 				object-fit: cover
 				height: 100%
+				width: 100%
 		a, a:visited
 			border: none
+			white-space: nowrap
 			&:hover
 				@extend .no-outline
 				color: map.get($colors, "white")

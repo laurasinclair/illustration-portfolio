@@ -5,7 +5,7 @@
 		class="{{ .Section }}{{ with .Params.optional.extraCSS }} {{ . }}{{ end }}{{ with .Params.slug }} {{ . }}{{ end }}"
 		data-offset="450">
 		<div id="all">
-			<div id="sidebar">{{- partial "layout/sidebar.html" . -}}</div>
+			<div id="sidebar">{{ partial "layout/sidebar.html" . }}</div>
 			<main id="main" class="d-flex flex-column flex-1">
 				{{- partial "layout/nav.html" . -}}
 				{{- block "main" . -}}{{- end -}}

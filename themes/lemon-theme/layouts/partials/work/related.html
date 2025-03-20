@@ -5,7 +5,7 @@
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
 					{{ with $currentSection.Next . }}
-					<div class="related_post-previous">
+					<div class="related_post-previous mb-2 mb-md-0">
 						<a href="{{ .Permalink }}">
 							Previous project
 						</a>
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 
-			<div class="col order-3 order-md-2 text-center">
+			<div class="col order-3 order-md-2 text-center mt-4 mt-mb-0">
 				<button id="toggle" class="fw_bold">
 					<span class="text_dark">All projects</span>
 				</button>
@@ -42,7 +42,7 @@
 
 	<div class="related_all container-fluid">
 		{{ with .Site.GetPage "work" }}
-		<div class="d-flex justify-content-center">
+		<div class="d-flex justify-content-center mt-3 mt-md-0">
 			<ul>
 				{{ range .Pages }}
 				<button class="related_all_btn">{{ .Title }}</button>
@@ -57,7 +57,7 @@
 			{{- range (.Pages.GroupByParam "isPublic") -}} 
 			{{- if eq .Key true -}} 
 			{{- range .Pages.ByWeight -}}
-			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
+			<div class="col-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
 						<a href="{{.Permalink}}" class="stretched-link fw_bold">

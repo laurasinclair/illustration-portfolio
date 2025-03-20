@@ -75,13 +75,13 @@ nav
 							text-align: center
 							border-radius: 26px
 							border: $border-width solid map.get($colors, "white")
-							@include bootstrap.media-breakpoint-up(md)
-								margin: 0 0 8px 8px
+							margin: 0 0 8px 8px
 							&:hover,
 							&:focus,
 							&:active
 								color: map.get($colors, "dark")
-								border-color: map.get($colors, "secondary")
+								background-color: map.get($colors, "white")
+								border-color: map.get($colors, "white")
 					@include bootstrap.media-breakpoint-down(md)
 						text-align: center
 						font-size: 1.4rem

@@ -37,3 +37,21 @@ $(document).ready(function () {
 });
 
 document.body.className += ' js'; // adds a .js class only if javascript is enabled
+
+// nav open/close
+document.addEventListener("DOMContentLoaded", function () { 
+	const openButton = document.querySelector('.nav_menu_btn_open');
+	const closeButton = document.querySelector('.nav_menu_btn_close');
+	const mobileNav = document.querySelector('.nav_menu_navbar');
+	const navLinks = document.querySelectorAll('.nav_menu_nav-element_link')
+
+	const isNavOpen = (isOpen) => {
+		mobileNav.classList.toggle("isOpen", isOpen);
+		openButton.classList.toggle("d-none", isOpen);
+		document.body.classList.toggle("overflow-hidden", isOpen);
+	};
+
+	navLinks.forEach(link => link.addEventListener('click', isNavOpen(false)));
+	openButton.addEventListener('click', () => isNavOpen(true));
+	closeButton.addEventListener('click', () => isNavOpen(false));
+})
