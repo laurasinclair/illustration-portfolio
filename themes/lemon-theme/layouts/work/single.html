@@ -10,7 +10,7 @@
 			{{ $image := .Resources.GetMatch "project-title_*" -}}
 			{{- with $image -}}
 			<div class="col-12 col-md-6 mx-auto text-center pb-5">
-				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3" />
+				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3 mt-1 mt-md-4 mb-md-5" />
 				{{ with $description }}
 				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
@@ -18,7 +18,7 @@
 				{{- end }}
 			</div>
 			{{- else -}}
-			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 my-4">
+			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 mt-5 mb-4">
 				<h2 class="mb-3">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
 				{{ with $description }}
 				<p class="mb-0 fw_book">
@@ -51,7 +51,7 @@
 				{{- partial "work/showcase/section-title.html" (merge . (dict "theme" $theme)) -}}
 				{{- end -}} <!-- if .sectionTitle -->
 
-				{{- partial "work/showcase/component.html" (merge . (dict "layout" "col-12" "theme" $theme)) -}}
+				{{- partial "work/showcase/component.html" (merge . (dict "layout" "single" "theme" $theme)) -}}
 				
 				{{- end -}} <!-- if/else .group or .type -->
 			</div>
