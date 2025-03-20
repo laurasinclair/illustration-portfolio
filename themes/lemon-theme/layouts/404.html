@@ -14,10 +14,12 @@
 
 			<div id="totem" class="col-12 col-md-7 py-3 py-md-5 d-flex flex-column align-items-center justify-content-center ">
 				{{- $image := resources.Get "img/totem_1.png" -}}
+				{{- with $image }}
 				<picture>
-					<source srcset="{{ $image.Permalink }}" type="image/png">
-					<img src="{{ $image.Permalink }}" alt="{{ .Params.title }}" width="650">
+					<source srcset="{{ .RelPermalink }}" type="image/png">
+					<img src="{{ .RelPermalink }}" alt="{{ .Params.title }}" width="650">
 				</picture>
+				{{ end -}}
 			</div>
 		</div>
 	</header>

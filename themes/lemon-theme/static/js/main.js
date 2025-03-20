@@ -31,6 +31,7 @@ $(document).ready(function () {
 		return false;
 	});
 
+	// little arrows goes up or down
 	$(".toggle-label").click(function () {
 		$(".collapsible-content").toggleClass("collapsible-open");
 	});
