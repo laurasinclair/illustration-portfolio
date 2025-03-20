@@ -1,39 +1,40 @@
+{{- $currentSection := .CurrentSection.Pages.ByWeight -}}
 <section class="related">
 	<div class="container-fluid">
 		<div class="row mb-3 flex-column flex-md-row justify-content-center align-items-center">
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
-					{{- if .NextInSection -}}
+					{{ with $currentSection.Prev . }}
 					<div class="related_post-previous">
-						<a href="{{ .Next.Permalink }}">
+						<a href="{{ .Permalink }}">
 							Previous project
 						</a>
-						<a href="{{ .Next.Permalink }}">
-							«&nbsp;{{ .Next.Title | truncate 50 "..." }}
+						<a href="{{ .Permalink }}">
+							«&nbsp;{{ .Title | truncate 50 "..." }}
 						</a>
 					</div>
-					{{- end -}}
+					{{ end }}
 				</div>
 			</div>
 
 			<div class="col order-3 order-md-2 text-center">
 				<button id="toggle" class="fw_bold">
-					<span style="color: #000">All projects</span>
+					<span class="text_dark">All projects</span>
 				</button>
 			</div>
 
 			<div class="col order-2 order-md-3 text-center text-md-right">
 				<div class="d-flex align-items-center justify-content-center">
-					{{- if .PrevInSection -}}
-					<div class="related_post-next">
-						<a href="{{ .Prev.Permalink }}">
+					{{ with $currentSection.Next . }}
+					<div class="related_post-previous">
+						<a href="{{ .Permalink }}">
 							Next project
 						</a>
-						<a href="{{ .Prev.Permalink }}">
-							{{ .Prev.Title | truncate 50 "..." }}&nbsp;»
+						<a href="{{ .Permalink }}">
+							{{ .Title | truncate 50 "..." }}&nbsp;»
 						</a>
 					</div>
-					{{- end -}}
+					{{ end }}
 				</div>
 			</div>
 		</div>
