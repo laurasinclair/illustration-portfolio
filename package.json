@@ -10,7 +10,7 @@
 	"scripts": {
 		"dev": "concurrently \"npm run dev:*\"",
 		"dev:sass": "sass -w --quiet-deps --load-path=node_modules/ --style=compressed themes/lemon-theme/assets/css/main.scss themes/lemon-theme/static/css/main.min.css",
-		"dev:hugo": "hugo server"
+		"dev:hugo": "hugo server --bind 0.0.0.0 --baseURL http://192.168.1.102:1313"
 	},
 	"author": "Laura Sinclair",
 	"license": "ISC",
