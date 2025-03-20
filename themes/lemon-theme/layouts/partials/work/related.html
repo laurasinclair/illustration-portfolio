@@ -4,7 +4,7 @@
 		<div class="row mb-3 flex-column flex-md-row justify-content-center align-items-center">
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
-					{{ with $currentSection.Prev . }}
+					{{ with $currentSection.Next . }}
 					<div class="related_post-previous">
 						<a href="{{ .Permalink }}">
 							Previous project
@@ -25,7 +25,7 @@
 
 			<div class="col order-2 order-md-3 text-center text-md-right">
 				<div class="d-flex align-items-center justify-content-center">
-					{{ with $currentSection.Next . }}
+					{{ with $currentSection.Prev . }}
 					<div class="related_post-previous">
 						<a href="{{ .Permalink }}">
 							Next project
@@ -41,26 +41,34 @@
 	</div>
 
 	<div class="related_all container-fluid">
-		<div class="row my-5">
-			{{- $relatedProjects := .Site.GetPage "section" "illustration" -}} 
-			{{- range ($relatedProjects.Pages.GroupByParam "isPublic") -}} 
+		{{ with .Site.GetPage "work" }}
+		<div class="d-flex justify-content-center">
+			<ul>
+				{{ range .Pages }}
+				<button class="related_all_btn">{{ .Title }}</button>
+				{{ end }}
+			</ul>
+		</div>
+		{{ end }}
+
+		{{ with .Site.GetPage "work" }}
+		{{ range .Pages }}
+		<div class="row my-5 related_all_section" id="related_all_section_{{ .Title | urlize }}">
+			{{- range (.Pages.GroupByParam "isPublic") -}} 
 			{{- if eq .Key true -}} 
-			{{- range .Pages -}}
+			{{- range .Pages.ByWeight -}}
 			<div class="col-12 col-sm-6 col-md-4 col-xl-2">
 				<div class="card mb-4">
 					<div class="card-body">
-						<a href="{{.Permalink}}" class="stretched-link fw_bold"
-							>{{.Title | truncate 16 "…" }}</a
-						>
+						<a href="{{.Permalink}}" class="stretched-link fw_bold">
+							{{.Title | truncate 16 "…" }}
+						</a>
 					</div>
 
 					<div class="card-img">
-						{{- $image := .Resources.GetMatch "thumbnail_*" -}} {{- with $image -}}
-						<div
-							class="card-img mb-3"
-							style="background-image: url('{{ .Permalink | absURL }}');"
-						>
-							&nbsp;
+						{{ with .Resources.GetMatch "thumbnail_*" -}}
+						<div class="card-img mb-3">
+							<img src="{{.RelPermalink}}" alt="{{.Title}}">
 						</div>
 						{{- end -}}
 					</div>
@@ -68,15 +76,37 @@
 			</div>
 			{{- end -}} <!-- range .Pages -->
 			{{- end -}} <!-- if project isPublic -->
-			{{- end -}} <!-- range illustration section -->
+			{{- end -}} <!-- range section -->
 		</div>
+		{{ end }} <!-- range .Pages -->
+		{{ end }} <!-- with work section -->
 	</div>
 </section>
 
 <script type="text/javascript">
-	let button = document.getElementById("toggle");
-	button.addEventListener("click", () => {
-		document.querySelector(".related_all").classList.toggle("active");
-		document.getElementById("toggle").classList.toggle("active");
+	// "All projects" section opens and closes on click
+	const toggleButton = document.getElementById("toggle");
+	toggleButton.addEventListener("click", () => {
+		document.querySelector(".related_all").classList.toggle("isOpen");
+		document.getElementById("toggle").classList.toggle("isArrowUp");
 	});
+
+	// Displaying different sections on click
+	const sections = document.querySelectorAll(".related_all_section");
+	const relatedButtons = document.querySelectorAll(".related_all_btn");
+
+	relatedButtons[0].classList.add("isActive") // default state: first element is active
+	sections[0].classList.add("isDisplayed") // default state: first element is active
+
+	relatedButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			relatedButtons.forEach((button) => button.classList.remove("isActive"));
+			button.classList.add("isActive");
+
+			sections.forEach((section) => section.classList.remove("isDisplayed")); 
+			const activeSection = document.getElementById(`related_all_section_${button.textContent.toLocaleLowerCase()}`)
+			if (!activeSection) return;
+			activeSection.classList.add("isDisplayed");
+		})
+	})
 </script>

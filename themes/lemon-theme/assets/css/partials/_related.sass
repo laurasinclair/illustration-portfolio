@@ -21,7 +21,7 @@
 			height: 12px
 			display: inline-block
 			margin-left: 10px
-		&.active
+		&.isArrowUp // toggles arrow up or down depending on state
 			&::after
 				transition: all .4s ease-in-out
 				transform: rotate(180deg)
@@ -31,10 +31,27 @@
 		overflow: hidden
 		height: 0
 		opacity: 0
-		&.active
+		&.isOpen
 			transition: all .4s ease-in-out
 			height: 100%
 			opacity: 1
+		&_btn
+			@extend .mx-2
+			@extend .fw_book
+			background-color: transparent
+			font-family: $font-family
+			border-radius: 20px
+			padding: 1px 14px 2px
+			border: 2px solid map.get($colors, "dark")
+			&.isActive
+				@extend .bg_dark
+				@extend .text_white
+		&_section
+			@extend .transition-2s
+			@extend .d-none
+			&.isDisplayed
+				@extend .transition-2s
+				@extend .d-flex
 	.card
 		position: relative
 		overflow: hidden
@@ -49,8 +66,9 @@
 			border-radius: 0
 			width: 100%
 			height: 120px
-			background-size: cover
-			background-position: center center
+			img
+				object-fit: cover
+				height: 100%
 		a, a:visited
 			border: none
 			&:hover
