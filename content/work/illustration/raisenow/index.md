@@ -9,7 +9,7 @@ project_content:
   theme: dark
   description: |
     Illustrations made when I was working at <a href=\"https://raisenow.com\" target=\"\_blank\">RaiseNow</a>. <br />
-    As a key member of the marketing team, my job was to carry the brand's voice. I designed dozens of high‑quality assets, spanning diverse touchpoints, and ensured they were visually compelling, effective, and on‑brand, reflecting a deep understanding of our audience."
+    As a key member of the marketing team, my job was to carry the brand's voice. I designed dozens of high‑quality assets, spanning diverse touchpoints, and ensured they were visually compelling, effective, and on‑brand, reflecting a deep understanding of our audience.
   work:
     - type: image
       src: img/rnw_2-3.jpg

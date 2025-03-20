@@ -1,18 +1,11 @@
 ---
-title: This website!
+title: This website's assets!
 draft: false
 weight: 1
 isPublic: true
 
 project_content:
-  description: |
-    Test
   work:
-    - type: text
-      content: |
-        Lorem.
-      class: mt-5
-
     - type: image
       src: img/dirtylemon_visual-assets.png
       class: col-lg-9
@@ -36,8 +29,6 @@ project_content:
     
     - type: text
       sectionTitle: The process!
-      content: |
-        ...     
 
     - group:
       - type: image
@@ -46,12 +37,6 @@ project_content:
       - type: image
         src: img/dirtylemon_process-02.jpg
         
-      - type: text
-        content: |
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus doloremque praesentium quas vel nam sint, soluta voluptatem repellat molestias quam?
-        class: px-0 debug1
-        layout: col-md-12
-
       - type: image
         src: img/dirtylemon_process-03.jpg
 

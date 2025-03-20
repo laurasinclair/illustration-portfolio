@@ -11,6 +11,7 @@ project_content:
     2. A big NO THANK YOU to the pressure that social media puts on us to be productive and set unreachable goals for ourselves.
   work:
     - type: image
-      src: img/illustration_goals-01.jpg
+      src: img/illustration_goals-01.png
+      class: col-md-11
 
 ---

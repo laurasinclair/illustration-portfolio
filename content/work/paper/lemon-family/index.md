@@ -5,8 +5,6 @@ weight: 1
 isPublic: true
 
 project_content:
-  description: |
-    Test
   work:
     - type: image
       src: img/work_lemon-family_1-5.jpg
@@ -28,7 +26,7 @@ project_content:
       class: col-lg-9
     
     - type: text
-      sectionTitle: The process!
+      sectionTitle: The process
       content: |
         It took so long. They were all made with love, and so much patience.
 
