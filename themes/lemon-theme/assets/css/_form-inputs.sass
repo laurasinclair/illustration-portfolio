@@ -22,9 +22,9 @@ button.btn_submit
 	li
 		@extend .d-inline-block
 		margin-right: 10px
-		&:hover
-			cursor: pointer
-			input[type="checkbox"]
+		input[type="checkbox"]
+			&:hover
+				cursor: pointer
 				& + label
 					@extend .bg_secondary
 			&:checked
