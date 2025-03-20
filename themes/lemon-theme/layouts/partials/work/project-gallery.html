@@ -1,28 +1,24 @@
 <section id="work" class="pb-5 pt-0">
 	<div class="container-fluid work_gallery">
+		{{ with .Site.GetPage "work" }}
 		<div id="work_gallery_nav" class="work_gallery_nav">
 			<ul>
+				{{ range .Pages }}
 				<li>
-					<a href="#illustration" class="active work_gallery_nav_link">Illustration</a>
+					<a href="#{{ .Title | urlize }}" class="work_gallery_nav_link">{{ .Title }}</a>
 				</li>
-				<li>
-					<a href="#paper" class="work_gallery_nav_link">Paper</a>
-				</li>
-				<li>
-					<a href="#playground" class="work_gallery_nav_link">Playground</a>
-				</li>
+				{{ end }}
 			</ul>
 		</div>
+		{{ end }}
 
 		<div id="work_gallery_projects">
-			<div id="illustration" class="row work_gallery_section">
-				<div class="col-12 d-none">
-					<h3 class="mb-4 mb-lg-5">Illustration</h3>
-				</div>
-				{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
-				{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
+			{{ with .Site.GetPage "work" }}
+			{{ range .Pages }}
+			<div id="{{ .Title | urlize }}" class="row work_gallery_section">
+				{{- range (.Pages.GroupByParam "isPublic") -}} 
 				{{- if eq .Key true -}} 
-				{{- range .Pages -}}
+				{{- range .Pages.ByWeight -}}
 				{{- $isFeatured := .Params.isFeatured -}}
 				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
 					<div class="work_gallery_project">
@@ -45,46 +41,12 @@
 					</div>
 				</div>
 				{{- end -}} <!-- range .Pages -->
-				{{- end -}} <!-- if isPublic -->
-				{{- end -}} <!-- range illustration section -->
-			</div> <!-- .row #illustration -->
-
-
-			<div id="paper" class="row work_gallery_section">
-				<div class="col-12 d-none">
-					<h3 class="mb-4 mb-lg-5">Paper</h3>
-				</div>
-				{{- $paperSection := .Site.GetPage "section" "paper" -}}
-
-				{{- range ($paperSection.Pages.GroupByParam "isPublic") -}}
-				{{- if eq .Key true -}} 
-				{{- range .Pages -}}
-				{{- $isFeatured := .Params.isFeatured -}}
-				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
-					<div class="work_gallery_project">
-						<div class="work_gallery_project_title">
-							<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
-						</div>
-						<a href="{{ .Permalink | absURL }}">
-							{{- $image := .Resources.GetMatch "thumbnail*" -}} 
-							{{- with $image -}}
-
-							<img
-								src="{{ .Permalink | absURL }}"
-								width="{{ .Width }}"
-								height="{{ .Height }}"
-								alt="{{ .Title }}"
-								class='d-block {{ if $isFeatured }}featured{{ end }}'
-							/>
-							{{- end -}}
-						</a>
-					</div>
-				</div>
-				{{- end -}} <!-- range .Pages -->
-				{{- end -}} <!-- if isPublic -->
-				{{- end -}} <!-- range paper section -->
-			</div> <!-- .row #paper -->
-		</div>
+				{{- end -}} <!-- if project isPublic -->
+				{{- end -}} <!-- range section -->
+			</div>
+			{{ end }} <!-- range .Pages -->
+			{{ end }} <!-- with work section -->
+		</div> <!-- #work_gallery_projects -->
 	</div> <!-- .work_gallery -->
 
 	{{- $image := resources.Get "img/happylemon.png" -}}
@@ -112,11 +74,13 @@
 		const sections = document.querySelectorAll(".work_gallery_section");
 		const navLinks = document.querySelectorAll(".work_gallery_nav_link");
 
+		navLinks[0].classList.add("active"); // by default, only the first one is active
+
 		// IntersectionObserver() -> detect when an element enters or exits the viewport
 		const observer = new IntersectionObserver((entries) => { 
 			entries.forEach((sectionName) => {
 				if (sectionName.isIntersecting) {
-					navLinks.forEach((link) => link.classList.remove("active")); 
+					navLinks.forEach((link) => link.classList.remove("active"));
 					const activeLink = document.querySelector(`a[href="#${sectionName.target.id}"]`);
 					if (activeLink) activeLink.classList.add("active");
 				}
