@@ -1,11 +1,10 @@
-{{-  define "main" -}}
+{{- define "main" -}}
 
 {{- if isset .Params "project_content" -}}
 {{- $backgroundColor := .Params.project_content.bgColor | default "#f1f1f7" -}}
-{{- $theme := .Params.project_content.theme }}
+{{- $theme := .Params.project_content.theme | default "light" }}
 {{- $description := .Params.project_content.description -}}
-
-<div class='work_single theme-{{- if eq $theme "dark" -}}dark{{- else -}}light{{- end -}}'>
+<div class='work_single theme-{{$theme}}'>
 	<header class="work_single_hero bg_dark text_white container-fluid">
 		<div class="row">
 			{{ $image := .Resources.GetMatch "project-title_*" -}}
@@ -66,12 +65,11 @@
 		{{- end }}>
 	</div>
 
-	{{- end -}}
-
 	{{- partial "work/related.html" . -}}
-
-	<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
-		{{ partial "social-links.html"}}
-	</div>
 </div>
+{{- end -}} <!-- if .Params "project_content" -->
+{{- end -}}
+
+{{- define "footer" -}} single
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" false "hasMask" false)}}
 {{- end -}}

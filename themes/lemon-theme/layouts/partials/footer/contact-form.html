@@ -31,9 +31,8 @@
 			</label>
 
 			<ul class="checkbox-animated mb-3">
-				{{- $topics := .Site.Data.contactForm.fields.topics.choice -}} 
-				{{- range $index, $topic := $topics -}}
-
+				{{ $topics := site.Data.contactForm.fields.topics.choice -}} 
+				{{- range $index, $topic := $topics }}
 				<li>
 					<input
 						type="checkbox"

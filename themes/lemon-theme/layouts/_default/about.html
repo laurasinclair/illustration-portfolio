@@ -1,53 +1,61 @@
-{{ define "main" }}
+{{- define "main" -}}
+{{- with .Params.content -}}
+
 <header class="mt-O bg_dark">
 	<div class="hero_large">
 		<div class="container-fluid">
-			<h2 class="text-center mx-auto">{{.Params.content.heading}}</h2>
+			<h2 class="text-center mx-auto">{{.heading}}</h2>
 		</div>
 	</div>
-	 
 </header>
 
 <section id="about">
 	<div class="container-fluid">
 		<div class="row mb-4 mb-md-5">
 			<div class="col-12 col-md-8 offset-md-2">
-				{{if .Params.content.catchPhrase}}
-				<h2 class="mb-4">{{.Params.content.catchPhrase}}</h2>
-				{{end}}
+				{{ with .catchPhrase }}
+				<h2 class="mb-4">{{ . }}</h2>
+				{{ end -}}
 
 				<div class="row flex-column flex-sm-row no-gutters">
-					<div
-						class="col-12 col-xl-9 d-flex justify-content-center flex-column pl-xl-4"
-					>
-						{{.Params.content.description | safeHTML}}
+					<div class="col-12 col-xl-9 d-flex justify-content-center flex-column pl-xl-4">
+						{{ with .description}}
+						{{ . | safeHTML }}
+						{{ end }}
 
+						{{ with .socialMedia}}
 						<p class="mt-3 mt-lg-4">
 							<span class="highlight">
-								{{.Params.content.socialMedia}}
+								{{ . }}
 							</span>
 						</p>
+						{{ end }}
 
-						{{- partial "social-links.html" -}}
+						{{- partial "social-icons.html" -}}
 					</div>
 				</div>
 			</div>
 		</div>
 
-		{{- $image := resources.Get "img/happylemon.png" -}} {{- if $image -}}
+		{{- $image := resources.Get "img/happylemon.png" -}}
+		{{- with $image -}}
 		<div class="row">
 			<div class="col-12 col-lg-7 mx-auto text-center">
 				<figure class="mt-5 mb-0">
 					<img
-						src="{{ $image.Permalink }}"
-						alt="{{ .Site.Title }}"
+						src="{{ .Permalink }}"
+						alt="{{ site.Title }}"
 						width="300"
 					/>
 				</figure>
 			</div>
 		</div>
-		{{- end -}}
+		{{- end -}} <!-- with image -->
 	</div>
 </section>
+{{- end -}} <!-- with .Params.content -->
+{{- end -}}
 
-{{- partial "footer/footer.html" . -}} {{ end }}
+{{- define "footer" -}} about
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "bgColor" "secondary")}}
+{{- end -}}

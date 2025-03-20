@@ -1,6 +1,5 @@
 <head>
 	{{- partial "google-analytics.html" . -}}
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	{{- $title := print .Title " | " .Site.Title -}}
@@ -24,18 +23,17 @@
 	<meta property="twitter:description" content="{{ .Site.Params.metadescription }}">
 	<meta property="og:description" content="{{ .Site.Params.metadescription }}">
 	
-	{{- $image := .Resources.GetMatch "featured_*" -}}
-	{{- if $image -}}
-	<meta property="twitter:image" content="{{ $image.Permalink }}">
-	<meta property="og:image" content="{{ $image.Permalink }}">
-	{{- else -}}
-	{{- $image := resources.Get "img/laurasinclair_1200x627.jpg" -}}
-	<meta property="twitter:image" content="{{ $image.Permalink }}">
-	<meta property="og:image" content="{{ $image.Permalink }}">
+	{{- if .Resources.GetMatch "featured_*" -}}
+	<meta property="twitter:image" content="{{ .Permalink }}">
+	<meta property="og:image" content="{{ .Permalink }}">
+	{{- else if resources.Get "img/laurasinclair_1200x627.jpg" -}}
+	<meta property="twitter:image" content="{{ .Permalink }}">
+	<meta property="og:image" content="{{ .Permalink }}">
 	{{- end -}}
 
 	<link rel="stylesheet" href='{{ "css/main.min.css" | absURL }}'>
 
-	{{- $image := resources.Get "img/favicon.png" -}}
-	<link rel="icon" href="{{ $image.Permalink }}" sizes="16x16 32x32" type="image/png">
+	{{- with resources.Get "img/favicon.png" -}}
+	<link rel="icon" href="{{ .Permalink }}" sizes="16x16 32x32" type="image/png">
+	{{- end -}}
 </head>

@@ -41,8 +41,8 @@
 	</div>
 
 	<div class="related_all container-fluid">
-		{{ with .Site.GetPage "work" }}
-		<div class="d-flex justify-content-center mt-3 mt-md-0">
+		{{ with site.GetPage "work" }}
+		<div class="d-flex justify-content-center mt-3 mt-md-0 mb-5">
 			<ul>
 				{{ range .Pages }}
 				<button class="related_all_btn">{{ .Title }}</button>
@@ -51,9 +51,9 @@
 		</div>
 		{{ end }}
 
-		{{ with .Site.GetPage "work" }}
+		{{ with site.GetPage "work" }}
 		{{ range .Pages }}
-		<div class="row mb-5 related_all_section" id="related_all_section_{{ .Title | urlize }}">
+		<div class="row related_all_section" id="related_all_section_{{ .Title | urlize }}">
 			{{- range (.Pages.GroupByParam "isPublic") -}} 
 			{{- if eq .Key true -}} 
 			{{- range .Pages.ByWeight -}}

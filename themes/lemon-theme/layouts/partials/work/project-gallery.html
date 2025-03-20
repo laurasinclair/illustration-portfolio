@@ -1,6 +1,6 @@
 <section id="work" class="pb-5 pt-0">
 	<div class="container-fluid work_gallery">
-		{{ with .Site.GetPage "work" }}
+		{{ with site.GetPage "work" }}
 		<div id="work_gallery_nav" class="work_gallery_nav">
 			<ul>
 				{{ range .Pages }}
@@ -13,7 +13,7 @@
 		{{ end }}
 
 		<div id="work_gallery_projects">
-			{{ with .Site.GetPage "work" }}
+			{{ with site.GetPage "work" }}
 			{{ range .Pages }}
 			<div id="{{ .Title | urlize }}" class="row work_gallery_section">
 				{{- range (.Pages.GroupByParam "isPublic") -}} 
@@ -67,6 +67,10 @@
 	</div>
 	{{- end -}} <!-- if image exists -->
 </section>
+
+{{- define "footer" -}} gallery
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- end -}}
 
 {{- define "footer-scripts" -}}
 <script>

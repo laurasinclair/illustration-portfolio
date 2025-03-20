@@ -9,27 +9,23 @@
 
 			<div id="totem" class="col-12 col-md-7 text-center py-3 py-md-5">
 				{{- $image := resources.Get "img/totem_1.png" -}}
+				{{- with $image -}}
 				<picture>
-					<source srcset="{{ $image.Permalink }}" type="image/png" />
+					<source srcset="{{ .Permalink }}" type="image/png" />
 					<img
-						src="{{ $image.Permalink }}"
+						src="{{ .Permalink }}"
 						alt="{{ .Params.title }}"
 						width="650"
 					/>
 				</picture>
+				{{- end -}}
 			</div>
 		</div>
 	</div>
 </header>
 <div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
+{{- end -}}
 
-<div class="container-fluid row mb-4">
-	<div class="col-12 col-lg-9 mx-auto">
-		{{ partial "footer/contact-form.html" . }}
-	</div>
-</div>
-
-<div class="bg_grey d-flex justify-content-center px-4 pt-4 pb-lg-4" style="padding-bottom: 4.4rem">
-	{{ partial "social-links.html"}}
-</div>
-{{ end }}
+{{- define "footer" -}} footer
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- end -}}
