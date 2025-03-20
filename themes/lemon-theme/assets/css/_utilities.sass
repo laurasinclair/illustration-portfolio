@@ -161,10 +161,9 @@ ul
 		border-color: map.get($colors, "dark")
 		background-color: color.adjust(map.get($colors, "primary"), $alpha: -0.8)
 		&:placeholder
-			color: map.get($colors, "secondary")
-	&:placeholder
-		color: color.adjust(map.get($colors, "dark"), $alpha: -0.5)
-		font-style: italic
+			color: map.get($colors, "dark")
+	&::placeholder
+		color: color.adjust(map.get($colors, "dark"), $alpha: -0.7) !important
 
 @mixin label
 	@extend .fw_bold
@@ -191,10 +190,10 @@ ul
 	text-align: center
 	border: none
 	&:disabled
-		background-color: color.adjust(map.get($colors, "dark"), $lightness: 90%)
-		color: color.adjust(map.get($colors, "dark"), $lightness: 70%)
+		background-color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+		color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 		svg path
-			fill: color.adjust(map.get($colors, "dark"), $lightness: 70%)
+			fill: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 	
 .btn_primary_dark
 	@include btn
