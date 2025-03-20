@@ -18,7 +18,7 @@ theme = "lemon-theme"
     url = "/about"
     weight = 3
   [[menu.main]]
-    name = "Contact"
+    name = "Get in touch"
     url = "/get-in-touch"
     weight = 4
 
