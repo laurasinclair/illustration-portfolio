@@ -1,11 +1,12 @@
 <head>
-	{{- partial "google-analytics.html" . -}}
+	{{ partial "google-analytics.html" }}
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	{{- $title := print .Title " | " .Site.Title -}}
+	{{- $titleBase := print .Site.Params.name " ‣ " .Site.Params.tagline -}}
+	{{- $title := print .Title " | " $titleBase -}}
 	{{- if .IsHome -}}
-	{{- $title = print .Site.Title " | Illustration & Creative artwork" -}}
+	{{- $title = $titleBase -}}
 	{{- end -}}
 	<title>{{ $title }}</title>
 
@@ -13,30 +14,41 @@
 	<meta name="description" content="{{ .Site.Params.metadescription }}">
 	{{ with .Params.noindex }}
 	<meta name="robots" content="noindex" /> 
-	{{ end }}
+	{{ end -}}
 
+	{{- $metaTitle := .Title | safeHTML -}}
+	{{- if eq .Section "work" -}}
+		{{- if eq .Section "work" "illustration" -}}
+			{{ $metaTitle = print .Title " | Illustration" | safeHTML }}
+		{{ end }}
+	{{ else if .IsHome}}
+		{{ $metaTitle = print $titleBase | safeHTML }}
+	{{ else }}
+		{{ $metaTitle = print .Title " | " $titleBase | safeHTML }}
+	{{- end -}}
+	{{- $metaDescription := print .Site.Params.name " is an illustrator specialising in fun & happy creative artwork!"}}
 	<meta property="og:type" content="website">
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="{{"" | absURL }}">
 	<meta property="og:url" content="{{"" | absURL }}">
-	<meta property="twitter:title" content="{{ $title }}">
-	<meta property="og:title" content="{{ $title }}">
-	<meta property="twitter:description" content="{{ .Site.Params.metadescription }}">
-	<meta property="og:description" content="{{ .Site.Params.metadescription }}">
+	<meta property="twitter:title" content="{{ $metaTitle }}">
+	<meta property="og:title" content="{{ $metaTitle }}">
+	<meta property="twitter:description" content="{{ $metaDescription }}">
+	<meta property="og:description" content="{{ $metaDescription }}">
 	
 	{{- $image := .Resources.GetMatch "featured_*" -}}
 	{{- if $image -}}
 	<meta property="twitter:image" content="{{ $image.Permalink }}">
 	<meta property="og:image" content="{{ $image.Permalink }}">
 	{{- else -}}
-	{{- $image := resources.Get "img/laurasinclair_1200x627.jpg" -}}
+	{{ $image := resources.Get "img/laurasinclair_1200x627.jpg" -}}
 	<meta property="twitter:image" content="{{ $image.Permalink }}">
 	<meta property="og:image" content="{{ $image.Permalink }}">
-	{{- end -}}
+	{{- end }}
 
 	<link rel="stylesheet" href='{{ "css/main.min.css" | absURL }}'>
 
-	{{- with resources.Get "img/favicon.png" -}}
+	{{- with resources.Get "img/favicon.png" }}
 	<link rel="icon" href="{{ .Permalink }}" sizes="16x16 32x32" type="image/png">
-	{{- end -}}
+	{{- end }}
 </head>

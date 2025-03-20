@@ -1,5 +1,5 @@
 languageCode = "en-uk"
-title = "Laura Sinclair"
+title = "Illustration portfolio"
 pluralizeListTitles = "false"
 baseURL = "/"
 theme = "lemon-theme"
@@ -24,8 +24,9 @@ theme = "lemon-theme"
 
 [params]
   email = "hello@laurasnclr.com"
-  metadescription = "Laura Sinclair is an illustrator specialising in fun & happy creative artwork!"
-  websiteName = "Laura Sinclair | Illustration & creative artwork"
+  name = "Laura Sinclair"
+  tagline = "Illustration & creative artwork"
+
   [[params.social]]
     name = "instagram"
     url = "https://www.instagram.com/laura.snclr/"
