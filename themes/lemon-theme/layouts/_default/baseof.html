@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html
-	lang="en"
-	class="sr">
-	{{- partial "head.html" . -}}
-	<body
-		class="{{ .Section }}{{ with .Params.optional.extraCSS }} {{ . }}{{ end }}{{ with .Params.slug }} {{ . }}{{ end }}"
-		data-offset="450">
+<html lang="en">
+	{{ partial "head.html" . }}
+
+	{{- $bodyClasses := .Section }}
+	{{- with .Params.optional.extraCSS }}{{ $bodyClasses = printf "%s %s" $bodyClasses . }}{{ end }}
+	{{- with .Params.slug }}{{ $bodyClasses = printf "%s %s" $bodyClasses (.) }}{{ else }}{{ $bodyClasses = printf "%s %s" $bodyClasses (. | urlize ) }}{{ end }}
+	<body class="{{ $bodyClasses }}">
 		<div id="all">
-			<div id="sidebar">{{- partial "layout/sidebar.html" . -}}</div>
+			<div id="sidebar">{{ partial "layout/sidebar.html" . }}</div>
 			<main id="main" class="d-flex flex-column flex-1">
-				{{- partial "layout/nav.html" . -}} {{- block "main" . -}}{{- end -}}
+				{{- partial "layout/nav.html" . -}}
+				{{- block "main" . -}}{{- end -}}
+				{{- block "footer" . -}}{{- end }}
 			</main>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-		<script>
-			document.body.className += ' js'; // adds a .js class only if javascript is enabled
-		</script>
 		<script src='{{"js/main.js" | absURL }}'></script>
 		<script src='{{"js/swaptext.js" | absURL }}'></script>
+
+		{{ block "footer-scripts" . }}{{ end }}
 	</body>
 </html>

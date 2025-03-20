@@ -73,3 +73,16 @@ button.btn_submit
 			display: absolute
 			position: absolute
 			opacity: 0
+
+fieldset
+	&.input_required
+		input
+			position: relative
+			&:before
+				content: "required"
+				position: absolute
+				top: 0
+		&.touched
+			input
+				&:invalid
+					border-color: map.get($colors, "tertiary")

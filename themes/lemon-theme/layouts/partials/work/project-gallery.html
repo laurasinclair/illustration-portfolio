@@ -1,37 +1,53 @@
-<section id="work" class="work_gallery" class="py-5">
-	<div class="container-fluid">
-		<div class="row">
-			{{- $illustrationSection := .Site.GetPage "section" "illustration" -}}
-			{{- range ($illustrationSection.Pages.GroupByParam "isPublic") -}}
-			{{- if eq .Key true -}} 
-			{{- range .Pages -}}
-			{{- $isFeatured := .Params.isFeatured -}}
-			<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
-				<div class="work_gallery_project">
-				
-					<div class="work_gallery_project_title">
-						<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
-					</div>
-					<a href="{{ .Permalink | absURL }}">
-						{{- $image := .Resources.GetMatch "thumbnail*" -}} 
-						{{- with $image -}}
-
-						<img
-							src="{{ .Permalink | absURL }}"
-							width="{{ .Width }}"
-							height="{{ .Height }}"
-							alt="{{ .Title }}"
-							class='d-block {{ if $isFeatured }}featured{{ end }}'
-						/>
-						{{- end -}}
-					</a>
-				</div>
-			</div>
-			{{- end -}} <!-- range .Pages -->
-			{{- end -}} <!-- if isPublic -->
-			{{- end -}} <!-- range illustration section -->
+<section id="work" class="pb-5 pt-0">
+	<div class="container-fluid work_gallery">
+		{{ with site.GetPage "work" }}
+		<div id="work_gallery_nav" class="work_gallery_nav">
+			<ul>
+				{{ range .Pages }}
+				<li>
+					<a href="#{{ .Title | urlize }}" class="work_gallery_nav_link">{{ .Title }}</a>
+				</li>
+				{{ end }}
+			</ul>
 		</div>
-	</div>
+		{{ end }}
+
+		<div id="work_gallery_projects">
+			{{ with site.GetPage "work" }}
+			{{ range .Pages }}
+			<div id="{{ .Title | urlize }}" class="row work_gallery_section">
+				{{- range (.Pages.GroupByParam "isPublic") -}} 
+				{{- if eq .Key true -}} 
+				{{- range .Pages.ByWeight -}}
+				{{- $isFeatured := .Params.isFeatured -}}
+				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
+					<div class="work_gallery_project">
+						<div class="work_gallery_project_title">
+							<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
+						</div>
+						<a href="{{ .Permalink | absURL }}">
+							{{- $image := .Resources.GetMatch "thumbnail*" -}} 
+							{{- with $image -}}
+
+							<img
+								src="{{ .Permalink | absURL }}"
+								width="{{ .Width }}"
+								height="{{ .Height }}"
+								alt="{{ .Title }}"
+								class='d-block {{ if $isFeatured }}featured{{ end }}'
+							/>
+							{{- end -}}
+						</a>
+					</div>
+				</div>
+				{{- end -}} <!-- range .Pages -->
+				{{- end -}} <!-- if project isPublic -->
+				{{- end -}} <!-- range section -->
+			</div>
+			{{ end }} <!-- range .Pages -->
+			{{ end }} <!-- with work section -->
+		</div> <!-- #work_gallery_projects -->
+	</div> <!-- .work_gallery -->
 
 	{{- $image := resources.Get "img/happylemon.png" -}}
 	{{- if $image -}}
@@ -41,7 +57,7 @@
 				<div>
 					<img
 						src="{{ $image.Permalink }}"
-						alt="{{.Site.Params.websiteName}}"
+						alt="{{.Site.Params.tagline}}"
 						class="pe-md-5"
 						width="300"
 					/>
@@ -51,3 +67,33 @@
 	</div>
 	{{- end -}} <!-- if image exists -->
 </section>
+
+{{- define "footer" -}}
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- end -}}
+
+{{- define "footer-scripts" -}}
+<script>
+	document.addEventListener("DOMContentLoaded", function () { // fires when the HTML document has been completely loaded and parsed, but before images, stylesheets, and other external resources are fully loaded (avoiding errors when selecting elements)
+		const sections = document.querySelectorAll(".work_gallery_section");
+		const navLinks = document.querySelectorAll(".work_gallery_nav_link");
+
+		if (navLinks.length > 0) navLinks[0].classList.add("active"); // by default, only the first one is active
+
+		// IntersectionObserver() -> detect when an element enters or exits the viewport
+		const observer = new IntersectionObserver((entries) => { 
+			entries.forEach((sectionName) => {
+				if (sectionName.isIntersecting) {
+					navLinks.forEach((link) => link.classList.remove("active"));
+					const activeLink = document.querySelector(`a[href="#${sectionName.target.id}"]`);
+					if (activeLink) activeLink.classList.add("active");
+				}
+			});
+			},
+			{ threshold: 0.1 } // trigger the callback function when at least 10% of the target element is visible in the viewport
+		);
+
+		sections.forEach((section) => observer.observe(section));
+	});
+</script>
+{{- end -}}

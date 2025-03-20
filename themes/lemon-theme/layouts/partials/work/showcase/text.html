@@ -1,0 +1,13 @@
+{{ $layout := print "col-12 mt-4" }}
+{{ if eq .layout "single" }}
+{{ $layout = print "col-12 col-md-6 mt-0" }}
+{{ end }}
+<div class="col-12">
+    <div class="row">
+        <div class="mb-3 mx-auto {{$layout}}">
+            <p class='fw_book {{with .class}}{{.}}{{end}} w-100 {{if eq .theme "dark"}}text_white{{end}}'>
+                {{ .content | safeHTML }}
+            </p>
+        </div>
+    </div>
+</div>

@@ -47,7 +47,9 @@ $debug-colors: #f58589, #6478f6, #ffb152, #21e6bb, #f664f1
 
 hr
 	border-top: none
-	border-bottom: $border-width solid map.get($colors, "dark")
+	border-bottom: 2px solid map.get($colors, "dark")
+	@extend .mt-4
+	@extend .mb-5
 
 ul
 	@extend .m-0
@@ -99,15 +101,9 @@ ul
 
 .hero
 	&_medium
-		padding: 3.4em 0 4em
-		h2
-			padding: 2em 0 3em
+		padding: 5em 0 7em
 	&_large
-		@extend .bg_dark
-		padding: 5em 0 6em
-		h2
-			@extend .text_white
-			padding: 2em 0
+		padding: 6em 0 8em
 
 .stretched-link::after
 	position: absolute
@@ -137,16 +133,21 @@ ul
 	@if $type == 'top'
 		-webkit-mask: url("/css/assets/bgtop.png")
 		-webkit-mask-position: top center
+		margin-bottom: -2px // chrome fix: lines between divs
 
 	@if $type == 'bottom'
 		-webkit-mask: url("/css/assets/bgbottom.png")
 		-webkit-mask-position: bottom center
+		margin-top: -2px // chrome fix: lines between divs
 
 .bg-cover
 	background-size: cover !important
 	background-position: center center
 
 @mixin form-inputs
+	@extend .text_dark
+	@extend .d-block
+	@extend .mb-3
 	-webkit-appearance: none
 	-moz-appearance: none
 	appearance: none
@@ -155,25 +156,14 @@ ul
 	background: transparent
 	border: $border-width solid map.get($colors, "dark")
 	border-radius: 6px
-	display: block
-	@extend .text_dark
-	&::selection
-		color: map.get($colors, "white")
-		background: map.get($colors, "primary")
 	&:focus
 		outline: none
-		background-color: map.get($colors, "dark")
 		border-color: map.get($colors, "dark")
-		color: map.get($colors, "secondary")
-		&::placeholder
+		background-color: color.adjust(map.get($colors, "primary"), $alpha: -0.8)
+		&:placeholder
 			color: map.get($colors, "dark")
-	&:invalid
-		outline: none
-		box-shadow: none
-		border-color: red
 	&::placeholder
-		color: color.adjust(map.get($colors, "dark"), $alpha: -0.5)
-		font-style: italic
+		color: color.adjust(map.get($colors, "dark"), $alpha: -0.7) !important
 
 @mixin label
 	@extend .fw_bold
@@ -198,6 +188,12 @@ ul
 	margin-top: 10px
 	margin-bottom: 10px
 	text-align: center
+	border: none
+	&:disabled
+		background-color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+		color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+		svg path
+			fill: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 	
 .btn_primary_dark
 	@include btn
@@ -234,3 +230,49 @@ ul
 		@include icon
 		svg path
 			fill: map.get($colors, "white")
+
+@mixin list-base
+	li
+		@extend .mb-1 
+		@extend .mb-md-2
+		@extend .mb-lg-3
+
+@mixin list-with-special-bullet
+	li
+		@extend .position-relative
+		padding-left: 1.4em
+		margin-left: 2px
+		&:before
+			content: ''
+			@extend .position-absolute
+			background-size: cover
+			background-position: center center
+			display: block
+			left: 0
+
+@mixin list-type($type)
+	@include list-base
+	@if $type == 'hyphen'
+		@include list-with-special-bullet
+		li
+			&:before
+				top: 14px
+				width: 10px
+				border-top: 2px solid map.get($colors, "dark")
+	@else if $type == 'arrow'
+		@include list-with-special-bullet
+		li
+			&:before
+				background-image: url("assets/icon_arrow-right.svg")
+				top: 10px
+				width: 16px
+				height: 11px
+
+ul
+	&.list
+		&-simple
+			@include list-type(none)
+		&-hyphen
+			@include list-type(hyphen)
+		&-arrow
+			@include list-type(arrow)

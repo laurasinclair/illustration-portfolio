@@ -12,40 +12,86 @@
 		padding: 6px 14px
 		pointer-events: fill
 
+@mixin full-screen
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	width: 100dvw
+	height: 100dvh
+	overflow: hidden
+	display: flex
+	align-items: stretch
+	justify-content: center
+	flex-direction: column
+
+@mixin nav-button
+	border: 0
+	padding: 4px
+	width: 2.2em
+	height: 2.2em
+	top: 0.6em
+	right: 0.6em
+	display: flex
+	align-items: center
+	justify-content: center
+
 nav
 	margin-bottom: -1px // chrome fix: lines between divs
-	.menu
-		&_navbar
-			@extend .position-fixed
-			@extend .d-flex
-			z-index: 9
-			bottom: 1em
-			right: 50%
-			transform: translateX(50%)
-			width: max-content
-			pointer-events: none
-			@include bootstrap.media-breakpoint-up(lg)
-				right: 2em
-				bottom: unset
-				transform: initial
-
-		&_nav-element
-			&_link
-				@include nav-element
-				font-size: 1.1rem
-				margin: 0 2px
-				a
-					border-radius: 26px
-					border: $border-width solid map.get($colors, "white")
+	position: relative
+	z-index: 999
+	.nav
+		&_menu
+			&_btn
+				&_open
+					@include nav-button
+					position: fixed
+				&_close
+					@include nav-button
+					position: absolute
+			&_navbar
+				&.isOpen
+					@include bootstrap.media-breakpoint-down(md)
+						@include full-screen
+						display: flex
+						background-color: map.get($colors, "dark")
+				@include bootstrap.media-breakpoint-down(md)
+					display: none
+					flex-direction: column
+				@include bootstrap.media-breakpoint-up(md)
+					display: flex
+					position: fixed
+					top: 1.5em
+					right: 2em
+					pointer-events: none
+			&_nav-element
+				&_link
+					@include nav-element
+					font-size: 1.1rem
+					margin: 0 2px
 					@include bootstrap.media-breakpoint-up(md)
-						margin: 0 0 8px 8px
-					&:hover,
-					&:focus,
-					&:active
-						@extend .bg_secondary
-						@extend .text_dark
-						border-color: map.get($colors, "secondary")
-			&_logo
-				@include nav-element
-				@include bootstrap.media-breakpoint-up(lg)
-					padding-left: 1.8rem
+						a
+							text-align: center
+							border-radius: 26px
+							border: $border-width solid map.get($colors, "white")
+							margin: 0 0 8px 8px
+							&:hover,
+							&:focus,
+							&:active
+								color: map.get($colors, "dark")
+								background-color: map.get($colors, "white")
+								border-color: map.get($colors, "white")
+					@include bootstrap.media-breakpoint-down(md)
+						text-align: center
+						font-size: 1.4rem
+						padding: 12px 0
+				&_logo
+					@include nav-element
+					@extend .mt-3 
+					@extend .mt-md-4
+					a
+						@extend .ps-lg-4
+						@extend .ps-0
+						@include bootstrap.media-breakpoint-up(lg)
+							padding-left: 1.8rem

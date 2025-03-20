@@ -1,0 +1,5 @@
+<div class="col-12 col-md-6 mt-4 mt-md-5 mb-1 mx-auto">
+    <h3 class='{{if eq .theme "dark"}}text_white{{end}}'>
+        {{ (replace .sectionTitle "\n" "<br>") | safeHTML }}
+    </h3>
+</div>

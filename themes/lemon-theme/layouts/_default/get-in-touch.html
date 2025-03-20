@@ -1,0 +1,31 @@
+{{ define "main" }}
+<header class="bg_dark text_white">
+	<div class="container-fluid">
+		<div class="row pb-4 pb-md-5 mt-5 mt-md-0">
+			<div class="col-12 col-md-5 d-flex flex-column justify-content-center pb-4 pb-md-0 ps-md-4 ps-lg-5">
+				<h1 class="pb-3">{{.Params.content.heading}}</h1>
+				<p class="lead">{{.Params.content.subheading}}</p>
+			</div>
+
+			<div id="totem" class="col-12 col-md-7 text-center py-3 py-md-5">
+				{{- $image := resources.Get "img/totem_1.png" -}}
+				{{- with $image -}}
+				<picture>
+					<source srcset="{{ .Permalink }}" type="image/png" />
+					<img
+						src="{{ .Permalink }}"
+						alt="{{ .Params.title }}"
+						width="650"
+					/>
+				</picture>
+				{{- end -}}
+			</div>
+		</div>
+	</div>
+</header>
+<div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
+{{- end -}}
+
+{{- define "footer" -}}
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- end -}}

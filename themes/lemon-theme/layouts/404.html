@@ -2,7 +2,7 @@
 <div class="bg_dark text_white h-100">
 	<header class="container-fluid h-100">
 		<div class="row flex-1 h-100">
-			<div class="col-12 col-md-5 text-center d-flex flex-column align-items-center justify-content-center">
+			<div class="col-12 col-md text-center d-flex flex-column align-items-center justify-content-center">
 				<h1>OH NO!</h1>
 				<p class="lead">
 					404! Page not found.
@@ -12,14 +12,17 @@
 				</p>
 			</div>
 
+			{{- with resources.Get "img/totem_1.png" }}
 			<div id="totem" class="col-12 col-md-7 py-3 py-md-5 d-flex flex-column align-items-center justify-content-center ">
-				{{- $image := resources.Get "img/totem_1.png" -}}
 				<picture>
-					<source srcset="{{ $image.Permalink }}" type="image/png">
-					<img src="{{ $image.Permalink }}" alt="{{ .Params.title }}" width="650">
+					<source srcset="{{ .RelPermalink }}" type="image/png">
+					<img src="{{ .RelPermalink }}" alt="{{ .Params.title }}" width="650">
 				</picture>
 			</div>
+			{{ end -}}
 		</div>
 	</header>
 </div>
 {{- end -}}
+
+{{- define "footer" -}}&nbsp;{{- end -}}

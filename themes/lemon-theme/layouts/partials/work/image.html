@@ -1,9 +1,0 @@
-{{- $altText := $.Title -}}
-<img 
-    src="{{.src}}" 
-    class="w-100"
-    alt="{{with .alt}}{{.}} | {{end}}{{$altText}}"
-/>
-{{- with .caption -}}
-<div class="caption mt-3">{{.}}</div>
-{{- end -}}

@@ -1,6 +1,12 @@
+{{ $isContactFormDisplayed := .isContactFormDisplayed | default false }}
+{{ $bgColor := .bgColor | default "white" }}
+{{ $hasMask := .hasMask | default true }}
 <footer>
-	<div class="bg_secondary mask_top"></div>
-	<div id="get-in-touch" class="bg_secondary py-5">
+	{{ with .isContactFormDisplayed }}
+	{{ with $hasMask -}}
+	<div class="bg_{{ $bgColor }} mask_top"></div>
+	{{- end }} <!-- $hasMask -->
+	<div id="get-in-touch" class="bg_{{ $bgColor }} py-5">
 		<div class="container">
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto">
@@ -19,27 +25,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="p-4 bg_light w-100 footer-info mb-5 mb-lg-0">
-		<div class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around">
-			<div>
-				{{ site.Data.footer.website_info.message }}
+	{{ end }} <!-- with .isContactFormDisplayed -->
 
-				<div class="collapsible-wrapper d-inline-block">
-					<input id="collapsible" class="toggle" type="checkbox" />
-					<label for="collapsible" class="toggle-label link">
-						{{ site.Data.footer.website_info.link }}
-					</label>
-				</div>
-			</div>
-			<div class="mb-4 mb-md-0">{{ partial "social-links.html" }}</div>
-		</div>
-
-		<div class="collapsible-wrapper">
-			<div class="collapsible-content">
-				<div class="pt-3 mb-4"> <!--// on mobile, keeps space for nav buttons -->
-					{{ site.Data.footer.website_info.content | safeHTML }}
-				</div>
-			</div>
-		</div>
-	</div>
+	{{- partial "social-block.html" . }}
 </footer>

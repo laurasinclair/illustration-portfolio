@@ -1,0 +1,23 @@
+<div class="bg_grey d-flex flex-column justify-content-center px-4 py-4">
+	<div class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around">
+		<div class="pt-1">
+			{{ site.Data.footer.website_info.message | safeHTML }}
+
+			<div class="collapsible-wrapper d-inline-block">
+				<input id="collapsible" class="toggle" type="checkbox" />
+				<label for="collapsible" class="toggle-label link">
+					{{ site.Data.footer.website_info.link | safeHTML }}
+				</label>
+			</div>
+		</div>
+		<div class="mb-4 mb-md-0 text-center d-flex justify-content-center">{{ partial "social-icons.html" }}</div>
+	</div>
+
+	<div class="collapsible-wrapper">
+		<div class="collapsible-content">
+			<div class="pt-3 mb-4"> <!--// on mobile, keeps space for nav buttons -->
+				{{ site.Data.footer.website_info.content | safeHTML }}
+			</div>
+		</div>
+	</div>
+</div>

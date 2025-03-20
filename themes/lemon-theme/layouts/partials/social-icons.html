@@ -1,0 +1,11 @@
+<div class="d-flex">
+	{{- range site.Params.social -}}
+	<a href="{{.url}}" target="_blank" class='social-icon mx-1 icon-{{ .theme | default "dark" }}'>
+		{{- $name := printf .name -}}
+		{{- $svg := . -}}
+		{{- $match := "<svg (.*)?>(.*)</svg>" -}}
+		{{- $replaceWith := print `<svg ${1}>${2}</svg>` -}}
+		{{- printf (replaceRE $match $replaceWith (printf (print "assets/img/icon-social_" .name ".svg") | readFile)) | safeHTML -}}
+	</a>
+	{{- end -}}
+</div>

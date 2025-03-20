@@ -7,50 +7,51 @@
 >
 	<div class="row mb-4">
 		<div class="col-12 col-md-6">
-			<p>
+			<fieldset class="input_required">
 				<label for="name" class="form_label">
 					{{ site.Data.contactForm.fields.name }}:
 				</label>
-				<input id="name" name="name" type="text" />
-			</p>
+				<input id="name" name="name" type="text" required />
+			</fieldset>
 		</div>
 		<div class="col-12 col-md-6">
-			<p>
+			<fieldset class="input_required">
 				<label for="email" class="form_label">
 					{{ site.Data.contactForm.fields.email }}:
 				</label>
-				<input id="email" name="email" type="email"  />
-			</p>
+				<input id="email" name="email" type="email" required />
+			</fieldset>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-12">
-			<label for="topic[]" class="form_label">
-				{{ site.Data.contactForm.fields.topics.label }}
-			</label>
+			<fieldset>
+				<label for="topic[]" class="form_label">
+					{{ site.Data.contactForm.fields.topics.label }}
+				</label>
 
-			<ul class="checkbox-animated mb-3">
-				{{- $topics := .Site.Data.contactForm.fields.topics.choice -}} 
-				{{- range $index, $topic := $topics -}}
-
-				<li>
-					<input
-						type="checkbox"
-						name="topic[]"
-						id="{{ $topic | urlize }}"
-						value="{{ $topic }}"
-					/>
-					<label for="{{ $topic | urlize }}">{{ $topic }}</label>
-				</li>
-				{{- end -}}
-			</ul>
+				<ul class="checkbox-animated mb-3">
+					{{ $topics := site.Data.contactForm.fields.topics.choice -}} 
+					{{- range $index, $topic := $topics }}
+					<li>
+						<input
+							type="checkbox"
+							name="topic[]"
+							id="{{ $topic | urlize }}"
+							value="{{ $topic }}"
+						/>
+						<label for="{{ $topic | urlize }}">{{ $topic }}</label>
+					</li>
+					{{- end -}}
+				</ul>
+			</fieldset>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-12">
-			<p>
+			<fieldset>
 				<label for="message" class="form_label"
 					>{{ site.Data.contactForm.fields.message.label }}:</label
 				>
@@ -59,9 +60,9 @@
 					name="message"
 					placeholder="{{ site.Data.contactForm.fields.message.placeholder }}"
 				></textarea>
-			</p>
+			</fieldset>
 			<p>
-				<button class="btn_submit" type="submit">
+				<button class="btn_submit" type="submit" disabled>
 					{{ site.Data.contactForm.fields.submitButton }}
 					<svg
 						width="16"
@@ -80,3 +81,23 @@
 		</div>
 	</div>
 </form>
+
+<script>
+	const form = document.getElementById('contact-form');
+	const submitBtn = document.querySelector('.btn_submit');
+
+	// submit button is disabled as long as form isn't valid
+	form.addEventListener('input', function() {
+		submitBtn.disabled = !form.checkValidity();
+	});
+
+	// making sure fields are only displayed as valid/invalid onBlur
+	const requiredInputs = form.querySelectorAll('.input_required');
+
+	requiredInputs.forEach(input => {
+		const formInput = input.querySelector('input')
+		formInput.addEventListener('blur', () => {
+			input.classList.add('touched');
+		});
+	});
+</script>

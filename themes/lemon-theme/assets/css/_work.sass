@@ -6,6 +6,51 @@
 
 .work
 	&_gallery
+		position: relative
+		@include bootstrap.media-breakpoint-up(md)
+			display: grid
+			grid-template-columns: [work_gallery_nav] 16% [work_gallery_projects] auto
+		@include bootstrap.media-breakpoint-up(md)
+			grid-template-columns: [work_gallery_nav] 12% [work_gallery_projects] auto
+		&_section
+			@extend .pt-2
+			@extend .pt-md-5
+			margin-bottom: 10rem
+			&:last-of-type
+				@extend .mb-0
+		&_nav
+			@extend .py-2
+			@extend .py-md-5
+			@extend .pe-md-5
+			position: sticky
+			@include bootstrap.media-breakpoint-down(md)
+				background-color: map.get($colors, "white")
+				z-index: 888
+				top: 0
+			ul
+				@extend .d-flex
+				@extend .d-md-block
+				position: sticky
+				top: 10px
+				left: 0
+				li
+					@extend .pe-4 
+					@extend .pe-md-0
+					@extend .py-2
+					@extend .py-md-1
+			&_link
+				@extend .fw_book
+				color: color.adjust(map.get($colors, "dark"), $lightness: 60%)
+				&:hover,
+				&:active,
+				&:focus
+					@extend .fw_book
+					color: color.adjust(map.get($colors, "dark"), $lightness: 20%) !important
+				&.active
+					@extend .fw_black
+					@extend .text_dark
+					&:hover
+						@extend .active
 		&_project
 			@extend .mb-3
 			@extend .mb-md-5
@@ -39,8 +84,8 @@
 				display: block
 				border: 1px solid color.adjust(map.get($colors, "white"), $alpha: -0.8)
 				@include bootstrap.media-breakpoint-up(md)
-					left: 34px
-					bottom: 25px
+					// left: 34px
+					// bottom: 25px
 					padding: 8px 16px
 					font-size: bootstrap.$font-size-base * 1.2
 				a

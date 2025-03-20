@@ -14,11 +14,11 @@ project_content:
   work:
     - type: image
       src: img/bubble-ladies_1.png
-      class: col-md-7
+      class: col-md-7 col-lg-6 my-4 my-lg-5
     - type: image
       src: img/bubble-ladies_2.png
-      class: col-md-7
+      class: col-md-7 col-lg-6 my-4 my-lg-5
     - type: image
       src: img/bubble-ladies_3.png
-      class: col-md-7
+      class: col-md-7 col-lg-6 my-4 my-lg-5
 ---
