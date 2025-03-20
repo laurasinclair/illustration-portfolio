@@ -72,19 +72,20 @@ section
 
 footer
 	margin-top: -40px
-	.collapsible // collapsible content in the footer
-		&-wrapper
-			.toggle // the actual checkbox
-				display: none
-				&-label
-					cursor: pointer
 
-		&-content
-			max-height: 0px
-			overflow: hidden
-			transition: max-height .25s ease-in-out
-			
-			> div
-				max-width: 920px
-		&-open
-			max-height: 100vh
+.collapsible // collapsible content in the footer
+	&-wrapper
+		.toggle // the actual checkbox
+			display: none
+			&-label
+				cursor: pointer
+
+	&-content
+		max-height: 0px
+		overflow: hidden
+		transition: max-height .25s ease-in-out
+		
+		> div
+			max-width: 920px
+	&-open
+		max-height: 100vh

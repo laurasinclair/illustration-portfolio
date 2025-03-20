@@ -137,10 +137,12 @@ ul
 	@if $type == 'top'
 		-webkit-mask: url("/css/assets/bgtop.png")
 		-webkit-mask-position: top center
+		margin-bottom: -2px // chrome fix: lines between divs
 
 	@if $type == 'bottom'
 		-webkit-mask: url("/css/assets/bgbottom.png")
 		-webkit-mask-position: bottom center
+		margin-top: -2px // chrome fix: lines between divs
 
 .bg-cover
 	background-size: cover !important

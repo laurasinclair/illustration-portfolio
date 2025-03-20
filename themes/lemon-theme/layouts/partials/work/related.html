@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="col order-3 order-md-2 text-center mt-4 mt-mb-0">
-				<button id="toggle" class="fw_bold">
+				<button id="toggle" class="fw_bold ps-3 mb-5">
 					<span class="text_dark">All projects</span>
 				</button>
 			</div>
@@ -53,7 +53,7 @@
 
 		{{ with .Site.GetPage "work" }}
 		{{ range .Pages }}
-		<div class="row my-5 related_all_section" id="related_all_section_{{ .Title | urlize }}">
+		<div class="row mb-5 related_all_section" id="related_all_section_{{ .Title | urlize }}">
 			{{- range (.Pages.GroupByParam "isPublic") -}} 
 			{{- if eq .Key true -}} 
 			{{- range .Pages.ByWeight -}}
