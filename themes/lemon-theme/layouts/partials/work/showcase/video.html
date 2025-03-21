@@ -1,8 +1,13 @@
-<div class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
-    <video 
-        autoplay loop muted playsinline 
+<div class="col-12 {{ with .class }}{{ . }}{{ end }} mx-auto mt-5">
+    <video
         style="width: 100%;"
         class="rounded"
+        {{ with .attributes -}}
+            {{ if in . "autoplay" }} autoplay {{ end }}
+            {{ if in . "loop" }} loop {{ end }}
+            {{ if in . "muted" }} muted {{ end }}
+            {{ if in . "controls" }} controls {{ end }}
+        {{- end -}}
     >
         {{ with .url.mp4 }}
         <source src="{{ . }}" type="video/mp4">
