@@ -14,6 +14,11 @@ project_content:
       url:
         mp4: img/website-2025-03_homepage.mp4
       backupImg: img/website-2025-03_homepage.jpg
+      attributes: 
+        - autoplay
+        - loop
+        - muted
+      class: mb-5
 
     - type: text
       sectionTitle: The process!
