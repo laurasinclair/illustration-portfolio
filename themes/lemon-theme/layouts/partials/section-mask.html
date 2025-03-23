@@ -1,0 +1,9 @@
+{{ $placement := print "mask_" .placement }}
+{{ $backgroundColor := .backgroundColor }}
+{{ if hasPrefix $backgroundColor "bg_"}}
+{{ end }}
+{{ $class := "" }} {{ if .class }} {{ $class = .class }} {{ end }}
+<div class='{{- $placement }} {{ $class }} {{ if hasPrefix $backgroundColor "bg_" -}}{{- $backgroundColor -}}{{- end -}}'
+{{- if not (hasPrefix $backgroundColor "bg_") -}}
+style="background-color: {{ $backgroundColor }}"
+{{- end -}}></div>

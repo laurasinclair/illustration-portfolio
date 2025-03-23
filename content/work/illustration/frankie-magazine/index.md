@@ -15,10 +15,11 @@ project_content:
       src: img/illustration_frankie-magazine_cover-spread.jpg
 
     - group:
-      - type: image
-        src: img/illustration_frankie-magazine_spread-zoom-01.jpg
-      - type: image
-        src: img/illustration_frankie-magazine_spread-zoom-02.jpg
+      - items:
+        - type: image
+          src: img/illustration_frankie-magazine_spread-zoom-01.jpg
+        - type: image
+          src: img/illustration_frankie-magazine_spread-zoom-02.jpg
     
     - type: image
       src: img/illustration_frankie-magazine_spread-zoom-03.png

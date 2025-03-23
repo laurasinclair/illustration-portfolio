@@ -23,7 +23,9 @@
 		</div>
 	</div>
 </header>
-<div class="bg_dark mask_bottom mb-4 mb-md-5"></div>
+
+{{- partial "section-mask.html" (dict "placement" "bottom" "backgroundColor" "bg_dark" "class" "mb-4 mb-md-5") -}}
+
 {{- end -}}
 
 {{- define "footer" -}}

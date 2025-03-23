@@ -6,7 +6,7 @@ weight: 7
 isPublic: true
 
 project_content:
-  bgColor: "#e8e8e8"
+  backgroundColor: "#e8e8e8"
   description: |
     I've always loved observing and drawing the world around me, and paying attention to details. <br />
     Over the years, I have drawn HUNDREDS of characters! Here are a few of them.
@@ -20,18 +20,20 @@ project_content:
       class: col-md-10 col-lg-9
 
     - group:
-      - type: image
-        src: img/illustration_characters-03.jpg
-      - type: image
-        src: img/illustration_characters-04.jpg
-      - type: image
-        src: img/illustration_characters-05.jpg
+      - items:
+        - type: image
+          src: img/illustration_characters-03.jpg
+        - type: image
+          src: img/illustration_characters-04.jpg
+        - type: image
+          src: img/illustration_characters-05.jpg
 
     - group:
-      - type: image
-        src: img/illustration_characters-06.jpg
-      - type: image
-        src: img/illustration_characters-07.jpg
+      - items:
+        - type: image
+          src: img/illustration_characters-06.jpg
+        - type: image
+          src: img/illustration_characters-07.jpg
     
     - type: image
       src: img/illustration_characters-08.png

@@ -5,7 +5,7 @@ weight: 9
 isPublic: true
 
 project_content:
-  bgColor: "#161421"
+  backgroundColor: "#161421"
   theme: dark
   description: |
     If you go to the forest at night, watch out! <br />

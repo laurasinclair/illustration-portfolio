@@ -6,7 +6,7 @@ isFeatured: true
 isPublic: true
 
 project_content:
-  bgColor: "#151515"
+  backgroundColor: "#151515"
   theme: dark
 
   work:

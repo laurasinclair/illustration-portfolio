@@ -1,14 +1,12 @@
 {{- define "main" -}}
 
-{{- if isset .Params "project_content" -}}
-{{- $backgroundColor := .Params.project_content.bgColor | default "#f1f1f7" -}}
-{{- $theme := .Params.project_content.theme | default "light" }}
+{{- $backgroundColor := .Params.project_content.backgroundColor | default "#f1f1f7" -}}
+{{- $theme := print "theme-" (.Params.project_content.theme | default "light") }}
 {{- $description := .Params.project_content.description -}}
-<div class='work_single theme-{{$theme}}'>
+<div class="work_single">
 	<header class="work_single_hero bg_dark text_white container-fluid">
 		<div class="row">
-			{{ $image := .Resources.GetMatch "project-title_*" -}}
-			{{- with $image -}}
+			{{- with .Resources.GetMatch "project-title_*" -}}
 			<div class="col-12 col-md-6 mx-auto text-center pb-5">
 				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3 mt-1 mt-md-4 mb-md-5" />
 				{{ with $description }}
@@ -19,7 +17,7 @@
 			</div>
 			{{- else -}}
 			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 mt-5 mb-4">
-				<h2 class="mb-3">{{ (replace .Params.title "\n" "<br />") | safeHTML }}</h2>
+				<h2 class="mb-3">{{ .Params.title | safeHTML }}</h2>
 				{{ with $description }}
 				<p class="mb-0 fw_book">
 					{{ . | safeHTML }}
@@ -30,44 +28,48 @@
 		</div>
 	</header>
 
-	<section class="work_single_showcase"
-		{{- with $backgroundColor -}}
-		style="background-color: {{ . }}"
-		{{- end -}}
-	>
+	{{ with .Params.project_content -}}
+	<section class="work_single_showcase pt-3" style="background-color: {{ $backgroundColor }}">
 		<div class="container-fluid">
-			{{- range .Params.project_content.work }}
+			{{- range .work }}
 			<div class="row">
+				{{ $layout := "col-12 col-md" }}
 				{{- if .group }}
-				{{- range .group }}
-				<div class="col-12 col-md mt-4 mb-5">
-                    {{- partial "work/showcase/component.html" (merge . (dict "layout" "group" "theme" $theme)) }}
-                </div>
-				{{- end -}} <!-- range .group -->
+				{{- range .group -}}
+					{{ if .layout }}{{ $layout = .layout }}{{ end }}
+					{{- with .items }}
+					{{ range . }}
+						{{- partial "work/showcase/component.html" (merge . (dict "group" true "layout" $layout "theme" $theme)) -}}
+					{{ end }} <!-- range .items -->
+					{{ end }} <!-- with .items -->
+				{{ end }} <!-- range .group -->
 
-				{{- else if .type -}}
+				{{- else -}} <!-- if/else .group -->
 
-				{{- if .sectionTitle -}}
-				{{- partial "work/showcase/section-title.html" (merge . (dict "theme" $theme)) -}}
-				{{- end -}} <!-- if .sectionTitle -->
+				{{ $layout := "col-12 mx-auto" }}
+				{{ if .layout }}{{ $layout = .layout }}{{ end }}
 
-				{{- partial "work/showcase/component.html" (merge . (dict "layout" "single" "theme" $theme)) -}}
-				
-				{{- end -}} <!-- if/else .group or .type -->
+				{{- partial "work/showcase/component.html" (merge . (dict "group" false "layout" $layout "theme" $theme)) -}}
+
+				{{- end -}} <!-- if .group or .type -->
 			</div>
-			{{- end -}} <!-- range .Params.project_content.work -->
+			{{- end -}} <!-- range .work -->
 		</div>  
 	</section>
-	<div 
-		class="bg_dark mask_bottom"
-		{{- with $backgroundColor -}}
-		style="background-color: {{ . }}"
-		{{- end }}>
-	</div>
+	{{- partial "section-mask.html" (merge . (dict "placement" "bottom" "backgroundColor" $backgroundColor)) -}}
+
+	{{- end }} <!-- with .Params.project_content  -->
 
 	{{- partial "work/related.html" . -}}
 </div>
-{{- end -}} <!-- if .Params "project_content" -->
+
+<script>
+	// making sure there's a bit of space after a group
+	const allGroups = document.querySelectorAll(".is-group");
+	if (allGroups) {
+		allGroups.forEach((el) => el.parentElement.nextElementSibling.classList.add('mt-5'));
+	};
+</script>
 {{- end -}}
 
 {{- define "footer" -}}

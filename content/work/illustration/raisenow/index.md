@@ -5,7 +5,7 @@ weight: 3
 isPublic: true
 
 project_content:
-  bgColor: "#18181B"
+  backgroundColor: "#18181B"
   theme: dark
   description: |
     Illustrations made when I was working at <a href=\"https://raisenow.com\" target=\"\_blank\">RaiseNow</a>. <br />
@@ -15,11 +15,12 @@ project_content:
       src: img/rnw_2-3.jpg
 
     - group:
-      - type: image
-        src: img/rnw_2.jpg
+      - items:
+        - type: image
+          src: img/rnw_2.jpg
 
-      - type: image
-        src: img/rnw_3.jpg
+        - type: image
+          src: img/rnw_3.jpg
 
     - type: text
       content: |
@@ -30,14 +31,15 @@ project_content:
       src: img/rnw_10.jpg
 
     - group:
-      - type: image
-        src: img/rnw_13-3.jpg
+      - items:
+        - type: image
+          src: img/rnw_13-3.jpg
 
-      - type: image
-        src: img/rnw_icons.jpg
+        - type: image
+          src: img/rnw_icons.jpg
 
-      - type: image
-        src: img/rnw_13-2.jpg
+        - type: image
+          src: img/rnw_13-2.jpg
 
     - type: text
       sectionTitle: The Ugly First Draft™️ process
@@ -59,11 +61,12 @@ project_content:
       class: col-lg-10
 
     - group:
-      - type: image
-        src: img/rnw_7-2.jpg
+      - items:
+        - type: image
+          src: img/rnw_7-2.jpg
 
-      - type: image
-        src: img/spenderinnen-studie-2023_mockup.jpg
+        - type: image
+          src: img/spenderinnen-studie-2023_mockup.jpg
 
     - type: image
       src: img/success-stories.png

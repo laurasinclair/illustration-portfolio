@@ -11,12 +11,13 @@ project_content:
       class: col-md-10
 
     - group:
-      - type: image
-        src: img/hippo-puzzle01.jpg
-      - type: image
-        src: img/hippo-puzzle02.jpg
-      - type: image
-        src: img/hippo-puzzle03.jpg
+      - items:
+        - type: image
+          src: img/hippo-puzzle01.jpg
+        - type: image
+          src: img/hippo-puzzle02.jpg
+        - type: image
+          src: img/hippo-puzzle03.jpg
  
     - type: image
       src: img/hippo_in_park.png

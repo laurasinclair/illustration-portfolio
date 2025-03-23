@@ -1,10 +1,10 @@
 <section id="work" class="pb-5 pt-0">
 	<div class="container-fluid work_gallery">
 		{{ with site.GetPage "work" }}
-		<div id="work_gallery_nav" class="work_gallery_nav">
-			<ul>
+		<div id="work_gallery_nav" class="work_gallery_nav py-2 py-md-5 pe-md-5 position-sticky">
+			<ul class="d-flex d-md-block">
 				{{ range .Pages }}
-				<li>
+				<li class="pe-4 pe-md-0 py-2 py-md-1">
 					<a href="#{{ .Title | urlize }}" class="work_gallery_nav_link">{{ .Title }}</a>
 				</li>
 				{{ end }}
@@ -15,15 +15,15 @@
 		<div id="work_gallery_projects">
 			{{ with site.GetPage "work" }}
 			{{ range .Pages }}
-			<div id="{{ .Title | urlize }}" class="row work_gallery_section">
+			<div id="{{ .Title | urlize }}" class="row work_gallery_section pt-2 pt-md-5">
 				{{- range (.Pages.GroupByParam "isPublic") -}} 
 				{{- if eq .Key true -}} 
 				{{- range .Pages.ByWeight -}}
 				{{- $isFeatured := .Params.isFeatured -}}
 				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
-					<div class="work_gallery_project">
-						<div class="work_gallery_project_title">
-							<a href="{{ .Permalink | absURL }}">{{- .Title -}}</a>
+					<div class="work_gallery_project mb-3 mb-md-5 position-relative overflow-hidden rounded-1">
+						<div class="work_gallery_project_title bg_dark d-block text_white position-absolute">
+							<a href="{{ .Permalink | absURL }}" class="text_white fw_bold">{{- .Title -}}</a>
 						</div>
 						<a href="{{ .Permalink | absURL }}">
 							{{- $image := .Resources.GetMatch "thumbnail*" -}} 

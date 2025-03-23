@@ -5,7 +5,7 @@ weight: 6
 isPublic: true
 
 project_content: 
-  bgColor: "#000"
+  backgroundColor: "#000"
   theme: dark
   work:
     - type: image
@@ -17,13 +17,15 @@ project_content:
       class: text-center
 
     - group:
-      - type: image
-        src: img/illustration_sleeping-buddies-03.png
-      - type: image
-        src: img/illustration_sleeping-buddies-04.png
-      - type: image
-        src: img/illustration_sleeping-buddies-05.png
-      - type: image
-        src: img/illustration_sleeping-buddies-06.png
+      - layout: col-6 col-md-3
+      - items:
+        - type: image
+          src: img/illustration_sleeping-buddies-03.png
+        - type: image
+          src: img/illustration_sleeping-buddies-04.png
+        - type: image
+          src: img/illustration_sleeping-buddies-05.png
+        - type: image
+          src: img/illustration_sleeping-buddies-06.png
 
 ---

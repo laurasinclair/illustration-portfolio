@@ -5,7 +5,7 @@ weight: 5
 isPublic: true
 
 project_content:
-  bgColor: "#000000"
+  backgroundColor: "#000000"
   theme: dark
   description: |
     We carry our pasts on our backs.

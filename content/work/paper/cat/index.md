@@ -19,13 +19,14 @@ project_content:
       sectionTitle: The process
 
     - group:
-      - type: image
-        src: img/paper-cat_process-1.jpg
-      - type: image
-        src: img/paper-cat_process-2.jpg
-      - type: image
-        src: img/paper-cat_process-3.jpg
-      - type: image
-        src: img/paper-cat_process-4.jpg
+      - items:
+        - type: image
+          src: img/paper-cat_process-1.jpg
+        - type: image
+          src: img/paper-cat_process-2.jpg
+        - type: image
+          src: img/paper-cat_process-3.jpg
+        - type: image
+          src: img/paper-cat_process-4.jpg
         
 ---

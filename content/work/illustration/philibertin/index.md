@@ -5,7 +5,7 @@ draft: true
 weight: "100"
 
 project_content: {
-	bgColor: "#fff",
+	backgroundColor: "#fff",
 	textColor: "#000",
 	work: [ 
 		{class: "col-12 col-md-7", src: "img/phil_001.jpg"},

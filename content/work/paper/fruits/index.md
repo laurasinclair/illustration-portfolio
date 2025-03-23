@@ -15,10 +15,11 @@ project_content:
       class: col-lg-12
     
     - group:
-      - type: image
-        src: img/paper_suitcase.jpg
-      - type: image
-        src: img/fluffy-chicken_002-2.jpg
+      - items:
+        - type: image
+          src: img/paper_suitcase.jpg
+        - type: image
+          src: img/fluffy-chicken_002-2.jpg
 
     - type: image
       src: img/paper_fluffy-dog.jpg
