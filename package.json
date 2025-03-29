@@ -23,9 +23,9 @@
 		"bootstrap": "^5.3.3"
 	},
 	"devDependencies": {
-		"concurrently": "^8.2.2",
+		"concurrently": "^9.1.2",
 		"hugo-extended": "^0.145.0",
 		"nodemon": "^3.1.9",
-		"sass": "^1.85.1"
+		"sass": "^1.86.0"
 	}
 }
