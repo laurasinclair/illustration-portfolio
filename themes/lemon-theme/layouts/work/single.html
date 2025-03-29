@@ -3,6 +3,7 @@
 {{- $backgroundColor := .Params.project_content.backgroundColor | default "#f1f1f7" -}}
 {{- $theme := print "theme-" (.Params.project_content.theme | default "light") }}
 {{- $description := .Params.project_content.description -}}
+{{- $hasMask := .Params.hasMask -}}
 <div class="work_single">
 	<header class="work_single_hero bg_dark text_white container-fluid">
 		<div class="row">
@@ -31,7 +32,7 @@
 	{{ with .Params.project_content -}}
 	<section class="work_single_showcase pt-3" style="background-color: {{ $backgroundColor }}">
 		<div class="container-fluid">
-			{{- range .work }}
+			{{ range .work -}}
 			<div class="row">
 				{{ $layout := "col-12 col-md" }}
 				{{- if .group }}
@@ -39,7 +40,7 @@
 					{{ if .layout }}{{ $layout = .layout }}{{ end }}
 					{{- with .items }}
 					{{ range . }}
-						{{- partial "work/showcase/component.html" (merge . (dict "group" true "layout" $layout "theme" $theme)) -}}
+						{{- partial "work/showcase/component" (merge . (dict "group" true "layout" $layout "theme" $theme)) -}}
 					{{ end }} <!-- range .items -->
 					{{ end }} <!-- with .items -->
 				{{ end }} <!-- range .group -->
@@ -49,18 +50,21 @@
 				{{ $layout := "col-12 mx-auto" }}
 				{{ if .layout }}{{ $layout = .layout }}{{ end }}
 
-				{{- partial "work/showcase/component.html" (merge . (dict "group" false "layout" $layout "theme" $theme)) -}}
+				{{- partial "work/showcase/component" (merge . (dict "group" false "layout" $layout "theme" $theme)) -}}
 
 				{{- end -}} <!-- if .group or .type -->
 			</div>
 			{{- end -}} <!-- range .work -->
 		</div>  
 	</section>
-	{{- partial "section-mask.html" (merge . (dict "placement" "bottom" "backgroundColor" $backgroundColor)) -}}
+
+	{{ if ne $hasMask false -}}
+	{{- partial "section-mask" (merge . (dict "placement" "bottom" "backgroundColor" $backgroundColor)) -}}
+	{{- end -}}
 
 	{{- end }} <!-- with .Params.project_content  -->
 
-	{{- partial "work/related.html" . -}}
+	{{- partial "work/related" . -}}
 </div>
 
 <script>
@@ -73,5 +77,5 @@
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer.html" (dict "isContactFormDisplayed" false "hasMask" false)}}
+{{- partial "footer/footer" (dict "isContactFormDisplayed" false "hasMask" false)}}
 {{- end -}}
