@@ -4,10 +4,14 @@
 {{ end }}
 <div class="{{ $layout }} mb-3 mx-auto {{ .theme }} {{with .class}}{{.}}{{end}}">
     {{- with .sectionTitle -}}
-    {{- partial "work/showcase/section-title.html" . -}}
+    {{- partial "work/showcase/section-title" . -}}
     {{- end -}}
 
-    <p class='fw_book w-100'>
-        {{ .content | safeHTML }}
-    </p>
+    {{ if reflect.IsSlice .content }}
+        {{ range .content }}
+        <p class='fw_book w-100 mb-2'>{{ . | safeHTML }}</p>
+        {{ end }}
+    {{ else }}
+        <p class='fw_book w-100'>{{ .content | safeHTML }}</p>
+    {{ end }}
 </div>

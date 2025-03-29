@@ -6,6 +6,6 @@
         alt="{{with .alt}}{{.}} | {{end}}{{$altText}}"
     />
     {{- with .caption -}}
-    <div class="caption mt-3">{{.}}</div>
+    <div class="caption mt-3">{{ . | safeHTML}}</div>
     {{- end }}
 </div>

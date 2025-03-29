@@ -1,14 +1,16 @@
-{{ $theme := .theme | default "light" }} 
+{{ $theme := .theme }} 
 {{- if eq .type "image" }}
-    {{ partial "work/showcase/image.html" (merge . (dict "layout" .layout)) }}
+    {{ partial "work/showcase/image" (merge . (dict "layout" .layout)) }}
 {{- else if eq .type "text" }}
-    {{ partial "work/showcase/text.html" (merge . (dict "theme" $theme)) }}
+    {{ partial "work/showcase/text" (merge . (dict "theme" $theme)) }}
 {{- else if eq .type "list" }}
-    {{ partial "work/showcase/list.html" (merge . (dict "theme" $theme)) }}
+    {{ partial "work/showcase/list" (merge . (dict "theme" $theme)) }}
 {{- else if eq .type "link" }}
-    {{ partial "work/showcase/link.html" (merge . (dict "theme" $theme)) }}
+    {{ partial "work/showcase/link" (merge . (dict "theme" $theme)) }}
 {{- else if eq .type "iframe" }}
-    {{ partial "work/showcase/iframe.html" (merge . (dict "theme" $theme)) }}
+    {{ partial "work/showcase/iframe" (merge . (dict "theme" $theme)) }}
 {{- else if eq .type "video" }}
-    {{ partial "work/showcase/video.html" . }}
+    {{ partial "work/showcase/video" . }}
+{{- else if eq .type "slider" }}
+    {{ partial "work/showcase/slider" . }}
 {{- end }}
