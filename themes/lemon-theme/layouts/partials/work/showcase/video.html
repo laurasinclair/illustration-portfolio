@@ -16,4 +16,7 @@
         <img src="{{ . }}" alt="">
         {{ end }}
     </video>
+    {{- with .caption -}}
+    <div class="caption mt-3">{{ . | safeHTML}}</div>
+    {{- end }}
 </div>

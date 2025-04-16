@@ -5,7 +5,7 @@ weight: 4
 isPublic: true
 
 project_content:
-  bgColor: "#000"
+  backgroundColor: "#000"
   theme: dark
   work:
     - type: image

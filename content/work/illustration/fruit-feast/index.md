@@ -11,10 +11,11 @@ project_content:
       class: col-lg-8
 
     - group:
-      - type: image
-        src: img/illustration_fruit-feast-04.jpg
-      - type: image
-        src: img/illustration_fruit-feast-05.jpg
+      - items:
+        - type: image
+          src: img/illustration_fruit-feast-04.jpg
+        - type: image
+          src: img/illustration_fruit-feast-05.jpg
     
     - type: image
       src: img/illustration_fruit-feast-03.png

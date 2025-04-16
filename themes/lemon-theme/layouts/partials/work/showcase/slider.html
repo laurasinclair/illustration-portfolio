@@ -1,0 +1,54 @@
+{{ $class := "" }} {{ if .class }} {{ $class = .class }} {{ end }}
+
+{{- with .items -}}
+<div class="slider {{ $class }}">
+    <button class="slider_arrow" id="slider_arrow_prev">
+    {{- partial "svg" (dict "name" "arrow-left" "size" "16") -}}
+    </button>
+
+    <ul class="slider_slides-track" id="slides-container">
+        {{ range . }}
+        <li class="slide">
+            <img src="{{ . }}" alt="">
+        </li>
+        {{ end }}
+    </ul>
+
+    <button class="slider_arrow" id="slider_arrow_next">
+    {{- partial "svg" (dict "name" "arrow-right" "size" "16") -}}
+    </button>
+</div>
+
+<script>
+    const slidesContainer = document.querySelector(".slider_slides-track");
+    const slide = document.querySelector(".slide");
+    const prevButton = document.getElementById("slider_arrow_prev");
+    const nextButton = document.getElementById("slider_arrow_next");
+
+    nextButton.addEventListener("click", () => {
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollLeft += slideWidth;
+        
+        
+    });
+
+    prevButton.addEventListener("click", () => {
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollLeft -= slideWidth;
+
+        if (slidesContainer.scrollLeft >= slidesContainer.scrollWidth - slidesContainer.clientWidth) {
+            slidesContainer.scrollLeft = 0;
+        }
+    });
+
+    setInterval(() => {
+        const slideWidth = slide.clientWidth;
+        slidesContainer.scrollLeft += slideWidth;
+
+        // If it's at the end, loop back to the start
+        if (slidesContainer.scrollLeft >= slidesContainer.scrollWidth - slidesContainer.clientWidth) {
+            slidesContainer.scrollLeft = 0;
+        }
+    }, 3000);
+</script>
+{{- end -}} <!-- with .items -->

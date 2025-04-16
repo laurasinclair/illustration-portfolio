@@ -1,11 +1,11 @@
 {{- $altText := $.Title -}}
-<div class="col-12 mt-4 mb-5 mx-auto d-flex flex-column justify-content-center {{with .class}}{{.}}{{end}}">
+<div class="{{ .layout }} mt-4 {{if eq .group false}}mx-auto mb-5{{else}}is-group{{end}} d-flex flex-column justify-content-center {{with .class}}{{.}}{{end}}">
     <img 
         src="{{.src}}" 
         class="w-100"
         alt="{{with .alt}}{{.}} | {{end}}{{$altText}}"
     />
     {{- with .caption -}}
-    <div class="caption mt-3">{{.}}</div>
+    <div class="caption mt-3">{{ . | safeHTML}}</div>
     {{- end }}
 </div>

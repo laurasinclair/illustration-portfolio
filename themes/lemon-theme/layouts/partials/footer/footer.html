@@ -1,12 +1,12 @@
 {{ $isContactFormDisplayed := .isContactFormDisplayed | default false }}
-{{ $bgColor := .bgColor | default "white" }}
+{{ $backgroundColor := .backgroundColor | default "bg_secondary" }}
 {{ $hasMask := .hasMask | default true }}
 <footer>
 	{{ with .isContactFormDisplayed }}
 	{{ with $hasMask -}}
-	<div class="bg_{{ $bgColor }} mask_top"></div>
+	{{- partial "section-mask.html" (dict "placement" "top" "backgroundColor" $backgroundColor) -}}
 	{{- end }} <!-- $hasMask -->
-	<div id="get-in-touch" class="bg_{{ $bgColor }} py-5">
+	<div  class="{{ $backgroundColor }} py-5">
 		<div class="container">
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto">

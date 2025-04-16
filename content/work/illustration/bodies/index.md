@@ -5,7 +5,7 @@ weight: 8
 isPublic: true
 
 project_content:
-  bgColor: "#020131"
+  backgroundColor: "#020131"
   theme: dark
   description: |
     This small series is about bodies, <br />

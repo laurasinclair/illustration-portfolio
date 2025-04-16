@@ -36,17 +36,18 @@ project_content:
       sectionTitle: The process!
 
     - group:
-      - type: image
-        src: img/dirtylemon_process-01.jpg
-        
-      - type: image
-        src: img/dirtylemon_process-02.jpg
-        
-      - type: image
-        src: img/dirtylemon_process-03.jpg
+      - items:
+        - type: image
+          src: img/dirtylemon_process-01.jpg
+          
+        - type: image
+          src: img/dirtylemon_process-02.jpg
+          
+        - type: image
+          src: img/dirtylemon_process-03.jpg
 
-      - type: image
-        src: img/dirtylemon_process-04.jpg
+        - type: image
+          src: img/dirtylemon_process-04.jpg
 
     - type: image
       src: img/dirtylemon_process-06.jpg

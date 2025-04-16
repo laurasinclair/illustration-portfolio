@@ -6,7 +6,7 @@ isFeatured: true
 isPublic: true
 
 project_content:
-  bgColor: "#040404"
+  backgroundColor: "#040404"
   work:
     - type: image
       src: img/illustration_by-the-lake-01.jpg

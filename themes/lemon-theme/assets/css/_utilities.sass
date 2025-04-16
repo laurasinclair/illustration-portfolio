@@ -276,3 +276,23 @@ ul
 			@include list-type(hyphen)
 		&-arrow
 			@include list-type(arrow)
+
+ul
+	&.list
+		&-simple
+			@include list-type(none)
+		&-hyphen
+			@include list-type(hyphen)
+		&-arrow
+			@include list-type(arrow)
+
+.whitespace-nowrap
+	white-space: nowrap
+
+.theme
+	&-dark
+		p, a, ul, li, h1, h2, h3, h4, h5, h6
+			@extend .text_white
+	&-light
+		p, a, ul, li, h1, h2, h3, h4, h5, h6
+			@extend .text_dark
