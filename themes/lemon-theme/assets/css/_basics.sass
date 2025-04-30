@@ -1,6 +1,7 @@
 @use "bootstrap/scss/bootstrap" as bootstrap
 @use "custom-variables" as *;
 @use "utilities" as *;
+@use "sass:color"
 @use "sass:map"
 
 *
@@ -72,3 +73,8 @@ ul, li
 	margin: 0
 	padding: 0
 	list-style: none
+
+.tag
+	background-color: color.adjust(map.get($colors, "dark"), $lightness: 80%)
+	padding: 1px 8px
+	border-radius: 4px
