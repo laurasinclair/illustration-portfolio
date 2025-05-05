@@ -2,11 +2,15 @@
 
 <header class="mt-O bg_dark text_white">
 	<div class="hero_large">
-		<div class="container-fluid">
-			<h2 class="mx-auto">{{ .Params.content.heading | default .Title }}</h2>
-			<p>
-				An archive of all the things I've been doing.
-			</p>
+		<div class="container-fluid row">
+			<div class="col-md-8 col-lg-5">
+				<h2 class="mx-auto">{{ (.Params.content.heading | default .Title) | safeHTML }}</h2>
+				{{ with .Params.description }}
+					<p>
+						{{ . | safeHTML }}
+					</p>
+				{{ end }}
+			</div>
 		</div>
 	</div>
 </header>
