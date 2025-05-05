@@ -1,0 +1,25 @@
+{{ $svgPath := printf "assets/img/icon_%s.svg" .name }}
+{{ $svgContent := readFile $svgPath }}
+
+{{ $width := "30" }}
+{{ $height := "30" }}
+
+{{ if and .width (not .height) }}
+    {{ $height = .width }}
+{{ end }}
+
+{{ if and .height (not .width) }}
+    {{ $width = .height }}
+{{ end }}
+
+{{ if and (not .width) (not .height) .size }}
+    {{ $width = .size }}
+    {{ $height = .size }}
+{{ end }}
+
+{{ $match := `<svg([^>]*)>` }}
+{{ $replacement := printf `<svg width="%s" height="%s" class="%s" $1>` $width $height (.class | default "") }}
+
+{{ $svgModified := replaceRE $match $replacement $svgContent | safeHTML }}
+
+{{ return $svgModified }}
