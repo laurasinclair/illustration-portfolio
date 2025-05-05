@@ -50,7 +50,7 @@
 			&:active
 				@extend .transition-2s
 				@extend .no-outline
-				box-shadow: 0 20px 60px color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+				@extend .shadow_3
 				> div
 					@extend .transition-2s
 					opacity: 1
@@ -66,6 +66,12 @@
 					// bottom: 25px
 					padding: 8px 16px
 					font-size: bootstrap.$font-size-base * 1.2
+				&:hover,
+				&:focus,
+				&:active
+					a
+						@extend .fw_bold
+						@extend .text_white
 	&_single
 		&_hero
 			padding-top: 40px
