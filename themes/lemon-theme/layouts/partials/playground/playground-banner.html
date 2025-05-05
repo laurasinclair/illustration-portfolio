@@ -1,0 +1,31 @@
+{{ $title := .title | default "Playground!" }}
+{{ $description := .description | default "A collection of past work and creative experiments, some rough, some dated, but all full of energy and ideas. Creative work is always worth sharing!" }}
+{{ $btn_label := .btn_label | default "Explore the playground" }}
+
+<div id="playground_banner" class="p-0 bg_grey row rounded-3 mx-2 mb-5 overflow-hidden position-relative">
+    <div class="col-12 col-md-7 p-5 d-flex flex-column justify-content-center">
+        <h2>{{ $title | safeHTML}}</h2>
+        <p>{{ $description | safeHTML }}</p>
+        <a href="{{ "playground" | relURL }}" class="btn_primary_dark stretched-link">{{ $btn_label | safeHTML }} {{- partial "svg" (dict "name" "arrow-right" "size" "17") -}}</a>
+    </div>
+    <div class="col-12 col-md-5 px-0">
+        {{- $imageDesktop := resources.Get "img/playground_banner_desktop.png" -}}
+        {{- $imageMobile := resources.Get "img/playground_banner_mobile.png" -}}
+        {{- if and $imageDesktop $imageMobile -}}
+        <img
+            src="{{ $imageDesktop.Permalink }}"
+            alt="Playground!"
+            class="d-none d-md-block"
+            style="width: 100%; height: 100%; max-height: 500px;"
+        />
+        <img
+            src="{{ $imageMobile.Permalink }}"
+            alt="Playground!"
+            class="d-block d-md-none"
+            style="width: 100%; height: 100%; max-height: 500px;"
+        />
+        {{- end -}} <!-- if image exists -->
+    </div>
+</div>
+
+</script>

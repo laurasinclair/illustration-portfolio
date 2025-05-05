@@ -31,7 +31,7 @@
 
 	{{ with .Params.project_content -}}
 	<section class="work_single_showcase pt-3" style="background-color: {{ $backgroundColor }}">
-		<div class="container-fluid">
+		<div class="container-xxl">
 			{{ range .work -}}
 			<div class="row">
 				{{ $layout := "col-12 col-md" }}
@@ -57,8 +57,16 @@
 			{{- end -}} <!-- range .work -->
 		</div>  
 	</section>
-
 	{{- end }} <!-- with .Params.project_content  -->
+</div>
+
+<div class="container-lg my-5">
+	{{- partial "playground/playground-banner" 
+		(dict 
+			"title" "Show me more!"
+			"description" "Keep exploring the playground! <br /> More projects this way."
+		) 
+	-}}
 </div>
 
 <script>
