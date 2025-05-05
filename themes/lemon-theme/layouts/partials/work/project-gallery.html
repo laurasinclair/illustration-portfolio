@@ -1,4 +1,6 @@
 <section id="work" class="pb-5 pt-0">
+	<h2 class="container-fluid">Recent highlights</h2>
+
 	<div class="container-fluid work_gallery">
 		{{ with site.GetPage "work" }}
 		<div id="work_gallery_nav" class="work_gallery_nav py-2 py-md-5 pe-md-5 position-sticky">
@@ -48,25 +50,23 @@
 			{{ end }} <!-- with work section -->
 		</div> <!-- #work_gallery_projects -->
 	</div> <!-- .work_gallery -->
+</section>
+
+<div class="container-lg">
+	{{- partial "playground/playground-banner" -}}
 
 	{{- $image := resources.Get "img/happylemon.png" -}}
 	{{- if $image -}}
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-12 text-center mb-2 mb-md-5">
-				<div>
-					<img
-						src="{{ $image.Permalink }}"
-						alt="{{.Site.Params.tagline}}"
-						class="pe-md-5"
-						width="300"
-					/>
-				</div>
-			</div>
-		</div>
+	<div class="text-center mb-2 mb-md-5">
+		<img
+			src="{{ $image.Permalink }}"
+			alt="{{.Site.Params.tagline}}"
+			class="pe-md-5"
+			width="300"
+		/>
 	</div>
 	{{- end -}} <!-- if image exists -->
-</section>
+</div>
 
 {{- define "footer" -}}
 {{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}

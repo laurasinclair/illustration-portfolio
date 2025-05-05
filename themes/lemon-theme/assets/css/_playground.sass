@@ -1,0 +1,12 @@
+@use "bootstrap/scss/bootstrap" as bootstrap;
+@use "custom-variables" as *;
+@use "utilities";
+@use "sass:map"
+@use "sass:color"
+
+.playground
+	&_item
+		&:hover
+			background-color: map.get($colors, "grey")
+			p, span
+				// color: map.get($colors, "primary") !important

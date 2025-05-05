@@ -189,6 +189,7 @@ ul
 	margin-bottom: 10px
 	text-align: center
 	border: none
+	width: fit-content
 	&:disabled
 		background-color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 		color: color.adjust(map.get($colors, "dark"), $alpha: -0.8)
@@ -199,20 +200,22 @@ ul
 	@include btn
 	@extend .bg_dark
 	@extend .text_white
+	font-weight: 600
 	font-size: inherit !important
 	svg
 		@extend .transition-2s
-		width: 16px
-		height: 11px
-		margin-left: 3px
+		margin-left: 8px
+		margin-bottom: 1px
+		padding: 0
 		path
 			fill: map.get($colors, "white")
 	&:hover,
 	&:active,
 	&:focus
 		@extend .no-outline
+		font-weight: 600
 		color: map.get($colors, "white") !important
-		background-color: map.get($colors, "dark")
+		background-color: map.get($colors, "primary")
 		svg
 			transform: translate(5px, 0)
 
@@ -296,3 +299,15 @@ ul
 	&-light
 		p, a, ul, li, h1, h2, h3, h4, h5, h6
 			@extend .text_dark
+
+.shadow
+	&_3
+		box-shadow: 0 20px 60px color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+
+.hover-shadow
+	&:hover,
+	&:focus,
+	&:active
+		@extend .transition-2s
+		@extend .no-outline
+		@extend .shadow_3

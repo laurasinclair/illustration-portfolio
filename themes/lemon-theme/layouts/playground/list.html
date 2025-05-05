@@ -1,0 +1,85 @@
+{{- define "main" -}}
+
+<header class="mt-O bg_dark text_white">
+	<div class="hero_large">
+		<div class="container-fluid">
+			<h2 class="mx-auto">{{ .Params.content.heading | default .Title }}</h2>
+			<p>
+				An archive of all the things I've been doing.
+			</p>
+		</div>
+	</div>
+</header>
+
+<section id="playground" class="pt-5">
+	<div class="container-fluid">
+		{{- with site.GetPage "playground" }}
+		
+		{{- $years := slice -}} <!-- Create empty slice -->
+		{{- range .Pages -}}
+		{{- if not (in $years .Params.year) -}}
+		{{- $years = $years | append .Params.year -}} <!-- Add .year to the array -->
+		{{- end -}} <!-- If there's a .year that is not already in $years -->
+		{{- end -}} <!-- range .Pages in "playground" -->
+
+		{{- range sort $years "value" "desc" -}}
+		<div id="year-{{ . }}" class="mb-4">
+			<h2 class="display-6 fw-bold mb-3">{{ . }}</h2>
+			
+			<div class="row">
+				{{- $year := . -}}
+				{{- range $.Pages -}}
+				{{- if and (eq .Params.year $year) (eq .Params.isPublic true) -}}
+				<div class="col-12 col-md-6 mb-3 px-3">
+					<div class="playground_item row position-relative rounded">
+						<div class="col-3 py-2">
+							<a href="{{ .Permalink }}" class="playground_item_link stretched-link">
+								{{ with .Resources.GetMatch "thumbnail_*" -}}
+								<img src="{{ .RelPermalink }}" alt="{{ .Title }}" width="200" class="d-block rounded object-fit-cover" style="height: 90px;">
+								{{- else -}}
+								<img src="{{ "img/placeholder.jpg" | absURL }}" alt="{{ .Title }}" width="200" class="d-block rounded object-fit-cover" style="height: 90px;">
+								{{- end -}}
+							</a>
+						</div>
+						<div class="col flex-1 d-flex flex-column justify-content-center px-3">
+							<p class="mb-0">
+								<span class="fw-bolder">{{ .Title }}</span>
+								<span class="fw-lighter">{{- with .Params.description }} - {{ . }} {{ end }}</span>
+							</p> 
+
+							{{ with .Params.tags -}}
+							<p class="fw-lighter text_grey-medium mb-0">
+								{{ delimit . ", " }}
+							</p>
+							{{- end }}
+						</div>
+					</div>
+				</div>
+				{{- end -}} <!-- if .year == $year AND project isPublic -->
+				{{- end -}} <!-- range pages in "playground" -->
+			</div>
+		</div>
+		{{- end -}} <!-- range array $years -->
+		{{- end -}} <!-- with "playground" -->
+
+		{{- $image := resources.Get "img/happylemon.png" -}}
+		{{- with $image -}}
+		<div class="row">
+			<div class="col-12 col-lg-7 mx-auto text-center">
+				<figure class="mt-5 mb-0">
+					<img
+						src="{{ .Permalink }}"
+						alt="{{ site.Title }}"
+						width="300"
+					/>
+				</figure>
+			</div>
+		</div>
+		{{- end -}} <!-- with image -->
+	</div>
+</section>
+{{- end -}}
+
+{{- define "footer" -}}
+{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "backgroundColor" "bg_secondary")}}
+{{- end -}}
