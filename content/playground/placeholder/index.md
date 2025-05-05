@@ -1,8 +1,8 @@
 ---
 title: Placeholder
-draft: false
+draft: true
+isPublic: false
 weight: 1
-isPublic: true
 year: 2020
 tags: [Painting, Framed image]
 

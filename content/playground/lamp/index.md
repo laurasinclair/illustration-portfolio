@@ -1,11 +1,15 @@
 ---
 title: Lamp
-draft: false
+draft: true
+isPublic: false
 weight: 1
-isPublic: true
 year: 2013
-tags: [Handmade]
+tags: [Product]
 
 project_content:
+  backgroundColor: "#151515"
+  theme: dark
+
+  work:
 
 ---

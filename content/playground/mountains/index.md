@@ -1,8 +1,8 @@
 ---
 title: Mountains
-draft: false
+draft: true
+isPublic: false
 layout: playground
-isPublic: true
 year: 2013
 tags: [Painting]
 description: "?"

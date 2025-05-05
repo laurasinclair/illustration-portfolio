@@ -5,7 +5,7 @@ weight: 1
 isPublic: true
 year: 2016
 tags: [Product]
-description: Phone cases made for fun
+description: 3D-printed phone cases
 
 project_content:
   backgroundColor: "#151515"
@@ -13,10 +13,12 @@ project_content:
 
   work:
     - type: image
-      src: img/illustration_all-the-lives-01.jpg
+      src: img/oh-dear_final.jpg
 
-    - type: link
-      src: https://www.behance.net/gallery/150004137/All-The-Lives-We-Ever-Lived
-      label: Process video
+    - type: image
+      src: img/oh-dear_sketch.jpg
+    
+    - type: image
+      src: img/oh-dear_final-02.jpg
 
 ---
