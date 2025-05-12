@@ -25,6 +25,6 @@ dist-ssr
 
 .env
 .DS_Store
-design-assets
 public
 resources
+website assets
