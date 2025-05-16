@@ -7,6 +7,10 @@ isPublic: true
 project_content:
   work:
     - type: image
+      src: img/DSC_0985-2.jpg
+      class: col-lg-9
+
+    - type: image
       src: img/work_lemon-family_1-5.jpg
       class: col-lg-9
 
