@@ -2,7 +2,7 @@
 title: All The Lives We Ever Lived
 draft: false
 weight: 100
-isFeatured: true
+layout: full
 isPublic: true
 
 project_content:

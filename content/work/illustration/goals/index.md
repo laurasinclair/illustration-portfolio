@@ -2,6 +2,7 @@
 title: Goals
 draft: false
 weight: 11
+layout: thirds
 isPublic: true
 
 project_content:

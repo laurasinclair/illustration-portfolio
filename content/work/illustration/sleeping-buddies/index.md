@@ -1,7 +1,7 @@
 ---
 title: Sleeping Buddies
 draft: false
-weight: 6
+weight: 8
 isPublic: true
 
 project_content: 

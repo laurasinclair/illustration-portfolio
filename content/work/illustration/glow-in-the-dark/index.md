@@ -1,7 +1,7 @@
 ---
 title: Glow In The Dark
 draft: false
-weight: 9
+weight: 7
 isPublic: true
 
 project_content:

@@ -2,7 +2,8 @@
 title: Characters
 slug: characters
 draft: false
-weight: 7
+weight: 5
+layout: thirds
 isPublic: true
 
 project_content:
