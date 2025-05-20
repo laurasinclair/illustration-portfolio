@@ -7,7 +7,7 @@ isPublic: true
 
 project_content:
   description: |
-    A collection of very raw drawings, capturing ideas in their early stage :)
+    A collection of very raw drawings (with our good old pen & paper), capturing ideas in their early stage :)
   work:
     - group: 
       - items:
@@ -25,7 +25,7 @@ project_content:
   
     - type: image
       src: img/illustration_sketches_002.jpg
-      class: col-md-5 mode_multiply
+      class: col-md-6 mode_multiply
   
     - type: image
       src: img/illustration_sketches_001.jpg
