@@ -24,13 +24,13 @@
 
 				{{- $layout := .Params.layout -}}
 				{{- $layoutType := "col-md-6" -}}
-				{{- $aspectRatio := "13/9" -}}
+				{{- $aspectRatio := "half" -}}
 				{{- if eq $layout "full" -}}
 				{{- $layoutType = "col-md-12" -}}
-				{{- $aspectRatio = "2.2/1" -}}
+				{{- $aspectRatio = "full" -}}
 				{{ else if eq $layout "thirds" }}
 				{{- $layoutType = "col-md-4" -}}
-				{{- $aspectRatio = "1/1" -}}
+				{{- $aspectRatio = "third" -}}
 				{{- end -}}
 				<div class="col-12 {{ $layoutType }}">
 					<div class="work_gallery_project mb-3 mb-md-5 position-relative overflow-hidden rounded-1">
@@ -44,8 +44,8 @@
 								width="{{ .Width }}"
 								height="{{ .Height }}"
 								alt="{{ .Title }}"
-								style="aspect-ratio: {{ $aspectRatio | safeCSS }}; object-fit: cover;"
-								class="d-block"
+								style="object-fit: cover;"
+								class="d-block aspect-ratio_{{ $aspectRatio | safeCSS }}"
 							/>
 							{{- else -}}
 							<img
