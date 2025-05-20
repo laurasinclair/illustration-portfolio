@@ -1,8 +1,8 @@
 ---
 title: RaiseNow
-draft: false
-weight: 3
-isPublic: true
+draft: true
+isPublic: false
+weight: 8
 
 project_content:
   backgroundColor: "#18181B"

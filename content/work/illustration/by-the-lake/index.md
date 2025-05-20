@@ -2,7 +2,7 @@
 title: By The Lake
 draft: false
 weight: 1
-isFeatured: true
+layout: full
 isPublic: true
 
 project_content:

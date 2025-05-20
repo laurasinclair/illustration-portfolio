@@ -1,8 +1,9 @@
 ---
 title: Birds
-draft: false
+draft: true
 weight: 10
-isPublic: true
+layout: thirds
+isPublic: false
 
 project_content:
   work:

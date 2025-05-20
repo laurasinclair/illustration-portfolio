@@ -1,7 +1,8 @@
 ---
 title: Fruit Feast
 draft: false
-weight: 8
+weight: 5
+layout: thirds
 isPublic: true
 
 project_content: 

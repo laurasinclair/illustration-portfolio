@@ -1,7 +1,7 @@
 ---
 title: The Quest
 draft: false
-weight: 5
+weight: 15
 isPublic: true
 
 project_content:
