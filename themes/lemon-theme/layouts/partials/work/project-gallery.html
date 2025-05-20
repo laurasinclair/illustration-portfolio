@@ -21,22 +21,38 @@
 				{{- range (.Pages.GroupByParam "isPublic") -}} 
 				{{- if eq .Key true -}} 
 				{{- range .Pages.ByWeight -}}
-				{{- $isFeatured := .Params.isFeatured -}}
-				<div class="col-12 {{ if not $isFeatured }}col-md-6{{ end }}">
+
+				{{- $layout := .Params.layout -}}
+				{{- $layoutType := "col-md-6" -}}
+				{{- $aspectRatio := "13/9" -}}
+				{{- if eq $layout "full" -}}
+				{{- $layoutType = "col-md-12" -}}
+				{{- $aspectRatio = "2.2/1" -}}
+				{{ else if eq $layout "thirds" }}
+				{{- $layoutType = "col-md-4" -}}
+				{{- $aspectRatio = "1/1" -}}
+				{{- end -}}
+				<div class="col-12 {{ $layoutType }}">
 					<div class="work_gallery_project mb-3 mb-md-5 position-relative overflow-hidden rounded-1">
 						<div class="work_gallery_project_title bg_dark d-block text_white position-absolute">
 							<a href="{{ .Permalink | absURL }}" class="text_white fw_bold">{{- .Title -}}</a>
 						</div>
 						<a href="{{ .Permalink | absURL }}">
-							{{- $image := .Resources.GetMatch "thumbnail*" -}} 
-							{{- with $image -}}
-
+							{{- with .Resources.GetMatch "thumbnail*" -}} 
 							<img
 								src="{{ .Permalink | absURL }}"
 								width="{{ .Width }}"
 								height="{{ .Height }}"
 								alt="{{ .Title }}"
-								class='d-block {{ if $isFeatured }}featured{{ end }}'
+								style="aspect-ratio: {{ $aspectRatio | safeCSS }}; object-fit: cover;"
+								class="d-block"
+							/>
+							{{- else -}}
+							<img
+								src='{{ "img/placeholder.jpg" | absURL }}' alt="{{ .Title }}"
+								alt="{{ .Title }}"
+								class='d-block {{ if eq $layout "full" }}featured{{ end }}'
+								style='aspect-ratio: {{ $aspectRatio | safeCSS }}; object-fit: cover;'
 							/>
 							{{- end -}}
 						</a>
