@@ -314,3 +314,18 @@ ul
 
 .mode_multiply
 	mix-blend-mode: multiply
+
+@mixin base-aspect-ratio
+	aspect-ratio: 13/9
+
+.aspect-ratio
+	&_full
+		@include base-aspect-ratio
+		@include bootstrap.media-breakpoint-up(md)
+			aspect-ratio: 2.2/1
+	&_half
+		@include base-aspect-ratio
+	&_third
+		@include base-aspect-ratio
+		@include bootstrap.media-breakpoint-up(md)
+			aspect-ratio: 1/1
