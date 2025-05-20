@@ -70,6 +70,10 @@
 						<div class="card-img mb-3">
 							<img src="{{.RelPermalink}}" alt="{{.Title}}">
 						</div>
+						{{- else -}}
+						<div class="card-img mb-3">
+							<img src='{{ "img/placeholder.jpg" | absURL }}' alt="{{.Title}}">
+						</div>
 						{{- end -}}
 					</div>
 				</div>
