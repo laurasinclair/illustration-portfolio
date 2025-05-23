@@ -1,5 +1,5 @@
 ---
-title: Sketches
+title: Sketchbook
 draft: false
 weight: 12
 layout: thirds
@@ -22,6 +22,10 @@ project_content:
         - type: image
           src: img/illustration_sketches_004.jpg
           class: col-md-4
+
+    - type: image
+      src: img/illustration_sketches_013.jpg
+      class: col-md-12
   
     - type: image
       src: img/illustration_sketches_002.jpg
