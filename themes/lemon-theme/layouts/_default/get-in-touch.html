@@ -26,8 +26,16 @@
 
 {{- partial "section-mask.html" (dict "placement" "bottom" "backgroundColor" "bg_dark" "class" "mb-4 mb-md-5") -}}
 
+<div class="row mt-0 pt-0 mb-5 pb-5">
+	<div class="col-12 col-lg-9 mx-auto">
+		{{ partial "footer/contact-form.html" . }}
+	</div>
+</div>
+
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- partial "footer/footer" (dict "isContactFormDisplayed" false "isTitleDisplayed" false "hasMask" false)}}
+
+
 {{- end -}}
