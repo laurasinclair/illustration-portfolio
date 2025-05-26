@@ -1,6 +1,7 @@
 main:
    title: "Let's work together!"
-   subheading: "If you have any questions or inquiries, don't hesitate to contact me."
+   subheading: "Need illustrations for a project? Let's have a chat!"
+   button: "Get in touch"
 website_info:
    message: "This website was made by my own little hands."
    link: "More info"
