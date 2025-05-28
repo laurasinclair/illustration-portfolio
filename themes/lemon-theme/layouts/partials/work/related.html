@@ -1,10 +1,10 @@
-{{- $currentSection := .CurrentSection.Pages.ByWeight -}}
+{{- $pagesInCurrentSection := .CurrentSection.Pages.ByWeight -}}
 <section class="related">
 	<div class="container-fluid">
 		<div class="row mb-3 flex-column flex-md-row justify-content-center align-items-center">
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
-					{{ with $currentSection.Next . }}
+					{{ with $pagesInCurrentSection.Next . }}
 					<div class="related_post-previous mb-2 mb-md-0">
 						<a href="{{ .Permalink }}">
 							Previous project
@@ -25,16 +25,24 @@
 
 			<div class="col order-2 order-md-3 text-center text-md-right">
 				<div class="d-flex align-items-center justify-content-center">
-					{{ with $currentSection.Prev . }}
-					<div class="related_post-previous">
-						<a href="{{ .Permalink }}">
-							Next project
-						</a>
-						<a href="{{ .Permalink }}">
-							{{ .Title | truncate 50 "..." }}&nbsp;»
-						</a>
-					</div>
-					{{ end }}
+					{{ $isCurrentPageFlagged := false }}
+					{{ range $i, $page := $pagesInCurrentSection }}
+					{{ if $isCurrentPageFlagged }}
+						{{ if $page.Params.isPublic }}
+						<div class="related_post-previous">
+							<a href="{{ $page.Permalink }}">
+								Next project{{- partial "svg" (dict "name" "arrow-right" "size" "14" "class" "mb-1 ms-2") -}}
+							</a>
+							<a href="{{ $page.Permalink }}">
+								{{ $page.Title | truncate 50 "..." }}
+							</a>
+						</div>
+						{{ break }}
+						{{ end }} <!-- if $page.Params.isPublic -->
+					{{ else if eq $page.Permalink .Permalink }} <!-- checks if the current item in the loop is the same page as the one we're on -->
+						{{ $isCurrentPageFlagged = true }}
+					{{ end }} <!-- if $page.Params.isPublic -->
+					{{ end }} <!-- range $pagesInCurrentSection-->
 				</div>
 			</div>
 		</div>
@@ -54,7 +62,7 @@
 		{{ with site.GetPage "work" }}
 		{{ range .Pages }}
 		<div class="row related_all_section" id="related_all_section_{{ .Title | urlize }}">
-			{{- range (.Pages.GroupByParam "isPublic") -}} 
+			{{- range (.Pages.GroupByParam "isPublic") -}}
 			{{- if eq .Key true -}} 
 			{{- range .Pages.ByWeight -}}
 			<div class="col-6 col-md-4 col-xl-2">
