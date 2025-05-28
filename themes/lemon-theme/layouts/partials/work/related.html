@@ -5,12 +5,12 @@
 			<div class="col order-1 order-md-1">
 				<div class="d-flex align-items-center justify-content-center">
 					{{ with $pagesInCurrentSection.Next . }}
-					<div class="related_post-previous mb-2 mb-md-0">
+					<div class="related_post-previous mb-4 mb-md-0 hover-icon-left d-flex flex-column d-md-block align-items-center">
 						<a href="{{ .Permalink }}">
-							Previous project
+							{{- partial "svg" (dict "name" "arrow-left" "size" "14" "class" "mb-1 me-1") -}}Previous project
 						</a>
 						<a href="{{ .Permalink }}">
-							«&nbsp;{{ .Title | truncate 50 "..." }}
+							{{ .Title | truncate 50 "..." }}
 						</a>
 					</div>
 					{{ end }}
