@@ -5,5 +5,5 @@ draft: false
 layout: get-in-touch
 content:
    heading: Let's work together!
-   subheading: Need illustrations for a project? Send me a message!
+   subheading: Need illustrations for a project? Let's have a chat!
 ---

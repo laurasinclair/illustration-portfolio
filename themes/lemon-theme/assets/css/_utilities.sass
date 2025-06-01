@@ -19,6 +19,9 @@
 			background-image: url(assets/bg_stardust.png)
 	.text_#{$name}
 		color: $color
+	.icon_#{$name}
+		svg, path
+			fill: $color
 
 .bd-left
 	@extend .ps-4
@@ -100,10 +103,14 @@ ul
 		transform: rotate(359deg)
 
 .hero
+	&_small
+		min-height: 30dvh
 	&_medium
-		padding: 5em 0 7em
+		min-height: 30dvh
+		@include bootstrap.media-breakpoint-up(md)
+			min-height: 50dvh
 	&_large
-		padding: 6em 0 8em
+		min-height: 70dvh
 
 .stretched-link::after
 	position: absolute
@@ -183,7 +190,7 @@ ul
 @mixin btn
 	@extend .fw_black
 	border-radius: 4px
-	padding: 13px 24px 14px
+	padding: 8px 18px 10px
 	display: inline-block
 	margin-top: 10px
 	margin-bottom: 10px
@@ -223,16 +230,6 @@ ul
 	@each $position in ("top", "bottom")
 		&_#{$position}
 			@include mask($position)
-
-.icon
-	&-dark
-		@include icon
-		svg path
-			fill: bootstrap.$gray-900
-	&-light
-		@include icon
-		svg path
-			fill: map.get($colors, "white")
 
 @mixin list-base
 	li

@@ -1,7 +1,7 @@
 ---
 title: Monsters
 draft: false
-weight: 2
+weight: 4
 isPublic: true
 
 project_content:

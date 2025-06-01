@@ -1,10 +1,10 @@
 <section id="work" class="pb-5 pt-0">
-	<h2 class="container-fluid">Recent highlights</h2>
+	<h3 class="container-xxl">Recent highlights</h3>
 
-	<div class="container-fluid work_gallery">
+	<div class="container-xxl work_gallery">
 		{{ with site.GetPage "work" }}
 		<div id="work_gallery_nav" class="work_gallery_nav py-2 py-md-5 pe-md-5 position-sticky">
-			<ul class="d-flex d-md-block">
+			<ul class="d-flex d-md-block mt-3">
 				{{ range .Pages }}
 				<li class="pe-4 pe-md-0 py-2 py-md-1">
 					<a href="#{{ .Title | urlize }}" class="work_gallery_nav_link">{{ .Title }}</a>
@@ -85,7 +85,7 @@
 </div>
 
 {{- define "footer" -}}
-{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "hasMask" false)}}
+{{- partial "footer/footer.html" (dict "isCtaDisplayed" true "hasMask" false)}}
 {{- end -}}
 
 {{- define "footer-scripts" -}}

@@ -26,23 +26,21 @@
 	@include font-weight("book")
 	font-style: normal
 
-h1
+h1, .h1
 	@extend .fw_bold
 	font-size: bootstrap.$font-size-base * 2.6
 	@include bootstrap.media-breakpoint-up(lg)
 		font-size: bootstrap.$font-size-base * 3.6
 
-h2
+h2, .h2
 	@extend .fw_bold
-	font-size: bootstrap.$font-size-base * 2.4
-	@include bootstrap.media-breakpoint-up(lg)
-		font-size: bootstrap.$font-size-base * 2.8
-
-h3
-	@extend .fw_medium
 	font-size: bootstrap.$font-size-base * 1.8
 	@include bootstrap.media-breakpoint-up(lg)
 		font-size: bootstrap.$font-size-base * 2.2
+
+h3, .h3
+	@extend .fw_bold
+	font-size: bootstrap.$font-size-base * 1.8
 
 .lead
 	@extend .fw_book

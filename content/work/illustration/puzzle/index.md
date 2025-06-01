@@ -1,7 +1,7 @@
 ---
 title: Hippo Puzzle
 draft: false
-weight: 4
+weight: 1
 isPublic: true
 
 project_content:

@@ -1,6 +1,6 @@
-<nav class="bg_dark">
+<nav>
 	{{- if .Site.Menus.main }}
-	<div class="nav_menu container-fluid">
+	<div class="nav_menu container-xxl">
 		<div class="nav_menu_nav-element_logo">
 			<a href="{{ .Site.BaseURL }}">{{ .Site.Params.name }}</a>
 		</div>
@@ -11,9 +11,7 @@
 			{{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
 			{{- $active = or $active (eq .Name $current.Title) -}}
 			{{- $active = or $active (and (eq .Name "Work") (eq $current.Section "work")) -}}
-			<div class="nav_menu_nav-element_link {{with $active}}active{{end}}">
-				<a href="{{ .URL }}" class="bg_dark">{{ .Name }}</a>
-			</div>
+				<a href="{{ .URL }}" class="nav_menu_nav-element_link {{with $active}}active{{end}}">{{ .Name }}</a>
 			{{- end }} <!-- range menu elements -->
 		
 			<div class="nav_menu_close d-md-none">

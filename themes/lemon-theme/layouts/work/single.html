@@ -1,37 +1,22 @@
 {{- define "main" -}}
 
-{{- $backgroundColor := .Params.project_content.backgroundColor | default "#f1f1f7" -}}
+{{- $backgroundColor := .Params.project_content.backgroundColor | default "#fff" -}}
 {{- $theme := print "theme-" (.Params.project_content.theme | default "light") }}
 {{- $description := .Params.project_content.description -}}
 {{- $hasMask := .Params.hasMask -}}
+{{ $layout := "full" }}{{- if .Resources.GetMatch "project-title_*" -}}{{ $layout = "half" }}{{ end }}
+
 <div class="work_single">
-	<header class="work_single_hero bg_dark text_white container-fluid">
-		<div class="row">
-			{{- with .Resources.GetMatch "project-title_*" -}}
-			<div class="col-12 col-md-6 mx-auto text-center pb-5">
-				<img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-3 mt-1 mt-md-4 mb-md-5" />
-				{{ with $description }}
-				<p class="mb-0 fw_book">
-					{{ . | safeHTML }}
-				</p>
-				{{- end }}
-			</div>
-			{{- else -}}
-			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 mt-5 mb-4">
-				<h2 class="mb-3">{{ .Params.title | safeHTML }}</h2>
-				{{ with $description }}
-				<p class="mb-0 fw_book">
-					{{ . | safeHTML }}
-				</p>
-				{{- end }}
-			</div>
-			{{- end -}} <!-- if/else there's a title image in the folder -->
-		</div>
-	</header>
+	{{ partial "layout/header" 
+		(dict 
+		"context" .
+		"heading" (.Params.title | safeHTML)
+		"description" $description
+	)}}
 
 	{{ with .Params.project_content -}}
 	<section class="work_single_showcase pt-3" style="background-color: {{ $backgroundColor }}">
-		<div class="container-fluid">
+		<div class="container-xxl">
 			{{ range .work -}}
 			<div class="row">
 				{{ $layout := "col-12 col-md" }}
@@ -58,10 +43,6 @@
 		</div>  
 	</section>
 
-	{{ if ne $hasMask false -}}
-	{{- partial "section-mask" (merge . (dict "placement" "bottom" "backgroundColor" $backgroundColor)) -}}
-	{{- end -}}
-
 	{{- end }} <!-- with .Params.project_content  -->
 
 	{{- partial "work/related" . -}}
@@ -77,5 +58,5 @@
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer" (dict "isContactFormDisplayed" true "hasMask" true)}}
+{{- partial "footer/footer" (dict "isCtaDisplayed" true "hasMask" true)}}
 {{- end -}}

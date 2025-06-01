@@ -5,14 +5,14 @@
 @use "sass:color"
 
 @mixin nav-element
-	a // common to all nav elements
-		@extend .text_white
-		@extend .fw_book
-		@extend .d-block
-		padding: 6px 14px
-		pointer-events: fill
+	// common to all nav elements
+	@extend .fw_medium
+	@extend .d-block
+	@extend .py-3
+	pointer-events: fill
 
 @mixin full-screen
+	// mobile nav
 	position: fixed
 	top: 0
 	left: 0
@@ -27,6 +27,7 @@
 	flex-direction: column
 
 @mixin nav-button
+	// mobile nav
 	border: 0
 	padding: 4px
 	width: 2.2em
@@ -39,11 +40,15 @@
 
 nav
 	margin-bottom: -1px // chrome fix: lines between divs
-	position: relative
 	z-index: 999
+	position: relative
+	border-bottom: 1px solid color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 	.nav
 		&_menu
-			&_btn
+			display: flex
+			align-items: center
+			justify-content: space-between
+			&_btn // mobile nav
 				&_open
 					@include nav-button
 					position: fixed
@@ -51,47 +56,27 @@ nav
 					@include nav-button
 					position: absolute
 			&_navbar
-				&.isOpen
+				&.isOpen // mobile nav
 					@include bootstrap.media-breakpoint-down(md)
 						@include full-screen
 						display: flex
 						background-color: map.get($colors, "dark")
-				@include bootstrap.media-breakpoint-down(md)
+				@include bootstrap.media-breakpoint-down(md) // hide mobile nav > md
 					display: none
-					flex-direction: column
+					flex-direction: row
 				@include bootstrap.media-breakpoint-up(md)
 					display: flex
-					position: fixed
-					top: 1.5em
-					right: 1em
-					pointer-events: none
 			&_nav-element
 				&_link
 					@include nav-element
+					@extend .text_white
 					font-size: 1.1rem
-					margin: 0 2px
+					margin: 0 20px
 					@include bootstrap.media-breakpoint-up(md)
-						a
-							text-align: center
-							border-radius: 26px
-							border: $border-width solid map.get($colors, "white")
-							margin: 0 0 8px 8px
-							&:hover,
-							&:focus,
-							&:active
-								color: map.get($colors, "dark")
-								background-color: map.get($colors, "white")
-								border-color: map.get($colors, "white")
+						color: map.get($colors, "dark")
 					@include bootstrap.media-breakpoint-down(md)
 						text-align: center
-						font-size: 1.4rem
-						padding: 12px 0
 				&_logo
-					@include nav-element
-					@extend .mt-3 
-					@extend .mt-md-4
 					a
-						@extend .ps-lg-4
-						@extend .ps-0
-						@include bootstrap.media-breakpoint-up(lg)
-							padding-left: 1.8rem
+						@include nav-element
+						@extend .text_dark

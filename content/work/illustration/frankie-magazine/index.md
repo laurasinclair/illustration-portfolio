@@ -1,7 +1,7 @@
 ---
 title: Frankie Magazine
 draft: false
-weight: 1
+weight: 2
 isPublic: true
 
 project_content:

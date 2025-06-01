@@ -9,15 +9,15 @@
 	display: grid
 	grid-template-columns: [main] auto
 	@include bootstrap.media-breakpoint-up(md)
-		grid-template-columns: [sidebar] 6% [main] auto
+		grid-template-columns: [sidebar] 4% [main] auto
 
 #sidebar
 	@extend .d-none
 	@extend .d-md-block
-	@extend .bg_dark
-	border-right: 1px solid color.adjust(map.get($colors, "white"), $alpha: -0.5)
+	@extend .bg_white
+	border-right: 1px solid color.adjust(map.get($colors, "dark"), $alpha: -0.8)
 	a
-		@extend .text_white
+		@extend .text_dark
 	p
 		@extend .p-0
 		@extend .m-0
@@ -89,3 +89,6 @@ footer
 			max-width: 920px
 	&-open
 		max-height: 100vh
+
+.container-xxl
+	@extend .px-1

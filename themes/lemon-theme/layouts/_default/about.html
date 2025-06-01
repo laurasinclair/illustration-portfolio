@@ -1,20 +1,19 @@
 {{- define "main" -}}
 {{- with .Params.content -}}
 
-<header class="mt-O bg_dark text_white">
-	<div class="hero_large">
-		<div class="container-fluid">
-			<h2 class="text-center mx-auto">{{.heading}}</h2>
-		</div>
-	</div>
-</header>
+{{ partial "layout/header" 
+	(dict 
+	"heading" "About" 
+	"textAlign" "center"
+	"size" "small"
+)}}
 
 <section id="about">
-	<div class="container-fluid">
+	<div class="container-xxl">
 		<div class="row mb-4 mb-md-5">
 			<div class="col-12 col-md-8 offset-md-2">
 				{{ with .catchPhrase }}
-				<h2 class="mb-4">{{ . }}</h2>
+				<h3 class="mb-4">{{ . }}</h3>
 				{{ end -}}
 
 				<div class="row flex-column flex-sm-row no-gutters">
@@ -57,5 +56,5 @@
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "backgroundColor" "bg_secondary")}}
+{{- partial "footer/footer.html" -}}
 {{- end -}}

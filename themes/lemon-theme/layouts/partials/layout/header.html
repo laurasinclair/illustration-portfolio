@@ -1,0 +1,34 @@
+{{ $context := .context }}
+{{ $layout := .layout | default "col-md-6" }}
+{{ $heading := .heading | default "" }}
+{{ $size := .size | default "medium" }}
+{{ $background := .background | default "bg_grey" }}
+
+{{ $headingIsImage := false }}
+{{- if $context.Resources.GetMatch "project-title_*" -}}
+{{ $headingIsImage = true }}
+{{ end }}
+
+<header class="hero_{{ $size }} {{ $background }} d-flex justify-content-center align-items-center" style="background-color: {{ $context.Params.project_content.backgroundColor }}">
+    <div class="container-xxl row py-5 py-md-5">
+        <div class="col-12 col-md-6 mx-auto text-center">
+			{{- with $context.Resources.GetMatch "project-title_*" -}}
+                <img src="{{ .Permalink | absURL }}" width="560" alt="{{ $.Params.Title }}" class="mb-2" style="max-width: 550px;" />
+            {{- else -}}
+            <h2>{{ $heading }}</h2>
+            {{- end -}}
+
+            {{- with $context.Params.project_content.description }}
+            <p class="mb-0 fw_book">
+                {{ . | safeHTML }}
+            </p>
+            {{- end }}
+
+            {{ with $context.Params.description }}
+            <p class="mb-0 fw_book">
+                {{ . | safeHTML }}
+            </p>
+            {{- end }}
+        </div>
+    </div>
+</header>

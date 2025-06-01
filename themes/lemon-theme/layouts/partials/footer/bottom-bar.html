@@ -1,5 +1,9 @@
-<div class="bg_grey d-flex flex-column justify-content-center px-4 py-4">
+{{- $displaySocialIcons := .displaySocialIcons -}}
+{{- $displayWebsiteInfo := .displayWebsiteInfo -}}
+
+<div class="bg_grey-purplish d-flex flex-column justify-content-center px-3 py-3">
 	<div class="d-flex flex-column-reverse flex-md-row justify-content-between justify-around">
+		{{ with $displayWebsiteInfo }}
 		<div class="pt-1">
 			{{ site.Data.footer.website_info.message | safeHTML }}
 
@@ -10,9 +14,16 @@
 				</label>
 			</div>
 		</div>
-		<div class="mb-4 mb-md-0 text-center d-flex justify-content-center">{{ partial "social-icons.html" }}</div>
+		{{ end }} <!-- with $displayWebsiteInfo -->
+
+		{{ with $displaySocialIcons }}
+		<div class="mb-4 mb-md-0 text-center d-flex justify-content-center {{ if ne $displayWebsiteInfo true}}mx-auto{{end}}">
+			{{ partial "social-icons.html" (dict "color" "primary") }}
+		</div>
+		{{ end }} <!-- with $displaySocialIcons -->
 	</div>
 
+	{{ with $displayWebsiteInfo }}
 	<div class="collapsible-wrapper">
 		<div class="collapsible-content">
 			<div class="pt-3 mb-4"> <!--// on mobile, keeps space for nav buttons -->
@@ -20,4 +31,5 @@
 			</div>
 		</div>
 	</div>
+	{{ end }} <!-- with $displayWebsiteInfo -->
 </div>

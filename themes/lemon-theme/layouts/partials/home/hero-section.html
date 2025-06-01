@@ -1,8 +1,8 @@
 {{ with site.GetPage "home" }}
-<header class="hero bg_dark text-white">
-	<div class="row flex-column flex-sm-row">
-		<div class="col-12 col-md-6 px-4 px-lg-5 d-flex flex-column justify-content-center">
-			<h1 class="mt-0 mb-3 animated-text letters scale">
+<header class="hero_medium d-flex">
+	<div class="container-xxl row">
+		<div class="col-12 col-md-6 d-flex justify-content-center align-items-center ps-0 py-1">
+			<h2 class="mt-0 mb-3 animated-text letters scale">
 				{{ .Site.Params.name }} {{ .Params.hero_section.heading.part_one }}
 				<span class="animated-text_wrapper">
 					<b class="text_secondary is-visible">fun & happy</b>
@@ -10,29 +10,9 @@
 					<b class="text_tertiary">off-beat</b>
 				</span>
 				{{ .Params.hero_section.heading.part_two }}
-			</h1>
-
-			<a href="#work" class="text_white mb-5">
-				<span class="text_white fw_medium" style="font-size: 1.2rem">
-					{{ .Params.hero_section.cta }}
-				</span>&nbsp;<img src='{{ "css/assets/icon_arrow-bottom.svg" | absURL }}'
-				alt=">" width="12">
-			</a>
-		</div>
-
-		<div id="grapes" class="col-12 col-md-6 col-lg-6 text-center">
-			{{- $image := resources.Get "img/grapes.png" -}}
-			<picture>
-				<source srcset="{{ $image.Permalink | absURL }}" type="image/png" />
-				<img
-					src="{{ $image.Permalink | absURL }}"
-					alt="{{ .Params.title }}"
-					width="700"
-				/>
-			</picture>
+			</h2>
 		</div>
 	</div>
 </header>
-{{- partial "section-mask.html" (dict "placement" "bottom" "backgroundColor" "bg_dark") -}}
 
 {{ end }}

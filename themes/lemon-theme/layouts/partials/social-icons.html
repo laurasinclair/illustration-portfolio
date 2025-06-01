@@ -1,6 +1,7 @@
+{{ $color := .color | default "dark"}}
 <div class="d-flex">
 	{{- range site.Params.social -}}
-	<a href="{{.url}}" target="_blank" class='social-icon mx-1 icon-{{ .theme | default "dark" }}'>
+	<a href="{{.url}}" target="_blank" class='social-icon mx-1 icon_{{$color}}'>
 		{{- $name := printf .name -}}
 		{{- $svg := . -}}
 		{{- $match := "<svg (.*)?>(.*)</svg>" -}}

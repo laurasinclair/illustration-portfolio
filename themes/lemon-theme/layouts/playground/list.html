@@ -1,22 +1,15 @@
 {{- define "main" -}}
+{{ $description := .Params.description }}
 
-<header class="mt-O bg_dark text_white">
-	<div class="hero_large">
-		<div class="container-fluid row">
-			<div class="col-md-8 col-lg-5">
-				<h2 class="mx-auto">{{ (.Params.content.heading | default .Title) | safeHTML }}</h2>
-				{{ with .Params.description }}
-					<p>
-						{{ . | safeHTML }}
-					</p>
-				{{ end }}
-			</div>
-		</div>
-	</div>
-</header>
+{{ partial "layout/header"
+	(dict 
+	"context" .
+	"heading" .Params.title
+	"textAlign" "start"
+)}}
 
 <section id="playground" class="pt-5">
-	<div class="container-fluid">
+	<div class="container-xxl">
 		{{- with site.GetPage "playground" }}
 		
 		{{- $years := slice -}} <!-- Create empty slice -->
@@ -85,5 +78,5 @@
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer.html" (dict "isContactFormDisplayed" true "backgroundColor" "bg_secondary")}}
+{{- partial "footer/footer.html" }}
 {{- end -}}

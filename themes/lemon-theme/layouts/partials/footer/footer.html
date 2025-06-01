@@ -1,13 +1,22 @@
-{{ $isContactFormDisplayed := .isContactFormDisplayed | default false }}
-{{ $backgroundColor := .backgroundColor | default "bg_secondary" }}
-{{ $hasMask := .hasMask | default true }}
+{{- $isCtaDisplayed := .isCtaDisplayed | default true -}}
+{{- $backgroundColor := .backgroundColor | default "bg_grey" -}}
+{{- $hasMask := .hasMask | default true -}}
+{{- $isBottomBarDisplayed := .isBottomBarDisplayed | default true -}}
+{{- $displaySocialIcons := index . "displaySocialIcons" | default true }}
+{{- $displayWebsiteInfo := index . "displayWebsiteInfo" | default false }}
+
 <footer>
-	{{ with .isContactFormDisplayed }}
-	{{ with $hasMask -}}
-	{{- partial "section-mask.html" (dict "placement" "top" "backgroundColor" $backgroundColor) -}}
-	{{- end }} <!-- with $hasMask -->
-	<div  class="{{ $backgroundColor }} py-5">
-		<div class="container">
+	{{- with $hasMask -}}
+	{{- partial "section-mask.html" 
+		(dict 
+			"placement" "top" 
+			"backgroundColor" $backgroundColor
+		)}}
+	{{- end -}} <!-- with $hasMask -->
+
+	{{- with $isCtaDisplayed }}
+	<div class="{{ $backgroundColor }} py-5">
+		<div class="container-xxl">
 			<div class="row mt-0 pt-3 pt-sm-5">
 				<div class="col-12 col-lg-9 mx-auto text-center">
 						<h2>{{ site.Data.footer.main.title }}</h2>
@@ -18,7 +27,13 @@
 			</div>
 		</div>
 	</div>
-	{{ end }} <!-- with .isContactFormDisplayed -->
+	{{ end }} <!-- with $isCtaDisplayed -->
 
-	{{- partial "social-block.html" . }}
+	{{- with $isBottomBarDisplayed -}}
+	{{- partial "footer/bottom-bar" 
+		(merge $ (dict
+		"displaySocialIcons" $displaySocialIcons
+		"displayWebsiteInfo" $displayWebsiteInfo
+	))}}
+	{{- end -}} <!-- with $isBottomBarDisplayed -->
 </footer>

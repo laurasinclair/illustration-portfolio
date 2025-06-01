@@ -3,7 +3,7 @@
 {{- $backgroundColor := .Params.project_content.backgroundColor | default "#fff" -}}
 {{- $theme := print "theme-" (.Params.project_content.theme | default "light") }}
 <div class="work_single">
-	<header class="work_single_hero bg_dark text_white container-fluid">
+	<header class="work_single_hero bg_dark text_white container-xxl">
 		<div class="row">
 			<div class="col-12 col-md-8 col-lg-6 ps-3 ps-lg-5 pb-5 mt-5 mb-4">
 				<h2 class="mb-3">{{ .Params.title | safeHTML }}</h2>
@@ -79,5 +79,5 @@
 {{- end -}}
 
 {{- define "footer" -}}
-{{- partial "footer/footer" (dict "isContactFormDisplayed" true "hasMask" true)}}
+{{- partial "footer/footer" (dict "isCtaDisplayed" true "hasMask" true)}}
 {{- end -}}
