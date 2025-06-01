@@ -326,3 +326,16 @@ ul
 		@include base-aspect-ratio
 		@include bootstrap.media-breakpoint-up(md)
 			aspect-ratio: 1/1
+
+@keyframes spin
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+.hover
+	&-spin
+		&:hover,
+		&:active,
+		&:focus
+			animation: spin 3.5s linear infinite
