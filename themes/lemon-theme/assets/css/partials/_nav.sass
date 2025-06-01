@@ -42,7 +42,7 @@ nav
 	margin-bottom: -1px // chrome fix: lines between divs
 	z-index: 999
 	position: relative
-	border-bottom: 1px solid color.adjust(map.get($colors, "dark"), $alpha: -0.8)
+	border-bottom: 1px solid map.get($colors, "grey-purplish")
 	.nav
 		&_menu
 			display: flex
@@ -60,7 +60,7 @@ nav
 					@include bootstrap.media-breakpoint-down(md)
 						@include full-screen
 						display: flex
-						background-color: map.get($colors, "dark")
+						background-color: map.get($colors, "grey-purplish")
 				@include bootstrap.media-breakpoint-down(md) // hide mobile nav > md
 					display: none
 					flex-direction: row
@@ -69,7 +69,7 @@ nav
 			&_nav-element
 				&_link
 					@include nav-element
-					@extend .text_white
+					@extend .text_primary
 					font-size: 1.1rem
 					margin: 0 20px
 					@include bootstrap.media-breakpoint-up(md)
