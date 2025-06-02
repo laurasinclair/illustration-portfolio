@@ -28,9 +28,11 @@
 
 h1, .h1
 	@extend .fw_bold
-	font-size: bootstrap.$font-size-base * 2.6
+	font-size: bootstrap.$font-size-base * 2.2
+	@include bootstrap.media-breakpoint-up(md)
+		font-size: bootstrap.$font-size-base * 2.4
 	@include bootstrap.media-breakpoint-up(lg)
-		font-size: bootstrap.$font-size-base * 3.6
+		font-size: bootstrap.$font-size-base * 2.8
 
 h2, .h2
 	@extend .fw_bold

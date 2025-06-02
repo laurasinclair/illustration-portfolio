@@ -1,8 +1,8 @@
 {{ with site.GetPage "home" }}
 <header class="hero_medium d-flex">
 	<div class="container-xxl row">
-		<div class="col-12 col-md-6 d-flex justify-content-center align-items-center ps-0 py-1">
-			<h2 class="mt-0 mb-3 animated-text letters scale">
+		<div class="col-12 col-md-6 d-flex justify-content-center align-items-center ps-0 py-5">
+			<h1 class="mt-0 mb-3 animated-text letters scale">
 				{{ .Site.Params.name }} {{ .Params.hero_section.heading.part_one }}
 				<span class="animated-text_wrapper">
 					<b class="text_secondary is-visible">fun & happy</b>
@@ -10,7 +10,7 @@
 					<b class="text_tertiary">off-beat</b>
 				</span>
 				{{ .Params.hero_section.heading.part_two }}
-			</h2>
+			</h1>
 		</div>
 	</div>
 </header>
