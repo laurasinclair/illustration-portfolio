@@ -66,12 +66,12 @@ nav
 					flex-direction: row
 				@include bootstrap.media-breakpoint-up(md)
 					display: flex
+					gap: 40px
 			&_nav-element
 				&_link
 					@include nav-element
 					@extend .text_primary
 					font-size: 1.1rem
-					margin: 0 20px
 					@include bootstrap.media-breakpoint-up(md)
 						color: map.get($colors, "dark")
 					@include bootstrap.media-breakpoint-down(md)
