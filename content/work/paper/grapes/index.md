@@ -1,5 +1,5 @@
 ---
-title: This website's assets!
+title: Website assets
 draft: false
 weight: 1
 isPublic: true
