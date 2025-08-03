@@ -3,6 +3,10 @@
 {{ $layout = "col-12 col-md-8 col-lg-6 mt-0" }}
 {{ end }}
 <div class="{{ $layout }} {{ with .class }}{{ . }}{{ end }} {{ .theme }} mx-auto mt-5">
+    {{- with .sectionTitle -}}
+    {{- partial "work/showcase/section-title" . -}}
+    {{- end -}}
+    
     {{ with .description }}
     <p class="fw_book">
         {{ . | safeHTML }}
