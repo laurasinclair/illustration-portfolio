@@ -2,7 +2,8 @@
 {{ if eq .group false }}
 {{ $layout = "col-12 col-md-8 col-lg-6 mt-0" }}
 {{ end }}
-<div class="{{ $layout }} mb-3 mx-auto {{ .theme }} {{with .class}}{{.}}{{end}}">
+<div class="{{ $layout }} mb-3 mx-auto {{ .theme }} {{with .class}}{{.}}{{end}}"
+{{- with .id -}}id="{{.}}"{{- end -}}>
     {{- with .sectionTitle -}}
     {{- partial "work/showcase/section-title" . -}}
     {{- end -}}

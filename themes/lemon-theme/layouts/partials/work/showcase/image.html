@@ -1,5 +1,8 @@
 {{- $altText := $.Title -}}
-<div class="{{ .layout }} mt-4 {{if eq .group false}}mx-auto mb-5{{else}}is-group{{end}} d-flex flex-column justify-content-center {{with .class}}{{.}}{{end}}">
+<div 
+    class="{{ .layout }} mt-4 {{if eq .group false}}mx-auto mb-5{{else}}is-group{{end}} d-flex flex-column justify-content-center {{with .class}}{{.}}{{end}}"
+    {{- with .id -}}id="{{.}}"{{- end -}}
+>
     <img 
         src="{{.src}}" 
         class="w-100"
