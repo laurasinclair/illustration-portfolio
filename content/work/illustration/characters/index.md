@@ -26,6 +26,15 @@ project_content:
           content: 👉 See <a href="#process" class="link">process</a> here.
           class: center-all
 
+    - group:
+      - items:
+        - type: image
+          src: img/tinder-01.png
+          class: col-md-5 px-5
+        - type: image
+          src: img/tinder-02.jpg
+          class: offset-md-1
+
     - type: image
       src: img/illustration_characters-08.png
       class: col-md-10 col-lg-7
@@ -57,13 +66,8 @@ project_content:
       id: process
     
     - group:
+      - class: rounded bg_grey
       - items:
-        - type: image
-          src: img/illustration_characters-041_inspiration.jpg
-          class: col-md-3 rounded
-        - type: image
-          src: img/illustration_characters-041-01_0202.png
-          class: col-md-6 center-all bg_grey rounded
         - type: video
           url:
             mp4: img/woman-portrait_process_mobile.mp4
@@ -73,13 +77,17 @@ project_content:
             - loop
             - muted
             - controls
-          class: col-md-3 center-all
+          class: col-md-3 center-all mt-0
+        - type: image
+          src: img/illustration_characters-041-process.png
+          class: col-md-9 mb-4
 
     - group:
+      - class: rounded bg_grey
       - items:
         - type: image
           src: img/portrait-process_03.png
-          class: col-md-5
+          class: col-md-5 mb-4
         - type: iframe
           url: https://www.youtube-nocookie.com/embed/DqneF9RtqOE?si=5ag_96wG29qasHlW
           class: col-md-7 center-all
