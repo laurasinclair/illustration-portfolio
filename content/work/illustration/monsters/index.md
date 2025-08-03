@@ -5,13 +5,17 @@ weight: 4
 isPublic: true
 
 project_content:
-  backgroundColor: "#000000"
+  backgroundColor: "#1a1a1a"
   theme: dark
   description: |
     I've loved drawing monsters for as long as I can remember. <br />
-    For this series, I've played with shapes and color palettes I don't often use.
+    Every time I spot one, I try to capture it in all its beauty!
 
   work:
+    - type: image
+      src: img/koalabird.jpg
+      class: col-sm-6 rounded
+
     - group:
       - layout: col-12 col-sm-6 col-md-4 mb-0
       - items:
