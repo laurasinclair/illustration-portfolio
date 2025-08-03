@@ -4,7 +4,7 @@
 	<div class="container-xxl work_gallery">
 		{{ with site.GetPage "work" }}
 		<div id="work_gallery_nav" class="work_gallery_nav py-2 py-md-5 pe-md-5 position-sticky">
-			<ul class="d-flex d-md-block mt-3">
+			<ul class="d-flex d-md-block mt-0 mt-md-3">
 				{{ range .Pages }}
 				<li class="pe-4 pe-md-0 py-2 py-md-1">
 					<a href="#{{ .Title | urlize }}" class="work_gallery_nav_link">{{ .Title }}</a>
