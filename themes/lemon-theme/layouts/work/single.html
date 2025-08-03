@@ -5,6 +5,7 @@
 {{- $description := .Params.project_content.description -}}
 {{- $hasMask := .Params.hasMask -}}
 {{ $layout := "full" }}{{- if .Resources.GetMatch "project-title_*" -}}{{ $layout = "half" }}{{ end }}
+{{- $.Scratch.Set "groupClasses" "" -}}
 
 <div class="work_single">
 	{{ partial "layout/header" 
@@ -19,7 +20,15 @@
 	<section class="work_single_showcase pt-3" style="background-color: {{ $backgroundColor }}">
 		<div class="container-xxl">
 			{{ range .work -}}
-			<div class="row">
+			{{- with .group }}
+			{{- range . }}
+				{{- with .class }}
+				{{- $.Scratch.Add "groupClasses" (printf " %s" .) -}}
+				{{- end }}
+			{{- end }}
+			{{- end }}
+		
+			<div class="row{{ $.Scratch.Get "groupClasses" }}">
 				{{ $layout := "col-12 col-md" }}
 				{{- if .group }}
 				{{- range .group -}}
