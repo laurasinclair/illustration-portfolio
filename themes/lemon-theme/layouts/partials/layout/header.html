@@ -3,13 +3,14 @@
 {{ $heading := .heading | default "" }}
 {{ $size := .size | default "medium" }}
 {{ $background := .background | default "bg_grey" }}
+{{ $theme := .theme | default "theme-light" }}
 
 {{ $headingIsImage := false }}
 {{- if $context.Resources.GetMatch "project-title_*" -}}
 {{ $headingIsImage = true }}
 {{ end }}
 
-<header class="hero_{{ $size }} {{ $background }} d-flex justify-content-center align-items-center" style="background-color: {{ $context.Params.project_content.backgroundColor }}">
+<header class="hero_{{ $size }} {{ $background }} {{ $theme }} d-flex justify-content-center align-items-center" style="background-color: {{ $context.Params.project_content.backgroundColor }}">
     <div class="container-xxl row py-5 py-md-5">
         <div class="col-12 col-md-6 mx-auto text-center">
 			{{- with $context.Resources.GetMatch "project-title_*" -}}
