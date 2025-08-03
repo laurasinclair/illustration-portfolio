@@ -1,26 +1,25 @@
-<div class="col-12">
-    <div class="row">
-        <div class="col-12 col-md-6 mb-3 mx-auto">
-            <p class='fw_book {{with .class}}{{.}}{{end}} w-100 {{if eq .theme "dark"}}text_white{{end}}'>
-                {{ .description | safeHTML }}
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 text-center mt-4 mb-mt-5">
-            <div class="work_single_showcase_iframe">
-                <iframe 
-                    width="800" 
-                    height="450" 
-                    src="{{ .url | safeHTML }}" 
-                    title="{{ .description | safeHTML }}" 
-                    frameborder="1" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen
-                    style="border: 1px solid rgba(255, 255, 255, 0.2) !important; border-radius: 6px"
-                ></iframe>
-            </div>
-        </div>
+{{ $layout := .layout }}
+{{ if eq .group false }}
+{{ $layout = "col-12 col-md-8 col-lg-6 mt-0" }}
+{{ end }}
+<div class="{{ $layout }} {{ with .class }}{{ . }}{{ end }} {{ .theme }} mx-auto mt-5">
+    {{ with .description }}
+    <p class="fw_book">
+        {{ . | safeHTML }}
+    </p>
+    {{ end }}
+
+    <div class="work_single_showcase_iframe">
+        <iframe 
+            width="800" 
+            height="450" 
+            src="{{ .url | safeHTML }}" 
+            title="{{ .description | safeHTML }}" 
+            frameborder="1" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+            style="border: 1px solid rgba(255, 255, 255, 0.2) !important; border-radius: 6px"
+        ></iframe>
     </div>
 </div>
